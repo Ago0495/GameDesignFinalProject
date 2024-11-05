@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    //variables
+    public int Atk;
+    public int AtkRadius;
+    public int WeaponTag;
+    public int Upgrade;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +20,10 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Attack()
+    {
+
     }
 }
