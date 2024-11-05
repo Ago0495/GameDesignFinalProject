@@ -5,15 +5,15 @@ using UnityEngine;
 public class EntityScript : MonoBehaviour
 {
     //variables
-    public int Hp;
-    public bool CanAtk;
-    public float MovSpeed;
-    private Rigidbody myRig;
+    [SerializeField] private protected Rigidbody2D rb2d;
+    [SerializeField] private int Hp;
+    [SerializeField] private bool CanAtk;
+    [SerializeField] private protected float MoveSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        myRig = GetComponent<Rigidbody>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

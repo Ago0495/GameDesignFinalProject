@@ -6,24 +6,24 @@ using UnityEngine.InputSystem;
 public class PlayerScript : EntityScript
 {
     //variables
-    public GameObject currentWeapon;
-    public int Currency;
-    public Vector2 LastInput;
+    [SerializeField] private GameObject currentWeapon;
+    [SerializeField] private int Currency;
+    private Vector2 LastInput;
     private bool CanAttack;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        rb2d.velocity = new Vector2(LastInput.x, LastInput.y) * MoveSpeed;
     }
 
-    public void MoveCollback(InputAction.CallbackContext mv)
+    public void MoveCallback(InputAction.CallbackContext mv)
     {
         if (mv.started || mv.performed)
         {
