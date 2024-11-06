@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    //variables
+    public int CurrentLevel;
+    public int RoomsCleared;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    public void OpenLevelExit()
+    {
+
     }
 }

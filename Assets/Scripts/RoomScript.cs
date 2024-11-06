@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class RoomScript : MonoBehaviour
 {
+    //variables
+    public int numEnemies;
+    public GameObject[] EnemyPrefabs;
+    public Vector2[] EnemyPositions;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +19,15 @@ public class RoomScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PlayerEnter()
+    {
+
+    }
+
+    public void RoomCleared()
+    {
+
     }
 }
