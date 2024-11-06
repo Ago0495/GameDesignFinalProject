@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class UpgradeScript : MonoBehaviour
 {
+    //variables
+    public int price;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,20 @@ public class UpgradeScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ChangeInventory()
+    {
+
+    }
+
+    public void CheckBalance()
+    {
+
+    }
+
+    public void UpgradeWeapon()
+    {
+
     }
 }

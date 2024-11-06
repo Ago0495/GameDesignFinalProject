@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShopScript : MonoBehaviour
 {
+    //variables
+    public GameObject[] items;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class ShopScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void DisplayRandomItems()
+    {
+
     }
 }
