@@ -6,9 +6,9 @@ public class EntityScript : MonoBehaviour
 {
     //variables
     [SerializeField] private protected Rigidbody2D rb2d;
-    [SerializeField] private int Hp;
-    [SerializeField] private bool CanAtk;
-    [SerializeField] private protected float MoveSpeed;
+    [SerializeField] private protected int hp;
+    [SerializeField] private protected bool canAttack;
+    [SerializeField] private protected float moveSpeed;
 
     // Start is called before the first frame update
     void Start()

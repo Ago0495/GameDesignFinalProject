@@ -9,7 +9,7 @@ public class PlayerScript : EntityScript
     [SerializeField] private GameObject currentWeapon;
     [SerializeField] private int Currency;
     private Vector2 LastInput;
-    private bool CanAttack;
+    //private bool CanAttack;
     private Vector3 mousePos;
     private Vector3 weaponPos;
     private Transform weaponHolder;
@@ -25,7 +25,7 @@ public class PlayerScript : EntityScript
     // Update is called once per frame
     void Update()
     {
-        rb2d.velocity = new Vector2(LastInput.x, LastInput.y) * MoveSpeed;
+        rb2d.velocity = new Vector2(LastInput.x, LastInput.y) * moveSpeed;
 
         //weapon aim
         mousePos = Input.mousePosition;
@@ -55,10 +55,16 @@ public class PlayerScript : EntityScript
 
     public void AttackCallback(InputAction.CallbackContext fb)
     {
-        if (fb.started && CanAttack)
+        //temp
+        canAttack = true;
+
+        if (fb.started && canAttack)
         {
-            CanAttack = false;
+            canAttack = false;
             //StartCoroutine(Reload());
+
+            WeaponScript weaponScript = weaponHolder.GetChild(0).GetComponent<WeaponScript>();
+            weaponScript.Attack();
         }
 
     }
