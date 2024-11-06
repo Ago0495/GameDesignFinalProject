@@ -5,8 +5,9 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     //variables
-    public int CurrentLevel;
-    public int RoomsCleared;
+    [SerializeField] private RoomScript[] rooms;
+    [SerializeField] private int currentLevel;
+    [SerializeField] private int roomsCleared;
     // Start is called before the first frame update
     void Start()
     {
