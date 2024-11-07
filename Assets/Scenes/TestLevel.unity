@@ -728,7 +728,7 @@ MonoBehaviour:
   numEnemies: 0
   EnemyPrefabs: []
   EnemyPositions: []
-  Blocker: {fileID: 0}
+  Blockers: []
 --- !u!65 &874685493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -791,13 +791,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887937155}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.27176946, w: 0.9623624}
-  m_LocalPosition: {x: 0.61, y: 0.110000014, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8, y: 0, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 780798462}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 31.539}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &887937157
 SpriteRenderer:
   m_ObjectHideFlags: 0

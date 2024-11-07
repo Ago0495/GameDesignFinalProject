@@ -53,7 +53,10 @@ public class EntityScript : MonoBehaviour
             //StartCoroutine(Reload());
 
             WeaponScript weaponScript = currentWeapon.GetComponent<WeaponScript>();
-            weaponScript.Attack();
+            if (weaponScript != null )
+            {
+                weaponScript.Attack();
+            }
         }
     }
 
