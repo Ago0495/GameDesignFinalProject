@@ -5,39 +5,60 @@ using UnityEngine;
 public class RoomScript : MonoBehaviour
 {
     //variables
+    [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private List<GameObject> blockers;
     public int numEnemies;
-    public GameObject[] EnemyPrefabs;
-    public Vector2[] EnemyPositions;
-    [SerializeField] private GameObject[] Blockers;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var blocker in Blockers)
-        {
-            blocker.SetActive(false);
-        }
+        numEnemies = enemyPrefabs.Count;
+        DeactivateAll(blockers);
+        DeactivateAll(enemyPrefabs);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        numEnemies = enemyPrefabs.Count;
+        if (numEnemies <= 0)
+        {
+            DeactivateAll(blockers);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("test");
+        if (other.gameObject.tag == "Player")
+        {
+            PlayerEnter();
+        }
     }
 
     public void PlayerEnter()
     {
-        foreach (var blocker in Blockers)
-        {
-            blocker.SetActive(true);
-        }
+        ActivateAll(blockers);
+        ActivateAll(enemyPrefabs);
     }
 
     public void RoomCleared()
     {
-        foreach (var blocker in Blockers)
+        DeactivateAll(blockers);
+    }
+
+    public void DeactivateAll(List<GameObject> roomObjects)
+    {
+        foreach (var roomObj in roomObjects)
         {
-            blocker.SetActive(false);
+            roomObj.SetActive(false);
+        }
+    }
+    public void ActivateAll(List<GameObject> roomObjects)
+    {
+        foreach (var roomObj in roomObjects)
+        {
+            roomObj.SetActive(true);
         }
     }
 }
