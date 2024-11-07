@@ -8,13 +8,15 @@ public class RoomScript : MonoBehaviour
     public int numEnemies;
     public GameObject[] EnemyPrefabs;
     public Vector2[] EnemyPositions;
-    [SerializeField] private GameObject Blocker;
+    [SerializeField] private GameObject[] Blockers;
 
     // Start is called before the first frame update
     void Start()
     {
-        Blocker.SetActive(false);
-
+        foreach (var blocker in Blockers)
+        {
+            blocker.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -25,11 +27,17 @@ public class RoomScript : MonoBehaviour
 
     public void PlayerEnter()
     {
-        Blocker.SetActive(true);
+        foreach (var blocker in Blockers)
+        {
+            blocker.SetActive(true);
+        }
     }
 
     public void RoomCleared()
     {
-        Blocker.SetActive(false);
+        foreach (var blocker in Blockers)
+        {
+            blocker.SetActive(false);
+        }
     }
 }
