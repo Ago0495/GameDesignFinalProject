@@ -13,17 +13,21 @@ public class EntityScript : MonoBehaviour
     private protected Transform weaponHolder;
     private protected Transform currentWeapon;
     private float angle;
+    private SpriteRenderer renderer;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
+        weaponHolder = transform.Find("WeaponHolder");
+        currentWeapon = weaponHolder.GetChild(0);
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        
+        layerSort();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -68,5 +72,10 @@ public class EntityScript : MonoBehaviour
 
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         weaponHolder.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
+
+    public void layerSort()
+    {
+        renderer.sortingOrder = -1 * (int)(transform.position.y * 10);
     }
 }

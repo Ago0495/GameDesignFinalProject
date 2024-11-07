@@ -10,13 +10,13 @@ public class CoinScript : EntityScript
     private NavMeshAgent NavAgent;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         NavAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         
     }

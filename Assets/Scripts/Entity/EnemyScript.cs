@@ -12,23 +12,22 @@ public class EnemyScript : EntityScript
     private NavMeshAgent agent;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        base.Start();
         agent = GetComponent<NavMeshAgent>();
 
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-    
-        weaponHolder = transform.Find("WeaponHolder");
-        currentWeapon = weaponHolder.GetChild(0);
 
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
+
         agent.speed = moveSpeed;
 
         if (target != null)

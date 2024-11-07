@@ -11,16 +11,16 @@ public class PlayerScript : EntityScript
     private Vector3 mousePos;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        weaponHolder = transform.Find("WeaponHolder");
-        currentWeapon = weaponHolder.GetChild(0);
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
+
         rb2d.velocity = new Vector2(lastInput.x, lastInput.y) * moveSpeed;
 
         mousePos = Input.mousePosition;
@@ -28,6 +28,7 @@ public class PlayerScript : EntityScript
         mousePos.z = 10;
 
         AimWeapon(weaponPos, mousePos);
+
     }
 
     public void OnMove(InputAction.CallbackContext mv)

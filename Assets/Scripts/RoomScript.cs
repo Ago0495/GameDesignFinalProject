@@ -29,7 +29,6 @@ public class RoomScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("test");
         if (other.gameObject.tag == "Player")
         {
             PlayerEnter();
