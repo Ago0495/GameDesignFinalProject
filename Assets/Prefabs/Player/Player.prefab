@@ -251,7 +251,7 @@ MonoBehaviour:
   canAttack: 0
   moveSpeed: 0
   currentWeapon: {fileID: 0}
-  Currency: 0
+  currency: 0
 --- !u!114 &6043922998214632337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3008690589996087410}
         m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
-        m_MethodName: MoveCallback
+        m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -301,7 +301,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3008690589996087410}
         m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
-        m_MethodName: AttackCallback
+        m_MethodName: OnFire
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

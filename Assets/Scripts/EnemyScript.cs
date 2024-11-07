@@ -6,9 +6,7 @@ using UnityEngine.AI;
 public class EnemyScript : EntityScript
 {
     //variables
-    public GameObject Weapon;
     public int DetectRange;
-    public int AttackRange;
     private NavMeshAgent NavAgent;
 
     // Start is called before the first frame update
