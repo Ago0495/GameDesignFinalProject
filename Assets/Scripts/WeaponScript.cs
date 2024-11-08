@@ -76,6 +76,11 @@ public class WeaponScript : MonoBehaviour
             if (1<<other.gameObject.layer != 1<< thisWeaponParent.gameObject.layer)
             {
                 otherEntity.TakeDamage(atkDamage);
+
+                //knockback
+                Vector2 pos2D = new Vector2(transform.position.x, transform.position.y);
+                Vector2 otherPos2D = new Vector2(other.transform.position.x, other.transform.position.y);
+                other.attachedRigidbody.AddForce(transform.parent.right * atkKnockbackForce, ForceMode2D.Impulse);
             }
         }
     }

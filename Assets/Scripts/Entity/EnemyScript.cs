@@ -24,6 +24,11 @@ public class EnemyScript : EntityScript
         agent.updateUpAxis = false;
 
         target = GameObject.FindGameObjectWithTag("Player");
+        weaponScript = currentWeapon.GetComponent<WeaponScript>();
+        if (weaponScript == null)
+        {
+            agent.stoppingDistance = 0;
+        }
     }
 
     // Update is called once per frame
@@ -49,6 +54,7 @@ public class EnemyScript : EntityScript
     public void MoveToTarget()
     {
         agent.SetDestination(new Vector3(targetPos.x, targetPos.y, transform.position.z));
+        agent.stoppingDistance = weaponScript.GetAtkRange() * 0.5f;
     }
 
     public void TryAttack()
