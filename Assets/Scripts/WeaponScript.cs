@@ -12,6 +12,7 @@ public class WeaponScript : MonoBehaviour
     //[SerializeField] private int weaponTag;
     //[SerializeField] private int upgrade;
     private Collider2D weaponCollider;
+    private bool onCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class WeaponScript : MonoBehaviour
         weaponCollider = GetComponent<Collider2D>();
 
         weaponCollider.enabled = false;
+        onCooldown = false;
     }
 
     // Update is called once per frame
@@ -29,8 +31,14 @@ public class WeaponScript : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log("Weapon Attack!");
-        weaponCollider.enabled = true;
+        if (!onCooldown)
+        {
+            weaponCollider.enabled = true;
+
+            //start coroutine to turn off collider
+            StartCoroutine(WeaponCooldown(atkCooldown));
+            onCooldown = true;
+        }
     }
 
     public int getAtkDamage()
@@ -46,6 +54,15 @@ public class WeaponScript : MonoBehaviour
     public float GetAtkCooldown() 
     {  
         return atkCooldown; 
+    }
+
+    private IEnumerator WeaponCooldown(float waitTime)
+    {
+        Debug.Log("Coroutine started");
+        yield return new WaitForSeconds(waitTime);
+        weaponCollider.enabled = false;
+        Debug.Log("Coroutine ended");
+        onCooldown = false;
     }
 
     public void OnTriggerEnter2D(Collider2D other)

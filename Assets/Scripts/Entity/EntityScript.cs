@@ -45,16 +45,10 @@ public class EntityScript : MonoBehaviour
 
     public void UseWeapon()
     {
-        if (canAttack)
+        weaponScript = currentWeapon.GetComponent<WeaponScript>();
+        if (weaponScript != null )
         {
-            canAttack = false;
-            //StartCoroutine(Reload());
-
-            weaponScript = currentWeapon.GetComponent<WeaponScript>();
-            if (weaponScript != null )
-            {
-                weaponScript.Attack();
-            }
+            weaponScript.Attack();
         }
     }
 

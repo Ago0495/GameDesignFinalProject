@@ -40,23 +40,28 @@ public class EnemyScript : EntityScript
 
             MoveToTarget();
 
-            //checks if player is inrange of weapon
-            weaponScript = currentWeapon.GetComponent<WeaponScript>();
-            targetDir = new Vector2(targetPos.x - transform.position.x, targetPos.y - transform.position.y).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, weaponScript.GetAtkRange(), 1 << target.layer);
-            if (hit.collider != null)
-            {
-                if (hit.transform.tag == "Player")
-                {
-                    UseWeapon();
-                }
-            }
+            TryAttack();
         }
     }
 
     public void MoveToTarget()
     {
         agent.SetDestination(new Vector3(targetPos.x, targetPos.y, transform.position.z));
+    }
+
+    public void TryAttack()
+    {
+        //checks if player is inrange of weapon
+        weaponScript = currentWeapon.GetComponent<WeaponScript>();
+        targetDir = new Vector2(targetPos.x - transform.position.x, targetPos.y - transform.position.y).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, weaponScript.GetAtkRange(), 1 << target.layer);
+        if (hit.collider != null)
+        {
+            if (hit.transform.tag == "Player")
+            {
+                UseWeapon();
+            }
+        }
     }
 
     private void OnDrawGizmos()
