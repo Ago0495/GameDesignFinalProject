@@ -44,7 +44,7 @@ public class EntityScript : MonoBehaviour
 
     private protected virtual void OnDefeated()
     {
-        Debug.Log("Entity defeated");
+        Debug.Log(name + " Defeated");
     }
 
     public void UseWeapon()

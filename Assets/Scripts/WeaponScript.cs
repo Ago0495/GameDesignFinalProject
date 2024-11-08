@@ -60,10 +60,8 @@ public class WeaponScript : MonoBehaviour
 
     private IEnumerator WeaponCooldown(float waitTime)
     {
-        Debug.Log("Coroutine started");
         yield return new WaitForSeconds(waitTime);
         weaponCollider.enabled = false;
-        Debug.Log("Coroutine ended");
         onCooldown = false;
     }
 

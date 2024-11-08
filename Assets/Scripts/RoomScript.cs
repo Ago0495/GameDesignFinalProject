@@ -7,12 +7,14 @@ public class RoomScript : MonoBehaviour
     //variables
     [SerializeField] private List<GameObject> enemyPrefabs;
     [SerializeField] private List<GameObject> blockers;
-    public int numEnemies;
+    private int numEnemies;
+    private bool visited;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        visited = false;
         numEnemies = enemyPrefabs.Count;
         DeactivateAll(blockers);
         DeactivateAll(enemyPrefabs);
@@ -35,8 +37,13 @@ public class RoomScript : MonoBehaviour
 
     public void PlayerEnter()
     {
-        ActivateAll(blockers);
-        ActivateAll(enemyPrefabs);
+        if (!visited)
+        {
+            ActivateAll(blockers);
+            ActivateAll(enemyPrefabs);
+        }
+
+        visited = true;
     }
 
     public void RoomCleared()
