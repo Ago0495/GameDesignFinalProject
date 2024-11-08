@@ -47,4 +47,19 @@ public class WeaponScript : MonoBehaviour
     {  
         return atkCooldown; 
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        EntityScript otherEntity = other.gameObject.GetComponent<EntityScript>();
+
+        if (otherEntity != null)
+        {
+            Transform thisWeaponParent = transform.parent;
+
+            if (1<<other.gameObject.layer != 1<< thisWeaponParent.gameObject.layer)
+            {
+                otherEntity.TakeDamage(atkDamage);
+            }
+        }
+    }
 }
