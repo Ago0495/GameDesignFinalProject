@@ -9,21 +9,19 @@ public class RoomScript : MonoBehaviour
     [SerializeField] private List<GameObject> blockers;
     public int numEnemies;
 
+
     // Start is called before the first frame update
     void Start()
     {
         numEnemies = enemyPrefabs.Count;
         DeactivateAll(blockers);
         DeactivateAll(enemyPrefabs);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        numEnemies = enemyPrefabs.Count;
-        if (numEnemies <= 0)
+        foreach (GameObject enemy in enemyPrefabs)
         {
-            DeactivateAll(blockers);
+            EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
+            RoomScript roomScript = GetComponent<RoomScript>();
+            enemyScript.SetRoom(roomScript);
         }
     }
 
@@ -58,6 +56,17 @@ public class RoomScript : MonoBehaviour
         foreach (var roomObj in roomObjects)
         {
             roomObj.SetActive(true);
+        }
+    }
+
+    public void RemoveEnemy(GameObject enemy)
+    {
+        enemyPrefabs.Remove(enemy);
+
+        numEnemies = enemyPrefabs.Count;
+        if (numEnemies <= 0)
+        {
+            DeactivateAll(blockers);
         }
     }
 }

@@ -12,6 +12,7 @@ public class EnemyScript : EntityScript
     private Vector3 targetPos;
     private Vector3 targetDir;
     private NavMeshAgent agent;
+    private RoomScript room;
 
     // Start is called before the first frame update
     public override void Start()
@@ -72,7 +73,16 @@ public class EnemyScript : EntityScript
                 Instantiate(obj, transform.position, Quaternion.identity);
             }
 
+        //remove itself from room list
+        if (room != null)
+        {
+            room.RemoveEnemy(gameObject);
+        }
         Destroy(gameObject);
+    }
+    public void SetRoom(RoomScript _room)
+    {
+        room = _room;
     }
 
     private void OnDrawGizmos()
