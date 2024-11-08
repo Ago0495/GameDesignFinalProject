@@ -6,9 +6,9 @@ public class WeaponScript : MonoBehaviour
 {
     //variables
     [SerializeField] private int atkDamage;
-    [SerializeField] private int atkRadius;
+    [SerializeField] private int atkRange;
     [SerializeField] private int atkCooldown;
-    [SerializeField] private int weaponTag;
+    //[SerializeField] private int weaponTag;
     //[SerializeField] private int upgrade;
 
     // Start is called before the first frame update
@@ -26,5 +26,15 @@ public class WeaponScript : MonoBehaviour
     public void Attack()
     {
         Debug.Log("Weapon Attack!");
+    }
+
+    public float GetAtkRange()
+    { 
+        return atkRange; 
+    }
+
+    public float GetAtkCooldown() 
+    {  
+        return atkCooldown; 
     }
 }

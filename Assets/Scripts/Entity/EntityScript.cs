@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EntityScript : MonoBehaviour
 {
@@ -12,14 +13,15 @@ public class EntityScript : MonoBehaviour
     private protected Vector3 weaponPos;
     private protected Transform weaponHolder;
     private protected Transform currentWeapon;
+    private protected WeaponScript weaponScript;
     private float angle;
-    private SpriteRenderer renderer;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         weaponHolder = transform.Find("WeaponHolder");
         currentWeapon = weaponHolder.GetChild(0);
     }
@@ -56,7 +58,7 @@ public class EntityScript : MonoBehaviour
             canAttack = false;
             //StartCoroutine(Reload());
 
-            WeaponScript weaponScript = currentWeapon.GetComponent<WeaponScript>();
+            weaponScript = currentWeapon.GetComponent<WeaponScript>();
             if (weaponScript != null )
             {
                 weaponScript.Attack();
@@ -76,6 +78,6 @@ public class EntityScript : MonoBehaviour
 
     public void layerSort()
     {
-        renderer.sortingOrder = -1 * (int)(transform.position.y * 10);
+        spriteRenderer.sortingOrder = -1 * (int)(transform.position.y * 10);
     }
 }

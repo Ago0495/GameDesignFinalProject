@@ -12,8 +12,8 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -50,7 +50,7 @@ TagManager:
   - name: Collision
     uniqueID: 2038471023
     locked: 0
-  - name: Player
+  - name: Entity
     uniqueID: 35784231
     locked: 0
   - name: Foreground

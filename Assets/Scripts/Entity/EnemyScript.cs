@@ -9,6 +9,7 @@ public class EnemyScript : EntityScript
     [SerializeField] private int DetectRange;
     [SerializeField] private GameObject target;
     private Vector3 targetPos;
+    private Vector3 targetDir;
     private NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -36,12 +37,32 @@ public class EnemyScript : EntityScript
             weaponPos = weaponHolder.transform.position;
 
             AimWeapon(weaponPos, targetPos);
+
             MoveToTarget();
+
+            weaponScript = currentWeapon.GetComponent<WeaponScript>();
+            targetDir = new Vector2(targetPos.x - transform.position.x, targetPos.y - transform.position.y).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, weaponScript.GetAtkRange(), 1 << 7);
+            if (hit.collider != null)
+            {
+                if (hit.transform.tag == "Player")
+                {
+                    UseWeapon();
+                }
+            }
         }
     }
 
     public void MoveToTarget()
     {
         agent.SetDestination(new Vector3(targetPos.x, targetPos.y, transform.position.z));
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (target != null)
+        {
+            Gizmos.DrawLine(transform.position, targetDir * weaponScript.GetAtkRange());
+        }
     }
 }
