@@ -8,6 +8,7 @@ public class EnemyScript : EntityScript
     //variables
     [SerializeField] private int DetectRange;
     [SerializeField] private GameObject target;
+    [SerializeField] private List<GameObject> createOnDefeat;
     private Vector3 targetPos;
     private Vector3 targetDir;
     private NavMeshAgent agent;
@@ -62,6 +63,16 @@ public class EnemyScript : EntityScript
                 UseWeapon();
             }
         }
+    }
+
+    private protected override void OnDefeated()
+    {
+        foreach (GameObject obj in createOnDefeat)
+            {
+                Instantiate(obj, transform.position, Quaternion.identity);
+            }
+
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()

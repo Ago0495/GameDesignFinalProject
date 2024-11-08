@@ -38,6 +38,8 @@ public class WeaponScript : MonoBehaviour
             //start coroutine to turn off collider
             StartCoroutine(WeaponCooldown(atkCooldown));
             onCooldown = true;
+
+            //play animation
         }
     }
 

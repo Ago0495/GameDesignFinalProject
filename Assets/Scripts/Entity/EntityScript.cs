@@ -35,12 +35,16 @@ public class EntityScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        if (hp <= 0)
+        {
+            OnDefeated();
+        }
     }
 
 
-    public void OnDefeated()
+    private protected virtual void OnDefeated()
     {
-        Destroy(this.gameObject);
+        Debug.Log("Entity defeated");
     }
 
     public void UseWeapon()
