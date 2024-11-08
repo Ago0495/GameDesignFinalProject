@@ -59,4 +59,9 @@ public class PlayerScript : EntityScript
     {
 
     }
+
+    public void ChangeCurrency(int amount)
+    {
+        currency += amount;
+    }
 }
