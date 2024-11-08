@@ -32,17 +32,20 @@ public class EntityScript : MonoBehaviour
         layerSort();
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        for (int i = 0; i < collision.contactCount; i++)
+        //fix this so that the entity cannont hurt itself and enemys cant hurt other enemies
+        if (other.gameObject.CompareTag("WEAPON"))
         {
-
+            WeaponScript otherWeaponScript = other.GetComponent<WeaponScript>();
+            int otherWeaponAtkDamage = otherWeaponScript.getAtkDamage();
+            TakeDamage(otherWeaponAtkDamage);
         }
     }
 
-    public void TakeDamage(GameObject obj)
+    public void TakeDamage(int damage)
     {
-
+        hp -= damage;
     }
 
 

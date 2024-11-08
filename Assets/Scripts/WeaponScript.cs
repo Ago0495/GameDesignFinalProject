@@ -6,15 +6,19 @@ public class WeaponScript : MonoBehaviour
 {
     //variables
     [SerializeField] private int atkDamage;
-    [SerializeField] private int atkRange;
-    [SerializeField] private int atkCooldown;
+    [SerializeField] private float atkRange;
+    [SerializeField] private float atkCooldown;
+    [SerializeField] private float atkKnockbackForce;
     //[SerializeField] private int weaponTag;
     //[SerializeField] private int upgrade;
+    private Collider2D weaponCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        weaponCollider = GetComponent<Collider2D>();
+
+        weaponCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -23,9 +27,15 @@ public class WeaponScript : MonoBehaviour
         
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         Debug.Log("Weapon Attack!");
+        weaponCollider.enabled = true;
+    }
+
+    public int getAtkDamage()
+    {
+        return atkDamage;
     }
 
     public float GetAtkRange()
