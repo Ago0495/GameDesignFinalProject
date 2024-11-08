@@ -32,20 +32,6 @@ public class EntityScript : MonoBehaviour
         layerSort();
     }
 
-    //public void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    //fix this so that the entity cannont hurt itself and enemys cant hurt other enemies
-    //    if (other.gameObject.CompareTag("WEAPON"))
-    //    {
-    //        if (other.transform.parent.parent != null && other.transform.parent.parent.tag != transform.tag)
-    //        {
-    //            WeaponScript otherWeaponScript = other.GetComponent<WeaponScript>();
-    //            int otherWeaponAtkDamage = otherWeaponScript.getAtkDamage();
-    //            TakeDamage(otherWeaponAtkDamage);
-    //        }
-    //    }
-    //}
-
     public void TakeDamage(int damage)
     {
         hp -= damage;
