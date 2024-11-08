@@ -62,7 +62,7 @@ public class EnemyScript : EntityScript
     {
         if (target != null)
         {
-            Gizmos.DrawLine(transform.position, targetDir * weaponScript.GetAtkRange());
+            Gizmos.DrawLine(transform.position, transform.position + targetDir * weaponScript.GetAtkRange());
         }
     }
 }
