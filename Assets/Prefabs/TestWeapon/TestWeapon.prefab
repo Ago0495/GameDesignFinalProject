@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atkDamage: 2
   atkRange: 2
-  atkCooldown: 2
   atkKnockbackForce: 10
+  atkCooldown: 1
   handling: 5
 --- !u!61 &7881940014766724773
 BoxCollider2D:
