@@ -102,6 +102,7 @@ MonoBehaviour:
   atkRange: 2
   atkCooldown: 2
   atkKnockbackForce: 2
+  handling: 20
 --- !u!61 &7881940014766724773
 BoxCollider2D:
   m_ObjectHideFlags: 0

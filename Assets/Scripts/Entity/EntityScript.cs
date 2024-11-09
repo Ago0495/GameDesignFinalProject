@@ -24,6 +24,7 @@ public class EntityScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         weaponHolder = transform.Find("WeaponHolder");
         currentWeapon = weaponHolder.GetChild(0);
+        weaponScript = currentWeapon.GetComponent<WeaponScript>();
     }
 
     // Update is called once per frame
@@ -63,7 +64,8 @@ public class EntityScript : MonoBehaviour
         targetPos.y = targetPos.y - weaponPos.y;
 
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-        weaponHolder.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        //weaponHolder.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetHandling());
     }
 
     public void layerSort()

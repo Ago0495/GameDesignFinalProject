@@ -9,6 +9,7 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private float atkRange;
     [SerializeField] private float atkCooldown;
     [SerializeField] private float atkKnockbackForce;
+    [SerializeField] private float handling;
     //[SerializeField] private int weaponTag;
     //[SerializeField] private int upgrade;
     private Collider2D weaponCollider;
@@ -34,12 +35,13 @@ public class WeaponScript : MonoBehaviour
         if (!onCooldown)
         {
             weaponCollider.enabled = true;
+            //hitList.Clear();
 
             //start coroutine to turn off collider
             StartCoroutine(WeaponCooldown(atkCooldown));
             onCooldown = true;
 
-            //play animation
+            //play swing animation
         }
     }
 
@@ -55,7 +57,11 @@ public class WeaponScript : MonoBehaviour
 
     public float GetAtkCooldown() 
     {  
-        return atkCooldown; 
+        return atkCooldown;
+    }
+    public float GetHandling()
+    {
+        return handling;
     }
 
     private IEnumerator WeaponCooldown(float waitTime)
@@ -78,8 +84,6 @@ public class WeaponScript : MonoBehaviour
                 otherEntity.TakeDamage(atkDamage);
 
                 //knockback
-                Vector2 pos2D = new Vector2(transform.position.x, transform.position.y);
-                Vector2 otherPos2D = new Vector2(other.transform.position.x, other.transform.position.y);
                 other.attachedRigidbody.AddForce(transform.parent.right * atkKnockbackForce, ForceMode2D.Impulse);
             }
         }
