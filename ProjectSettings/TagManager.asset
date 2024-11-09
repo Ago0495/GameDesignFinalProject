@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WEAPON
   - ENEMY
+  - Event
   layers:
   - Default
   - TransparentFX
