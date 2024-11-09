@@ -42,11 +42,11 @@ public class WeaponScript : MonoBehaviour
             alreadyHitList.Clear();
 
             //start coroutine to turn off collider
-            StartCoroutine(WeaponCooldown(atkCooldown));
+            StartCoroutine(WeaponCooldown(10f / handling));
             onCooldown = true;
 
             //play swing animation
-            animator.speed = 1f / atkCooldown;
+            animator.SetFloat("atkSpeed", (handling / 10f));
             animator.SetBool("attack", true);
         }
     }
@@ -74,8 +74,10 @@ public class WeaponScript : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         weaponCollider.enabled = false;
-        onCooldown = false;
         animator.SetBool("attack", false);
+
+        yield return new WaitForSeconds(atkCooldown);
+        onCooldown = false;
     }
 
     public void OnTriggerEnter2D(Collider2D other)

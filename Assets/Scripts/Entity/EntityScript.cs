@@ -51,10 +51,10 @@ public class EntityScript : MonoBehaviour
     public void UseWeapon()
     {
         weaponScript = currentWeapon.GetComponent<WeaponScript>();
-        if (weaponScript != null )
+        if (weaponScript != null)
         {
             weaponScript.Attack();
-        }
+        } 
     }
 
     public void AimWeapon(Vector3 weaponPos, Vector3 targetPos)
