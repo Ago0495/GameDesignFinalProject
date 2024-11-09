@@ -13,13 +13,17 @@ public class WeaponScript : MonoBehaviour
     //[SerializeField] private int weaponTag;
     //[SerializeField] private int upgrade;
     private Collider2D weaponCollider;
+    private Animator animator;
     private bool onCooldown;
+    private List<GameObject> alreadyHitList;
 
     // Start is called before the first frame update
     void Start()
     {
         weaponCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
 
+        alreadyHitList = new List<GameObject>();
         weaponCollider.enabled = false;
         onCooldown = false;
     }
@@ -35,13 +39,15 @@ public class WeaponScript : MonoBehaviour
         if (!onCooldown)
         {
             weaponCollider.enabled = true;
-            //hitList.Clear();
+            alreadyHitList.Clear();
 
             //start coroutine to turn off collider
             StartCoroutine(WeaponCooldown(atkCooldown));
             onCooldown = true;
 
             //play swing animation
+            animator.speed = 1f / atkCooldown;
+            animator.SetBool("attack", true);
         }
     }
 
@@ -69,14 +75,16 @@ public class WeaponScript : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         weaponCollider.enabled = false;
         onCooldown = false;
+        animator.SetBool("attack", false);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         EntityScript otherEntity = other.gameObject.GetComponent<EntityScript>();
 
-        if (otherEntity != null)
+        if (otherEntity != null && !alreadyHitList.Contains(other.gameObject))
         {
+            alreadyHitList.Add(other.gameObject);
             Transform thisWeaponParent = transform.parent;
 
             if (1<<other.gameObject.layer != 1<< thisWeaponParent.gameObject.layer)
