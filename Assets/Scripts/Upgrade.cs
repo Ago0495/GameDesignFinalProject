@@ -113,4 +113,9 @@ public class Stat
     {
         statCost = cost;
     }
+
+    public static Stat operator +(Stat stat1, Stat stat2)
+    {
+        return new Stat(stat1.statName, stat1.statPower + stat2.statPower, stat1.statCost);
+    }
 }

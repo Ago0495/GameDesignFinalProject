@@ -36,6 +36,12 @@ public class ShopItemScript : MonoBehaviour
         string randStat = pickRandomUpgradeStat();
 
         int randUpgradePower = Random.Range(1, 5);
+
+        if (randStat == "atkCooldown")
+        {
+            randUpgradePower *= -1;
+        }
+
         upgrade.SetStatPower(randStat, randUpgradePower);
     }
 
@@ -58,6 +64,10 @@ public class ShopItemScript : MonoBehaviour
 
             Button button = GetComponent<Button>();
             button.interactable = false;
+
+            Transform playerWeapon = playerScript.GetCurrentWeapon();
+            WeaponScript playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
+            playerWeaponScript.AddUpgrade(upgrade);
 
             SetInheritenceColor(transform, button.colors.disabledColor);
         }

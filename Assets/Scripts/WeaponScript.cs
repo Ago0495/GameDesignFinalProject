@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class WeaponScript : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class WeaponScript : MonoBehaviour
     {
         if (!onCooldown)
         {
-            float handling = GetHandling();
+            float handling = GetTotalStatPower("handling");
             weaponCollider.enabled = true;
             alreadyHitList.Clear();
 
@@ -48,32 +49,14 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
-    public float GetAtkDamage()
+    public int GetTotalStatPower(string statName)
     {
-        return weaponBaseStats.GetStatPower("atkDamage");
-    }
-
-    public float GetAtkRange()
-    { 
-        return weaponBaseStats.GetStatPower("atkRange"); 
-    }
-
-    public float GetAtkCooldown() 
-    {  
-        return weaponBaseStats.GetStatPower("atkCooldown");
-    }
-    public float GetHandling()
-    {
-        return weaponBaseStats.GetStatPower("handling");
-    }
-    public float GetKnockbackForce()
-    {
-        return weaponBaseStats.GetStatPower("atkKnockbackForce");
+        return ApplyUpgrades(statName);
     }
 
     private IEnumerator WeaponCooldown(float waitTime)
     {
-        float atkCooldown = GetAtkCooldown();
+        float atkCooldown = GetTotalStatPower("atkCooldown");
         yield return new WaitForSeconds(waitTime);
         weaponCollider.enabled = false;
 
@@ -99,22 +82,31 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
-    private void ApplyUpgrades()
+    public void AddUpgrade(Upgrade newUpgrade)
     {
-        foreach (Upgrade weaponUpgrade in weaponUpgrades)
-        {
-            List<string> statNameList = new List<string>(weaponUpgrade.GetStats().Keys);
-            foreach (string statName in statNameList)
-            {
+        weaponUpgrades.Add(newUpgrade);
+    }
 
+    private int ApplyUpgrades(string statName)
+    {
+        int totalPower = weaponBaseStats.GetStatPower(statName) ;
+
+        foreach (Upgrade upgrade in weaponUpgrades)
+        {
+            var tempDict = upgrade.ToDictionary();
+            if (tempDict.ContainsKey(statName))
+            {
+                totalPower += tempDict[statName];
             }
         }
+
+        return totalPower;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        int atkDamage = (int)GetAtkDamage();
-        float atkKnockbackForce = GetKnockbackForce();
+        int atkDamage = (int)GetTotalStatPower("atkDamage");
+        float atkKnockbackForce = GetTotalStatPower("atkKnockbackForce");
         
         EntityScript otherEntity = other.gameObject.GetComponent<EntityScript>();
 

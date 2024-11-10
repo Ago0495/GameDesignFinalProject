@@ -54,7 +54,7 @@ public class EnemyScript : EntityScript
     public void MoveToTarget()
     {
         agent.SetDestination(new Vector3(targetPos.x, targetPos.y, transform.position.z));
-        agent.stoppingDistance = weaponScript.GetAtkRange() * 0.5f;
+        agent.stoppingDistance = weaponScript.GetTotalStatPower("atkRange") * 0.5f;
     }
 
     public void TryAttack()
@@ -62,7 +62,7 @@ public class EnemyScript : EntityScript
         //checks if player is inrange of weapon
         weaponScript = currentWeapon.GetComponent<WeaponScript>();
         targetDir = new Vector2(targetPos.x - transform.position.x, targetPos.y - transform.position.y).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, weaponScript.GetAtkRange(), 1 << target.layer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, weaponScript.GetTotalStatPower("atkRange"), 1 << target.layer);
         if (hit.collider != null)
         {
             if (hit.transform.tag == "Player")
@@ -95,7 +95,7 @@ public class EnemyScript : EntityScript
     {
         if (target != null)
         {
-            Gizmos.DrawLine(transform.position, transform.position + targetDir * weaponScript.GetAtkRange());
+            Gizmos.DrawLine(transform.position, transform.position + targetDir * weaponScript.GetTotalStatPower("atkRange"));
         }
     }
 }
