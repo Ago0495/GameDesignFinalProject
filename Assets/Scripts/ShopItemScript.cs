@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class ShopItemScript : MonoBehaviour
 {
     private int itemPrice;
     private Image itemImage;
     [SerializeField] private TextMeshProUGUI itemPriceText;
+    [SerializeField] private TextMeshProUGUI itemStatNameText;
+    [SerializeField] private TextMeshProUGUI itemStatPowerText;
     [SerializeField] private Upgrade upgrade;
     private Dictionary<string, int> upgradeTypes;
 
@@ -27,6 +30,18 @@ public class ShopItemScript : MonoBehaviour
 
     private void DisplayItemInfo()
     {
+        itemStatNameText.text = string.Format("");
+        itemStatPowerText.text = string.Format("");
+        itemPriceText.text = string.Format("");
+
+        var statList = FindPopulatedStats();
+        foreach ( var stat in statList )
+        {
+            itemStatNameText.text += stat.GetStatName().Replace("atk", "");
+            //itemStatNameText.text += ("\t");
+            itemStatPowerText.text += (stat.GetStatPower());
+        }
+
         itemPriceText.text = ("$" +  itemPrice).ToString();
     }
 
@@ -52,6 +67,22 @@ public class ShopItemScript : MonoBehaviour
         int rand = Random.Range(0, upgradeTypes.Count);
         return statNameList[rand];
     }
+
+    private List<Stat> FindPopulatedStats()
+    {
+        List<Stat> stats = new List<Stat>();
+
+        foreach (Stat stat in upgrade.GetStatsList())
+        {
+            if (stat.GetStatPower() != 0)
+            {
+                stats.Add(stat);
+            }
+        }
+
+        return stats;
+    }
+
     public void BuyUpgrade()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");

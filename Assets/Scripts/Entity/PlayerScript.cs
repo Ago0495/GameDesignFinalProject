@@ -27,11 +27,7 @@ public class PlayerScript : EntityScript
         weaponPos = Camera.main.WorldToScreenPoint(weaponHolder.position);
         mousePos.z = 10;
 
-        if (mousePos != null && weaponPos != null )
-        {
-            AimWeapon(weaponPos, mousePos);
-        }
-
+        AimWeapon(weaponPos, mousePos);
     }
 
     public void OnMove(InputAction.CallbackContext mv)

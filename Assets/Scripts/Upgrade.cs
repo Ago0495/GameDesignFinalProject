@@ -14,7 +14,7 @@ public class Upgrade
 
         upgradeStats.Add(new Stat("atkDamage", 0, 30));
         upgradeStats.Add(new Stat("atkRange", 0, 20));
-        upgradeStats.Add(new Stat("atkKnockbackForce", 0, 5));
+        upgradeStats.Add(new Stat("atkKnockback", 0, 5));
         upgradeStats.Add(new Stat("atkCooldown", 0, 15));
         upgradeStats.Add(new Stat("handling", 0, 10));
     }
@@ -72,12 +72,17 @@ public class Upgrade
     {
         return ToDictionary();
     }
+
+    public List<Stat> GetStatsList()
+    {
+        return upgradeStats;
+    }
 }
 
 [Serializable]
 public class Stat
 {
-    [SerializeField] string statName;
+    /*[SerializeField]*/ string statName;
     [SerializeField] int statPower;
     [SerializeField] int statCost;
 

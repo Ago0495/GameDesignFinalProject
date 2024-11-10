@@ -24,7 +24,10 @@ public class EntityScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         weaponHolder = transform.Find("WeaponHolder");
         currentWeapon = weaponHolder.GetChild(0);
-        weaponScript = currentWeapon.GetComponent<WeaponScript>();
+        if (currentWeapon != null)
+        {
+            weaponScript = currentWeapon.GetComponent<WeaponScript>();
+        }
     }
 
     // Update is called once per frame

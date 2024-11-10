@@ -106,7 +106,7 @@ public class WeaponScript : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         int atkDamage = (int)GetTotalStatPower("atkDamage");
-        float atkKnockbackForce = GetTotalStatPower("atkKnockbackForce");
+        float atkKnockback = GetTotalStatPower("atkKnockback");
         
         EntityScript otherEntity = other.gameObject.GetComponent<EntityScript>();
 
@@ -120,7 +120,7 @@ public class WeaponScript : MonoBehaviour
                 otherEntity.TakeDamage(atkDamage);
 
                 //knockback
-                other.attachedRigidbody.AddForce(transform.parent.right * atkKnockbackForce, ForceMode2D.Impulse);
+                other.attachedRigidbody.AddForce(transform.parent.right * atkKnockback, ForceMode2D.Impulse);
             }
         }
     }
