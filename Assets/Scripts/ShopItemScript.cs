@@ -10,7 +10,7 @@ public class ShopItemScript : MonoBehaviour
     private int itemPrice;
     private Image itemImage;
     [SerializeField] private TextMeshProUGUI itemPriceText;
-    private Upgrade upgrade;
+    [SerializeField] private Upgrade upgrade;
     private Dictionary<string, int> upgradeTypes;
 
 
@@ -32,11 +32,11 @@ public class ShopItemScript : MonoBehaviour
 
     private void GenerateUpgrade()
     {
-        upgradeTypes = upgrade.getStats();
+        upgradeTypes = upgrade.GetStats();
         string randStat = pickRandomUpgradeStat();
 
         int randUpgradePower = Random.Range(1, 5);
-        upgrade.SetStat(randStat, randUpgradePower);
+        upgrade.SetStatPower(randStat, randUpgradePower);
     }
 
     private string pickRandomUpgradeStat()

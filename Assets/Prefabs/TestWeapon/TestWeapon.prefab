@@ -99,11 +99,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0015a45baf56ef4aa1771031189fcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkDamage: 2
-  atkRange: 2
-  atkKnockbackForce: 10
-  atkCooldown: 1
-  handling: 5
+  weaponBaseStats:
+    upgradeStats:
+    - statName: atkDamage
+      statPower: 2
+      statCost: 30
+    - statName: atkRange
+      statPower: 2
+      statCost: 20
+    - statName: atkKnockbackForce
+      statPower: 10
+      statCost: 5
+    - statName: atkCooldown
+      statPower: 10
+      statCost: 15
+    - statName: handling
+      statPower: 20
+      statCost: 10
+  weaponUpgrades: []
 --- !u!61 &7881940014766724773
 BoxCollider2D:
   m_ObjectHideFlags: 0

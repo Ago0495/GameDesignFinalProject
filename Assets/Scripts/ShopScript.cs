@@ -42,7 +42,6 @@ public class ShopScript : MonoBehaviour
         foreach (Transform item in shopGridObject.transform)
         {
             Destroy(item.gameObject);
-            Debug.Log("Destroyed");
         }
     }
 

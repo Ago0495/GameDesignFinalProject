@@ -5,45 +5,35 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     //variables
-    [SerializeField] private int atkDamage;
-    [SerializeField] private float atkRange;
-    [SerializeField] private float atkKnockbackForce;
-    [SerializeField] private float atkCooldown;
-    [SerializeField] private float handling;
-    //[SerializeField] private int weaponTag;
-    //[SerializeField] private int upgrade;
+    [SerializeField] private Upgrade weaponBaseStats = new Upgrade();
+    [SerializeField] private List<Upgrade> weaponUpgrades = new List<Upgrade>();
+    private Dictionary<string, int> weaponBaseStatsDict;
     private Collider2D weaponCollider;
     private Animator animator;
     private bool onCooldown;
     private float attackAnimationTime;
     private float cooldownAnimationTime;
     private List<GameObject> alreadyHitList;
-    private Color col;
 
     // Start is called before the first frame update
     void Start()
     {
+        weaponBaseStatsDict = weaponBaseStats.ToDictionary();
         weaponCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
 
         alreadyHitList = new List<GameObject>();
         weaponCollider.enabled = false;
         onCooldown = false;
-        col = GetComponent<Renderer>().material.color;
 
         UpdateAnimClipTimes();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public virtual void Attack()
     {
         if (!onCooldown)
         {
+            float handling = GetHandling();
             weaponCollider.enabled = true;
             alreadyHitList.Clear();
 
@@ -58,32 +48,37 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
-    public int getAtkDamage()
+    public float GetAtkDamage()
     {
-        return atkDamage;
+        return weaponBaseStats.GetStatPower("atkDamage");
     }
 
     public float GetAtkRange()
     { 
-        return atkRange; 
+        return weaponBaseStats.GetStatPower("atkRange"); 
     }
 
     public float GetAtkCooldown() 
     {  
-        return atkCooldown;
+        return weaponBaseStats.GetStatPower("atkCooldown");
     }
     public float GetHandling()
     {
-        return handling;
+        return weaponBaseStats.GetStatPower("handling");
+    }
+    public float GetKnockbackForce()
+    {
+        return weaponBaseStats.GetStatPower("atkKnockbackForce");
     }
 
     private IEnumerator WeaponCooldown(float waitTime)
     {
+        float atkCooldown = GetAtkCooldown();
         yield return new WaitForSeconds(waitTime);
         weaponCollider.enabled = false;
 
-        animator.SetFloat("atkCooldown", 1f / atkCooldown);
-        yield return new WaitForSeconds((atkCooldown / 1f) * cooldownAnimationTime);
+        animator.SetFloat("atkCooldown", 10f / atkCooldown);
+        yield return new WaitForSeconds((atkCooldown / 10f) * cooldownAnimationTime);
         onCooldown = false;
     }
 
@@ -104,8 +99,23 @@ public class WeaponScript : MonoBehaviour
         }
     }
 
-        public void OnTriggerEnter2D(Collider2D other)
+    private void ApplyUpgrades()
     {
+        foreach (Upgrade weaponUpgrade in weaponUpgrades)
+        {
+            List<string> statNameList = new List<string>(weaponUpgrade.GetStats().Keys);
+            foreach (string statName in statNameList)
+            {
+
+            }
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        int atkDamage = (int)GetAtkDamage();
+        float atkKnockbackForce = GetKnockbackForce();
+        
         EntityScript otherEntity = other.gameObject.GetComponent<EntityScript>();
 
         if (otherEntity != null && !alreadyHitList.Contains(other.gameObject))
