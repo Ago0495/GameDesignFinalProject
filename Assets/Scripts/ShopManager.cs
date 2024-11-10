@@ -37,15 +37,15 @@ public class ShopManager : MonoBehaviour
 
     public void Buy()
     {
-        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if (coins >= items[2, ButtonRef.GetComponent<ShopScript>().ItemID])
-        {
-            coins -= items[2, ButtonRef.GetComponent<ShopScript>().ItemID];
+        //GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        //if (coins >= items[2, ButtonRef.GetComponent<ShopScript>().ItemID])
+        //{
+        //    coins -= items[2, ButtonRef.GetComponent<ShopScript>().ItemID];
 
-            items[3, ButtonRef.GetComponent<ShopScript>().ItemID]++;
+        //    items[3, ButtonRef.GetComponent<ShopScript>().ItemID]++;
 
-            txt.text = "Coins: " + coins.ToString();
-            ButtonRef.GetComponent<ShopScript>().Quantitytxt.text = items[3, ButtonRef.GetComponent<ShopScript>().ItemID].ToString();
-        }
+        //    txt.text = "Coins: " + coins.ToString();
+        //    ButtonRef.GetComponent<ShopScript>().Quantitytxt.text = items[3, ButtonRef.GetComponent<ShopScript>().ItemID].ToString();
+        //}
     }
 }

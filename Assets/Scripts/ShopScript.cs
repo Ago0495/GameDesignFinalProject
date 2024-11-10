@@ -7,16 +7,17 @@ using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
-    public int ItemID;
-    public TextMeshProUGUI Pricetxt;
-    public TextMeshProUGUI Quantitytxt;
-    public GameObject ShopManager;
-    [SerializeField] private Canvas shopCanvas;
+    [SerializeField] private GameObject shopItemPrefab;
+    [SerializeField] private GameObject shopGridObject;
+    private Canvas shopCanvas;
+
 
     private void Start()
     {
         shopCanvas = GetComponentInChildren<Canvas>();
+        shopGridObject = GetComponentInChildren<GridLayoutGroup>().gameObject;
         shopCanvas.enabled = false;
+        GenerateRandomItems();
     }
 
     // Update is called once per frame
@@ -26,9 +27,12 @@ public class ShopScript : MonoBehaviour
         //Quantitytxt.text = ShopManager.GetComponent<ShopManager>().items[2, ItemID].ToString();
     }
 
-    public void DisplayRandomItems()
+    public void GenerateRandomItems()
     {
-
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject itemObj = Instantiate(shopItemPrefab, shopGridObject.transform);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
