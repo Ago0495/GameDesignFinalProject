@@ -17,6 +17,8 @@ public class ShopScript : MonoBehaviour
         shopCanvas = GetComponentInChildren<Canvas>();
         shopGridObject = GetComponentInChildren<GridLayoutGroup>().gameObject;
         shopCanvas.enabled = false;
+
+        ClearShop();
         GenerateRandomItems();
     }
 
@@ -35,11 +37,27 @@ public class ShopScript : MonoBehaviour
         }
     }
 
+    public void ClearShop()
+    {
+        foreach (Transform item in shopGridObject.transform)
+        {
+            Destroy(item.gameObject);
+            Debug.Log("Destroyed");
+        }
+    }
+
+    public void RefreshShop()
+    {
+        ClearShop();
+        GenerateRandomItems();
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             shopCanvas.enabled = true;
+            RefreshShop();
         }
     }
 

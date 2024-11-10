@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: ca62b150452dd5641b5e7e345c29810d
+guid: 7825ae14f63a9c749841d2e0bb138eae
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 8
   forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Mario Kart DS
+  - Dogica
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 2

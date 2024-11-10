@@ -63,6 +63,10 @@ public class PlayerScript : EntityScript
 
     }
 
+    public int GetCurrency()
+    {
+        return currency;
+    }
     public void ChangeCurrency(int amount)
     {
         currency += amount;

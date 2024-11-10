@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ca62b150452dd5641b5e7e345c29810d
+guid: 18671c9fc3d09124786b6673ca185d6b
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,10 +9,10 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Mario Kart DS
+  - Pixel Operator SC
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 2
+  fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
