@@ -263,11 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d336e775570da984ba5661d7e864c0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemID: 0
-  Pricetxt: {fileID: 0}
-  Quantitytxt: {fileID: 0}
-  ShopManager: {fileID: 0}
-  shopCanvas: {fileID: 0}
+  shopItemPrefab: {fileID: 0}
+  shopGridObject: {fileID: 0}
 --- !u!1 &5930810103046900812
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -487,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
