@@ -82,10 +82,10 @@ public class WeaponScript : MonoBehaviour
         {
             switch (clip.name)
             {
-                case "AttackAnimation":
+                case "AttackAnimation" or "RangedAttackAnimation":
                     attackAnimationTime = clip.length;
                     break;
-                case "CooldownAnimation":
+                case "CooldownAnimation" or "RangedCooldownAnimation":
                     cooldownAnimationTime = clip.length;
                     break;
             }
@@ -118,7 +118,7 @@ public class WeaponScript : MonoBehaviour
         return totalPower;
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public virtual void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(name + "Trigger" + other.name);
         int atkDamage = (int)GetTotalStatPower("atkDamage");

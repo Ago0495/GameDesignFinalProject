@@ -16,4 +16,16 @@ public class ProjectileScript : WeaponScript
     {
         other.attachedRigidbody.AddForce(weaponTransform.right * atkKnockback, ForceMode2D.Impulse);
     }
+
+    public IEnumerator projectileLifetime(float time)
+    {
+        //animation
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+    }
+
+    public override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
+    }
 }
