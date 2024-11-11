@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,9 +55,17 @@ public class PlayerScript : EntityScript
         }
     }
 
-    public void SwitchWeapon()
+    public void OnScroll(InputAction.CallbackContext sc)
     {
+        if (sc.performed)
+        {
+            float rawVal = sc.ReadValue<float>();
+            int val = (int)(rawVal / Mathf.Abs(rawVal));
+            currentWeaponIndex += val;
+            currentWeaponIndex = (currentWeaponIndex % stachedWeapons.Length + stachedWeapons.Length) % stachedWeapons.Length;
 
+            SwitchWeapon(currentWeaponIndex);
+        }
     }
 
     public int GetCurrency()

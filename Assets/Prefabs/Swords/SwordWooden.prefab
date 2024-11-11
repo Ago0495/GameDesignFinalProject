@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.52348065, w: 0.85203755}
   m_LocalPosition: {x: 0.43, y: 0.36, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 1.3104838, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 2
   m_Size: {x: 0.93, y: 0.28125}
   m_AdaptiveModeThreshold: 0.44
   m_SpriteTileMode: 0
@@ -101,20 +101,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponBaseStats:
     upgradeStats:
-    - statName: atkDamage
-      statPower: 2
+    - statPower: 2
       statCost: 30
-    - statName: atkRange
-      statPower: 2
+    - statPower: 2
       statCost: 20
-    - statName: atkKnockbackForce
-      statPower: 10
+    - statPower: 10
       statCost: 5
-    - statName: atkCooldown
-      statPower: 10
+    - statPower: 10
       statCost: 15
-    - statName: handling
-      statPower: 20
+    - statPower: 20
       statCost: 10
   weaponUpgrades: []
 --- !u!61 &7881940014766724773
@@ -156,7 +151,7 @@ BoxCollider2D:
     oldSize: {x: 0.9375, y: 0.28125}
     newSize: {x: 0.93, y: 0.28125}
     adaptiveTilingThreshold: 0.44
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2

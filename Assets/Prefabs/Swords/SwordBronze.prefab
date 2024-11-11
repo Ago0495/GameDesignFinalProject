@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.52348065, w: 0.85203755}
   m_LocalPosition: {x: 0.43, y: 0.36, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3000001, z: 1.3}
+  m_LocalScale: {x: 1.3104838, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,20 +101,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponBaseStats:
     upgradeStats:
-    - statName: atkDamage
-      statPower: 2
+    - statPower: 2
       statCost: 30
-    - statName: atkRange
-      statPower: 2
+    - statPower: 2
       statCost: 20
-    - statName: atkKnockbackForce
-      statPower: 10
+    - statPower: 10
       statCost: 5
-    - statName: atkCooldown
-      statPower: 10
+    - statPower: 10
       statCost: 15
-    - statName: handling
-      statPower: 20
+    - statPower: 20
       statCost: 10
   weaponUpgrades: []
 --- !u!61 &7881940014766724773
@@ -151,7 +146,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.13236314, y: 0.0009661466}
   m_SpriteTilingProperty:
-    border: {x: 0.3125, y: 0, z: 0.0625, w: 0}
+    border: {x: 0.3125, y: 0, z: 0.125, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.90625, y: 0.21875}
     newSize: {x: 0.93, y: 0.28125}

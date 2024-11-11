@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,7 +13,10 @@ public class EntityScript : MonoBehaviour
     [SerializeField] private protected float moveSpeed;
     private protected Vector3 weaponPos;
     private protected Transform weaponHolder;
+    private protected Transform weaponStache;
     private protected Transform currentWeapon;
+    [SerializeField] private protected WeaponScript[] stachedWeapons;
+    [SerializeField] private protected int currentWeaponIndex;
     private protected WeaponScript weaponScript;
     private float angle;
     private SpriteRenderer spriteRenderer;
@@ -23,9 +27,14 @@ public class EntityScript : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         weaponHolder = transform.Find("WeaponHolder");
-        currentWeapon = weaponHolder.GetChild(0);
-        if (currentWeapon != null)
+        weaponStache = transform.Find("WeaponStache");
+
+        stachedWeapons = weaponHolder.GetComponentsInChildren<WeaponScript>();
+
+        if (stachedWeapons.Length > 0 )
         {
+            currentWeaponIndex = 0;
+            currentWeapon = stachedWeapons[currentWeaponIndex].transform;
             weaponScript = currentWeapon.GetComponent<WeaponScript>();
         }
     }
@@ -69,6 +78,13 @@ public class EntityScript : MonoBehaviour
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         //weaponHolder.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+    }
+    public void SwitchWeapon(int index)
+    {
+        currentWeapon.parent = weaponStache;
+        currentWeapon = stachedWeapons[index].transform;
+        weaponScript = currentWeapon.GetComponent<WeaponScript>();
+        currentWeapon.parent = weaponHolder;
     }
 
     public Transform GetCurrentWeapon()

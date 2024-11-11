@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 2
   m_Size: {x: 0.93, y: 0.23}
   m_AdaptiveModeThreshold: 0.44
   m_SpriteTileMode: 0
@@ -101,20 +101,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponBaseStats:
     upgradeStats:
-    - statName: atkDamage
-      statPower: 2
+    - statPower: 2
       statCost: 30
-    - statName: atkRange
-      statPower: 2
+    - statPower: 2
       statCost: 20
-    - statName: atkKnockbackForce
-      statPower: 10
+    - statPower: 10
       statCost: 5
-    - statName: atkCooldown
-      statPower: 10
+    - statPower: 10
       statCost: 15
-    - statName: handling
-      statPower: 20
+    - statPower: 20
       statCost: 10
   weaponUpgrades: []
 --- !u!61 &7881940014766724773
@@ -156,7 +151,7 @@ BoxCollider2D:
     oldSize: {x: 0.90625, y: 0.21875}
     newSize: {x: 0.93, y: 0.23}
     adaptiveTilingThreshold: 0.44
-    drawMode: 1
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2

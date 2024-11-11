@@ -38,7 +38,6 @@ public class ShopItemScript : MonoBehaviour
         foreach ( var stat in statList )
         {
             itemStatNameText.text += stat.GetStatName().Replace("atk", "");
-            //itemStatNameText.text += ("\t");
             itemStatPowerText.text += (stat.GetStatPower());
         }
 
