@@ -51,7 +51,6 @@ public class ShopItemScript : MonoBehaviour
         var border = transform.Find("border");
         var borderImage = border.GetComponent<Image>();
         int index = (int)((Mathf.Abs(statPowerSum) / (float)maxStatPower) * 5f) - 1;
-        Debug.Log(statPowerSum + " " + maxStatPower);
         borderImage.color = rarityColors[index];
     }
 
