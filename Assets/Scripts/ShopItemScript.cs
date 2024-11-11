@@ -14,13 +14,14 @@ public class ShopItemScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemStatNameText;
     [SerializeField] private TextMeshProUGUI itemStatPowerText;
     [SerializeField] private Upgrade upgrade;
+    [SerializeField] private Color[] rarityColors = new Color[5];
     private Dictionary<string, int> upgradeTypes;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        upgrade = new Upgrade();   
+        upgrade = new Upgrade();
 
         GenerateUpgrade();
         itemPrice = upgrade.GetUpgradeCost();
@@ -30,6 +31,8 @@ public class ShopItemScript : MonoBehaviour
 
     private void DisplayItemInfo()
     {
+        int statPowerSum = 0;
+        int maxStatPower = 0;
         itemStatNameText.text = string.Format("");
         itemStatPowerText.text = string.Format("");
         itemPriceText.text = string.Format("");
@@ -39,9 +42,17 @@ public class ShopItemScript : MonoBehaviour
         {
             itemStatNameText.text += stat.GetStatName().Replace("atk", "");
             itemStatPowerText.text += (stat.GetStatPower());
+            statPowerSum += stat.GetStatPower();
+            maxStatPower += 5;
         }
 
         itemPriceText.text = ("$" +  itemPrice).ToString();
+
+        var border = transform.Find("border");
+        var borderImage = border.GetComponent<Image>();
+        int index = (int)((Mathf.Abs(statPowerSum) / (float)maxStatPower) * 5f) - 1;
+        Debug.Log(statPowerSum + " " + maxStatPower);
+        borderImage.color = rarityColors[index];
     }
 
     private void GenerateUpgrade()
@@ -49,7 +60,7 @@ public class ShopItemScript : MonoBehaviour
         upgradeTypes = upgrade.GetStats();
         string randStat = pickRandomUpgradeStat();
 
-        int randUpgradePower = Random.Range(1, 5);
+        int randUpgradePower = Random.Range(1,6);
 
         if (randStat == "atkCooldown")
         {

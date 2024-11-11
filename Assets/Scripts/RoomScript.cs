@@ -5,8 +5,8 @@ using UnityEngine;
 public class RoomScript : MonoBehaviour
 {
     //variables
-    [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>();
-    [SerializeField] private List<GameObject> blockers = new List<GameObject>();
+    [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private List<GameObject> blockers;
     private int numEnemies;
     private bool visited;
 
@@ -15,23 +15,16 @@ public class RoomScript : MonoBehaviour
     void Start()
     {
         visited = false;
-        if (enemyPrefabs != null )
-        {
-            numEnemies = enemyPrefabs.Count;
-            foreach (GameObject enemy in enemyPrefabs)
-            {
-                EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
-                RoomScript roomScript = GetComponent<RoomScript>();
-                enemyScript.SetRoom(roomScript);
-            }
-            DeactivateAll(enemyPrefabs);
-        }
-        else
-        {
-            Debug.LogWarning("enemyPrefabs is not assigned.");
-        }
+        numEnemies = enemyPrefabs.Count;
         DeactivateAll(blockers);
+        DeactivateAll(enemyPrefabs);
 
+        foreach (GameObject enemy in enemyPrefabs)
+        {
+            EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
+            RoomScript roomScript = GetComponent<RoomScript>();
+            enemyScript.SetRoom(roomScript);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -76,6 +69,7 @@ public class RoomScript : MonoBehaviour
             {
                 roomObj.SetActive(true);
             }
+
         }
     }
 
