@@ -66,6 +66,7 @@ public class EntityScript : MonoBehaviour
     public void UseWeapon()
     {
         weaponScript = currentWeapon.GetComponent<WeaponScript>();
+        currentWeapon.gameObject.layer = gameObject.layer;
         if (weaponScript != null)
         {
             weaponScript.Attack();
@@ -79,9 +80,9 @@ public class EntityScript : MonoBehaviour
         targetPos.y = targetPos.y - weaponPos.y;
 
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-        //weaponHolder.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
     }
+
     public void SwitchWeapon(int index)
     {
         currentWeapon.parent = weaponStache;

@@ -6,28 +6,32 @@ using static UnityEditor.Progress;
 public class WeaponScript : MonoBehaviour
 {
     //variables
-    [SerializeField] private Upgrade weaponBaseStats = new Upgrade();
-    [SerializeField] private List<Upgrade> weaponUpgrades = new List<Upgrade>();
-    private Dictionary<string, int> weaponBaseStatsDict;
-    private Collider2D weaponCollider;
-    private Animator animator;
-    private bool onCooldown;
-    private float attackAnimationTime;
-    private float cooldownAnimationTime;
-    private List<GameObject> alreadyHitList;
+    [SerializeField] private protected Upgrade weaponBaseStats = new Upgrade();
+    [SerializeField] private protected List<Upgrade> weaponUpgrades = new List<Upgrade>();
+    private protected Collider2D weaponCollider;
+    private protected Animator animator;
+    private protected bool onCooldown;
+    private protected float attackAnimationTime;
+    private protected float cooldownAnimationTime;
+    private protected List<GameObject> alreadyHitList;
 
     // Start is called before the first frame update
-    void Start()
+    private protected virtual void Start()
     {
-        weaponBaseStatsDict = weaponBaseStats.ToDictionary();
         weaponCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
 
         alreadyHitList = new List<GameObject>();
-        weaponCollider.enabled = false;
+        if (weaponCollider != null)
+        {
+            weaponCollider.enabled = false;
+        }
         onCooldown = false;
 
-        UpdateAnimClipTimes();
+        if (animator != null)
+        {
+            UpdateAnimClipTimes();
+        }
     }
 
     public virtual void Attack()
@@ -35,7 +39,10 @@ public class WeaponScript : MonoBehaviour
         if (!onCooldown)
         {
             float handling = GetTotalStatPower("handling");
-            weaponCollider.enabled = true;
+            if (weaponCollider != null)
+            {
+                weaponCollider.enabled = true;
+            }
             alreadyHitList.Clear();
 
             //start coroutine to turn off collider
@@ -54,11 +61,14 @@ public class WeaponScript : MonoBehaviour
         return ApplyUpgrades(statName);
     }
 
-    private IEnumerator WeaponCooldown(float waitTime)
+    private protected IEnumerator WeaponCooldown(float waitTime)
     {
         float atkCooldown = GetTotalStatPower("atkCooldown");
         yield return new WaitForSeconds(waitTime);
-        weaponCollider.enabled = false;
+        if (weaponCollider != null)
+        {
+            weaponCollider.enabled = false;
+        }
 
         animator.SetFloat("atkCooldown", 10f / atkCooldown);
         yield return new WaitForSeconds((atkCooldown / 10f) * cooldownAnimationTime);
@@ -80,6 +90,11 @@ public class WeaponScript : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void SetBaseStats(Upgrade upgrade)
+    {
+        weaponBaseStats = upgrade;
     }
 
     public void AddUpgrade(Upgrade newUpgrade)
@@ -105,23 +120,27 @@ public class WeaponScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(name + "Trigger" + other.name);
         int atkDamage = (int)GetTotalStatPower("atkDamage");
         float atkKnockback = GetTotalStatPower("atkKnockback");
-        
+
         EntityScript otherEntity = other.gameObject.GetComponent<EntityScript>();
 
         if (otherEntity != null && !alreadyHitList.Contains(other.gameObject))
         {
             alreadyHitList.Add(other.gameObject);
-            Transform thisWeaponParent = transform.parent;
 
-            if (1<<other.gameObject.layer != 1<< thisWeaponParent.gameObject.layer)
+            if (other.gameObject.layer != gameObject.layer)
             {
                 otherEntity.TakeDamage(atkDamage);
-
-                //knockback
-                other.attachedRigidbody.AddForce(transform.parent.right * atkKnockback, ForceMode2D.Impulse);
+                ApplyKnockback(other, transform, atkKnockback);
             }
         }
+    }
+
+    protected virtual void ApplyKnockback(Collider2D other, Transform weaponTransform, float atkKnockback)
+    {
+        // Default knockback logic
+        other.attachedRigidbody.AddForce(weaponTransform.parent.right * atkKnockback, ForceMode2D.Impulse);
     }
 }
