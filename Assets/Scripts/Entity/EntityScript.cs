@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,6 +31,7 @@ public class EntityScript : MonoBehaviour
         weaponStache = transform.Find("WeaponStache");
 
         stachedWeapons = weaponHolder.GetComponentsInChildren<WeaponScript>();
+        stachedWeapons = stachedWeapons.Concat(weaponStache.GetComponentsInChildren<WeaponScript>()).ToArray();
 
         if (stachedWeapons.Length > 0 )
         {
