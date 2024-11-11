@@ -9,7 +9,10 @@ public class ShopScript : MonoBehaviour
 {
     [SerializeField] private GameObject shopItemPrefab;
     [SerializeField] private GameObject shopGridObject;
+    [SerializeField] private TextMeshProUGUI rerollButtonText;
     private Canvas shopCanvas;
+    private int rerollPrice;
+    private int numReroll;
 
 
     private void Start()
@@ -17,16 +20,12 @@ public class ShopScript : MonoBehaviour
         shopCanvas = GetComponentInChildren<Canvas>();
         shopGridObject = GetComponentInChildren<GridLayoutGroup>().gameObject;
         shopCanvas.enabled = false;
+        rerollPrice = 10;
+        numReroll = 0;
 
         ClearShop();
         GenerateRandomItems();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Pricetxt.text = "Price: $" + ShopManager.GetComponent<ShopManager>().items[2, ItemID].ToString();
-        //Quantitytxt.text = ShopManager.GetComponent<ShopManager>().items[2, ItemID].ToString();
+        DisplayReroll();
     }
 
     public void GenerateRandomItems()
@@ -51,12 +50,38 @@ public class ShopScript : MonoBehaviour
         GenerateRandomItems();
     }
 
+    public void RerollShop()
+    {
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        PlayerScript playerScript = playerObj.GetComponent<PlayerScript>();
+        int playerCurrency = playerScript.GetCurrency();
+
+        if (playerCurrency >= rerollPrice)
+        {
+            playerScript.ChangeCurrency(-rerollPrice);
+
+            RefreshShop();
+            numReroll++;
+
+            rerollPrice += rerollPrice * (int)(numReroll * 0.25f);
+        }
+
+        DisplayReroll();
+    }
+
+    private void DisplayReroll()
+    {
+        if (rerollButtonText != null)
+        {
+            rerollButtonText.text = ("Reroll\n\n" + "$" + rerollPrice);
+        }
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             shopCanvas.enabled = true;
-            RefreshShop();
         }
     }
 
