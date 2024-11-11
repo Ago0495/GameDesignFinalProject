@@ -83,7 +83,7 @@ public class EntityScript : MonoBehaviour
         weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
     }
 
-    public void SwitchWeapon(int index)
+    public virtual void SwitchWeapon(int index)
     {
         currentWeapon.parent = weaponStache;
         currentWeapon = stachedWeapons[index].transform;

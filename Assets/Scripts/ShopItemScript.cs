@@ -46,7 +46,7 @@ public class ShopItemScript : MonoBehaviour
             maxStatPower += 5;
         }
 
-        itemPriceText.text = ("$" +  itemPrice).ToString();
+        itemPriceText.text = ("<sprite=75>" +  itemPrice).ToString();
 
         var border = transform.Find("border");
         var borderImage = border.GetComponent<Image>();

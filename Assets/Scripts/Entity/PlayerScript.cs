@@ -8,6 +8,7 @@ public class PlayerScript : EntityScript
 {
     //variables
     [SerializeField] private int currency;
+    private InventoryUIScript inventoryUIscript;
     private Vector2 lastInput;
     private Vector3 mousePos;
 
@@ -30,6 +31,7 @@ public class PlayerScript : EntityScript
 
         AimWeapon(weaponPos, mousePos);
     }
+
 
     public void OnMove(InputAction.CallbackContext mv)
     {
@@ -66,6 +68,11 @@ public class PlayerScript : EntityScript
 
             SwitchWeapon(currentWeaponIndex);
         }
+    }
+
+    public override void SwitchWeapon(int index)
+    {
+        base.SwitchWeapon(index);
     }
 
     public int GetCurrency()
