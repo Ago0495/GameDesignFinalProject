@@ -34,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4050480681464686932}
   - {fileID: 6894039930280468178}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,6 +168,8 @@ MonoBehaviour:
   hp: 10
   canAttack: 1
   moveSpeed: 3
+  stachedWeapons: []
+  currentWeaponIndex: 0
   DetectRange: 10
   target: {fileID: 0}
   createOnDefeat: []
@@ -223,3 +226,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2242394864630572414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5745232591226822409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4050480681464686932}
+  m_Layer: 7
+  m_Name: WeaponStache
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4050480681464686932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745232591226822409}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.95376945, w: -0.30053928}
+  m_LocalPosition: {x: -5.919832, y: 3.150448, z: -0.4643383}
+  m_LocalScale: {x: 0.38, y: 0.38, z: 0.38}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2242394864630572414}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -214.98}

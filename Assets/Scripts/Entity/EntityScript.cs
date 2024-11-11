@@ -38,6 +38,7 @@ public class EntityScript : MonoBehaviour
             currentWeaponIndex = 0;
             currentWeapon = stachedWeapons[currentWeaponIndex].transform;
             weaponScript = currentWeapon.GetComponent<WeaponScript>();
+            SwitchWeapon(currentWeaponIndex);
         }
     }
 

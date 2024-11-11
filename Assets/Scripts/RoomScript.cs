@@ -5,8 +5,8 @@ using UnityEngine;
 public class RoomScript : MonoBehaviour
 {
     //variables
-    [SerializeField] private List<GameObject> enemyPrefabs;
-    [SerializeField] private List<GameObject> blockers;
+    [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>();
+    [SerializeField] private List<GameObject> blockers = new List<GameObject>();
     private int numEnemies;
     private bool visited;
 
@@ -15,16 +15,23 @@ public class RoomScript : MonoBehaviour
     void Start()
     {
         visited = false;
-        numEnemies = enemyPrefabs.Count;
-        DeactivateAll(blockers);
-        DeactivateAll(enemyPrefabs);
-
-        foreach (GameObject enemy in enemyPrefabs)
+        if (enemyPrefabs != null )
         {
-            EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
-            RoomScript roomScript = GetComponent<RoomScript>();
-            enemyScript.SetRoom(roomScript);
+            numEnemies = enemyPrefabs.Count;
+            foreach (GameObject enemy in enemyPrefabs)
+            {
+                EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
+                RoomScript roomScript = GetComponent<RoomScript>();
+                enemyScript.SetRoom(roomScript);
+            }
+            DeactivateAll(enemyPrefabs);
         }
+        else
+        {
+            Debug.LogWarning("enemyPrefabs is not assigned.");
+        }
+        DeactivateAll(blockers);
+
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -53,16 +60,22 @@ public class RoomScript : MonoBehaviour
 
     public void DeactivateAll(List<GameObject> roomObjects)
     {
-        foreach (var roomObj in roomObjects)
+        if (roomObjects.Count > 0)
         {
-            roomObj.SetActive(false);
+            foreach (var roomObj in roomObjects)
+            {
+                roomObj.SetActive(false);
+            }
         }
     }
     public void ActivateAll(List<GameObject> roomObjects)
     {
-        foreach (var roomObj in roomObjects)
+        if (roomObjects.Count > 0)
         {
-            roomObj.SetActive(true);
+            foreach (var roomObj in roomObjects)
+            {
+                roomObj.SetActive(true);
+            }
         }
     }
 
