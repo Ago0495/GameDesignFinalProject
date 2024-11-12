@@ -85,10 +85,10 @@ public class EntityScript : MonoBehaviour
 
     public virtual void SwitchWeapon(int index)
     {
-        currentWeapon.parent = weaponStache;
+        currentWeapon.SetParent(weaponStache, false);
         currentWeapon = stachedWeapons[index].transform;
         weaponScript = currentWeapon.GetComponent<WeaponScript>();
-        currentWeapon.parent = weaponHolder;
+        currentWeapon.SetParent(weaponHolder, false);
     }
 
     public Transform GetCurrentWeapon()
