@@ -8,7 +8,7 @@ public class PlayerScript : EntityScript
 {
     //variables
     [SerializeField] private int currency;
-    private InventoryUIScript inventoryUIscript;
+    [SerializeField] private int maxWeapons;
     private Vector2 lastInput;
     private Vector3 mousePos;
 
@@ -78,6 +78,11 @@ public class PlayerScript : EntityScript
     public int GetCurrency()
     {
         return currency;
+    }
+
+    public int GetMaxWeapons()
+    {
+        return maxWeapons;
     }
     public void ChangeCurrency(int amount)
     {

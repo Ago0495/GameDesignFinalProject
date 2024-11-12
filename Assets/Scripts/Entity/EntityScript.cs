@@ -91,6 +91,15 @@ public class EntityScript : MonoBehaviour
         currentWeapon.SetParent(weaponHolder, false);
     }
 
+    public void AddWeaponToEntity(GameObject _newWeapon)
+    {
+        GameObject newWeapon = Instantiate(_newWeapon, weaponStache);
+        WeaponScript newWeaponScript = newWeapon.GetComponent<WeaponScript>();
+        stachedWeapons.Add(newWeaponScript);
+        currentWeaponIndex = GetNumWeapons() - 1;
+        SwitchWeapon(currentWeaponIndex);
+    }
+
     public Transform GetCurrentWeapon()
     {
         return currentWeapon;
@@ -110,13 +119,6 @@ public class EntityScript : MonoBehaviour
         return stachedWeapons.Count;
     }
 
-    public void AddWeaponToEntity(GameObject _newWeapon)
-    {
-        GameObject newWeapon = Instantiate(_newWeapon, weaponStache);
-        WeaponScript newWeaponScript = newWeapon.GetComponent<WeaponScript>();
-        stachedWeapons.Add(newWeaponScript);
-        SwitchWeapon(GetNumWeapons()-1);
-    }
 
     public void layerSort()
     {

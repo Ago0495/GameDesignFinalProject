@@ -29,6 +29,8 @@ public class InventoryUIScript : MonoBehaviour
         currencyAmountText.text = "<sprite=75>" + playerScript.GetCurrency().ToString();
 
         int numWeapons = playerScript.GetNumWeapons();
+        int index = playerScript.GetCurrentWeaponIndex();
+
         for (int i = 0; i < numWeapons; i++)
         {
             if (i >= inventorySlots.Count)
@@ -38,13 +40,20 @@ public class InventoryUIScript : MonoBehaviour
                     CreateSlot();
                 }
             }
-            int index = playerScript.GetCurrentWeaponIndex();
-            GameObject weapon = playerScript.GetStachedWeapon(index + i).gameObject;
+            if (inventorySlots.Count % 2 == 0)
+            {
+                CreateSlot();
+            }
+            //change slot visual here
+            GameObject weapon = playerScript.GetStachedWeapon(index + i - inventorySlots.Count/2).gameObject;
             Image iconImage = inventorySlots[i].transform.GetChild(0).GetComponent<Image>();
             iconImage.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
-            
-            float val = (3 - i) / 3f;
-            iconImage.color = new Color(val, val, val, val);
+
+            //Fade color
+            float distance = Mathf.Abs(i - (inventorySlots.Count / 2));
+            float fadeValue = Mathf.Clamp01(1.0f - (distance / (numWeapons / 1.0f))); //Fade rate
+
+            iconImage.color = new Color(fadeValue, fadeValue, fadeValue, fadeValue);
 
             iconImage.SetNativeSize();
         }
@@ -52,6 +61,7 @@ public class InventoryUIScript : MonoBehaviour
 
     private void CreateSlot()
     {
+        int index = playerScript.GetCurrentWeaponIndex();
         GameObject newSlot = Instantiate(slotPrefab, inventoryGridObj.transform);
         inventorySlots.Add(newSlot);
     }

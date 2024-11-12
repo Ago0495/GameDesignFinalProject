@@ -913,6 +913,7 @@ MonoBehaviour:
   stachedWeapons: []
   currentWeaponIndex: 0
   currency: 0
+  maxWeapons: 9
 --- !u!114 &6043922998214632337
 MonoBehaviour:
   m_ObjectHideFlags: 0

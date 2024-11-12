@@ -123,7 +123,7 @@ public class ShopItemScript : MonoBehaviour
 
                 SetBuyColor(transform);
             }
-            if (weaponItem != null)
+            if (weaponItem != null && playerScript.GetMaxWeapons() > playerScript.GetNumWeapons())
             {
                 playerScript.ChangeCurrency(-itemPrice);
                 button.interactable = false;

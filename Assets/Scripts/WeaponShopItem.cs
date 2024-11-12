@@ -21,8 +21,7 @@ public class WeaponShopItem
         index = Mathf.Clamp(index, 0, numWeapons - 1);
 
         selectedWeapon = weapons[index];
-        Upgrade weaponStats = selectedWeapon.GetComponent<WeaponScript>().GetBaseStats();
-        itemPrice = weaponStats.GetUpgradeCost() / 20;
+        itemPrice = selectedWeapon.GetComponent<WeaponScript>().GetLvl() * 100;
     }
 
     public GameObject GetWeapon()

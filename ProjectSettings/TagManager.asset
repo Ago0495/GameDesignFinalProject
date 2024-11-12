@@ -8,6 +8,7 @@ TagManager:
   - ENEMY
   - Event
   - Sword
+  - Bow
   layers:
   - Default
   - TransparentFX
