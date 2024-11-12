@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7881940014766724773}
   - component: {fileID: 8751049931733162628}
   m_Layer: 2
-  m_Name: SwordWooden
-  m_TagString: WEAPON
+  m_Name: SwordLvl3
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 35784231
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3fc0bb1c716c1b74da2262713ab891d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e0a62fb52a52a74abb6c8cb7161d66e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.93, y: 0.28125}
+  m_Size: {x: 0.93, y: 0.22}
   m_AdaptiveModeThreshold: 0.44
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,17 +99,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0015a45baf56ef4aa1771031189fcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponLvl: 3
   weaponBaseStats:
     upgradeStats:
-    - statPower: 2
+    - statPower: 6
       statCost: 30
     - statPower: 2
       statCost: 20
-    - statPower: 10
+    - statPower: 6
       statCost: 5
-    - statPower: 10
-      statCost: 15
     - statPower: 20
+      statCost: 15
+    - statPower: 5
       statCost: 10
   weaponUpgrades: []
 --- !u!61 &7881940014766724773
@@ -146,10 +147,10 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.13236314, y: 0.0009661466}
   m_SpriteTilingProperty:
-    border: {x: 0.28125, y: 0, z: 0.0625, w: 0}
+    border: {x: 0.3125, y: 0, z: 0.125, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 0.28125}
-    newSize: {x: 0.93, y: 0.28125}
+    oldSize: {x: 0.90625, y: 0.21875}
+    newSize: {x: 0.93, y: 0.22}
     adaptiveTilingThreshold: 0.44
     drawMode: 2
     adaptiveTiling: 0

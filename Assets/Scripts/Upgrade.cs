@@ -62,8 +62,6 @@ public class Upgrade
         foreach (Stat item in upgradeStats)
         {
             upgradeCost += item.GetStatCost() * item.GetStatPower() * item.GetStatPower();
-
-
         }
 
         return upgradeCost;

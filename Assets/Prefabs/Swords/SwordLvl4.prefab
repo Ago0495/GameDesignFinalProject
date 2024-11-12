@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7881940014766724773}
   - component: {fileID: 8751049931733162628}
   m_Layer: 2
-  m_Name: SwordSteel
-  m_TagString: WEAPON
+  m_Name: SwordLvl4
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,17 +99,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0015a45baf56ef4aa1771031189fcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponLvl: 4
   weaponBaseStats:
     upgradeStats:
-    - statPower: 2
+    - statPower: 8
       statCost: 30
     - statPower: 2
       statCost: 20
-    - statPower: 10
+    - statPower: 8
       statCost: 5
-    - statPower: 10
-      statCost: 15
     - statPower: 20
+      statCost: 15
+    - statPower: 5
       statCost: 10
   weaponUpgrades: []
 --- !u!61 &7881940014766724773

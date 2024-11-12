@@ -16,7 +16,7 @@ public class EntityScript : MonoBehaviour
     private protected Transform weaponHolder;
     private protected Transform weaponStache;
     private protected Transform currentWeapon;
-    [SerializeField] private protected WeaponScript[] stachedWeapons;
+    [SerializeField] private protected List<WeaponScript> stachedWeapons;
     [SerializeField] private protected int currentWeaponIndex;
     private protected WeaponScript weaponScript;
     private float angle;
@@ -30,10 +30,10 @@ public class EntityScript : MonoBehaviour
         weaponHolder = transform.Find("WeaponHolder");
         weaponStache = transform.Find("WeaponStache");
 
-        stachedWeapons = weaponHolder.GetComponentsInChildren<WeaponScript>();
-        stachedWeapons = stachedWeapons.Concat(weaponStache.GetComponentsInChildren<WeaponScript>()).ToArray();
+        stachedWeapons = weaponHolder.GetComponentsInChildren<WeaponScript>().ToList();
+        stachedWeapons = stachedWeapons.Concat(weaponStache.GetComponentsInChildren<WeaponScript>()).ToList();
 
-        if (stachedWeapons.Length > 0 )
+        if (stachedWeapons.Count > 0 )
         {
             currentWeaponIndex = 0;
             currentWeapon = stachedWeapons[currentWeaponIndex].transform;
@@ -97,7 +97,7 @@ public class EntityScript : MonoBehaviour
     }
     public WeaponScript GetStachedWeapon(int index)
     {
-        index = (index % stachedWeapons.Length + stachedWeapons.Length) % stachedWeapons.Length;
+        index = (index % stachedWeapons.Count + stachedWeapons.Count) % stachedWeapons.Count;
         return stachedWeapons[index];
     }
 
@@ -107,7 +107,15 @@ public class EntityScript : MonoBehaviour
     }
     public int GetNumWeapons()
     {
-        return stachedWeapons.Length;
+        return stachedWeapons.Count;
+    }
+
+    public void AddWeaponToEntity(GameObject _newWeapon)
+    {
+        GameObject newWeapon = Instantiate(_newWeapon, weaponStache);
+        WeaponScript newWeaponScript = newWeapon.GetComponent<WeaponScript>();
+        stachedWeapons.Add(newWeaponScript);
+        SwitchWeapon(GetNumWeapons()-1);
     }
 
     public void layerSort()

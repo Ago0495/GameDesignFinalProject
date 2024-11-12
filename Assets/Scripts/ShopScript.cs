@@ -10,6 +10,8 @@ public class ShopScript : MonoBehaviour
     [SerializeField] private GameObject shopItemPrefab;
     [SerializeField] private GameObject shopGridObject;
     [SerializeField] private TextMeshProUGUI rerollButtonText;
+    [SerializeField] private GameObject[] sellWeapons;
+    [SerializeField] private int maxPower;
     private Canvas shopCanvas;
     private int rerollPrice;
     private int numReroll;
@@ -33,6 +35,8 @@ public class ShopScript : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             GameObject itemObj = Instantiate(shopItemPrefab, shopGridObject.transform);
+            itemObj.GetComponent<ShopItemScript>().SetWeapons(sellWeapons);
+            itemObj.GetComponent<ShopItemScript>().SetMaxPower(maxPower);
         }
     }
 

@@ -6,6 +6,7 @@ using static UnityEditor.Progress;
 public class WeaponScript : MonoBehaviour
 {
     //variables
+    [SerializeField] private protected int weaponLvl;
     [SerializeField] private protected Upgrade weaponBaseStats = new Upgrade();
     [SerializeField] private protected List<Upgrade> weaponUpgrades = new List<Upgrade>();
     private protected Collider2D weaponCollider;
@@ -97,9 +98,29 @@ public class WeaponScript : MonoBehaviour
         weaponBaseStats = upgrade;
     }
 
+    public Upgrade GetBaseStats()
+    {
+        return weaponBaseStats;
+    }
+
+    public int GetBasePrice()
+    {
+        return GetBaseStats().GetUpgradeCost();
+    }
+
     public void AddUpgrade(Upgrade newUpgrade)
     {
         weaponUpgrades.Add(newUpgrade);
+    }
+
+    public int GetLvl()
+    {
+        return weaponLvl;
+    }
+
+    public int GetNumUpgrades()
+    {
+        return weaponUpgrades.Count;
     }
 
     private int ApplyUpgrades(string statName)

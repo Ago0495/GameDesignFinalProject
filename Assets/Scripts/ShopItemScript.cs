@@ -15,66 +15,72 @@ public class ShopItemScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemStatPowerText;
     [SerializeField] private Upgrade upgrade;
     [SerializeField] private Color[] rarityColors = new Color[5];
+    private GameObject[] sellWeapons;
+    private int maxPower;
     private Dictionary<string, int> upgradeTypes;
+
+    private UpgradeShopItem upgradeItem;
+    private WeaponShopItem weaponItem;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        upgrade = new Upgrade();
-
-        GenerateUpgrade();
-        itemPrice = upgrade.GetUpgradeCost();
-
-        DisplayItemInfo();
+        GenerateRandomShopItem();
     }
 
-    private void DisplayItemInfo()
+    private void DisplayItemInfo(string name, string power, string price, Color color)
     {
-        int statPowerSum = 0;
-        int maxStatPower = 0;
-        itemStatNameText.text = string.Format("");
-        itemStatPowerText.text = string.Format("");
-        itemPriceText.text = string.Format("");
-
-        var statList = FindPopulatedStats();
-        foreach ( var stat in statList )
-        {
-            itemStatNameText.text += stat.GetStatName().Replace("atk", "");
-            itemStatPowerText.text += (stat.GetStatPower());
-            statPowerSum += stat.GetStatPower();
-            maxStatPower += 5;
-        }
-
-        itemPriceText.text = ("<sprite=75>" +  itemPrice).ToString();
+        itemStatNameText.text = name;
+        itemStatPowerText.text = power;
+        itemPriceText.text = ("<sprite=75>" +  price).ToString();
 
         var border = transform.Find("border");
         var borderImage = border.GetComponent<Image>();
-        int index = (int)((Mathf.Abs(statPowerSum) / (float)maxStatPower) * 5f) - 1;
-        borderImage.color = rarityColors[index];
+        borderImage.color = color;
     }
 
-    private void GenerateUpgrade()
+    private void GenerateRandomShopItem()
     {
-        upgradeTypes = upgrade.GetStats();
-        string randStat = pickRandomUpgradeStat();
-
-        int randUpgradePower = Random.Range(1,6);
-
-        if (randStat == "atkCooldown")
+        int rand = Random.Range(1, 100);
+        if (rand <= 20)
         {
-            randUpgradePower *= -1;
+            weaponItem = new WeaponShopItem(sellWeapons);
+            GameObject weaponObj = weaponItem.GetWeapon();
+            upgrade = weaponObj.GetComponent<WeaponScript>().GetBaseStats();
+
+            itemPrice = weaponItem.GetPrice();
+
+            int weaponLvl = weaponObj.GetComponent<WeaponScript>().GetComponent<WeaponScript>().GetLvl();
+
+            string weaponName = weaponObj.tag;
+            string weaponLvlText = "lvl." + weaponLvl.ToString();
+            string weaponText = weaponName + "\n" + weaponLvlText;
+
+            DisplayItemInfo("WPN", weaponText, itemPrice.ToString(), rarityColors[weaponLvl]);
         }
+        else
+        {
+            upgradeItem = new UpgradeShopItem(maxPower);
+            upgrade = upgradeItem.GetUpgrade();
 
-        upgrade.SetStatPower(randStat, randUpgradePower);
-    }
+            itemPrice = upgradeItem.GetPrice();
 
-    private string pickRandomUpgradeStat()
-    {
-        List<string> statNameList = new List<string>(upgradeTypes.Keys);
+            string statText = "";
 
-        int rand = Random.Range(0, upgradeTypes.Count);
-        return statNameList[rand];
+            if (upgradeItem.GetStatPower() >= 0)
+            {
+                statText += "+" + upgradeItem.GetStatPower();
+            }
+            else
+            {
+                statText += upgradeItem.GetStatPower();
+            }
+
+            statText += "\n" + upgradeItem.GetStatName().Replace("atk", "");
+
+            DisplayItemInfo("UPG", statText, itemPrice.ToString(), rarityColors[Mathf.Abs(upgrade.GetStatPower(upgradeItem.GetStatName())) - 1]);
+        }
     }
 
     private List<Stat> FindPopulatedStats()
@@ -92,44 +98,71 @@ public class ShopItemScript : MonoBehaviour
         return stats;
     }
 
-    public void BuyUpgrade()
+    public void BuyItem()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         PlayerScript playerScript = playerObj.GetComponent<PlayerScript>();
+        Transform playerWeapon = playerScript.GetCurrentWeapon();
+        WeaponScript playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
+
         int playerCurrency = playerScript.GetCurrency();
 
         if (playerCurrency >= itemPrice)
         {
-            playerScript.ChangeCurrency(-itemPrice);
 
             Button button = GetComponent<Button>();
-            button.interactable = false;
 
-            Transform playerWeapon = playerScript.GetCurrentWeapon();
-            WeaponScript playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
-            playerWeaponScript.AddUpgrade(upgrade);
+            if (upgradeItem != null && playerWeaponScript.GetLvl() > playerWeaponScript.GetNumUpgrades())
+            {
+                playerScript.ChangeCurrency(-itemPrice);
+                button.interactable = false;
 
-            SetInheritenceColor(transform, button.colors.disabledColor);
+                playerWeapon = playerScript.GetCurrentWeapon();
+                playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
+                playerWeaponScript.AddUpgrade(upgrade);
+
+                SetBuyColor(transform);
+            }
+            if (weaponItem != null)
+            {
+                playerScript.ChangeCurrency(-itemPrice);
+                button.interactable = false;
+
+                playerScript.AddWeaponToEntity(weaponItem.GetWeapon());
+
+                SetBuyColor(transform);
+            }
+
         }
     }
-    public void SetInheritenceColor(Transform element, Color color)
+
+    public void SetWeapons(GameObject[] weapons)
+    {
+        sellWeapons = weapons;
+    }
+
+    public void SetMaxPower(int power)
+    {
+        maxPower = power;
+    }
+    public void SetBuyColor(Transform element)
     {
         // Check if there's an Image component on the current element and set its alpha
         Image image = element.GetComponent<Image>();
         TextMeshProUGUI text = element.GetComponent<TextMeshProUGUI>();
         if (image != null)
         {
-            image.color = color;
+            image.color -= new Color(0.3f, 0.3f, 0.3f, 0.3f);
         }
         else if (text != null)
         {
-            text.color = color;
+            text.color -= new Color(0.3f, 0.3f, 0.3f, 0.3f);
         }
 
         // Recursively call this function for each child of the current element
         foreach (Transform child in element)
         {
-            SetInheritenceColor(child, color);
+            SetBuyColor(child);
         }
     }
 }
