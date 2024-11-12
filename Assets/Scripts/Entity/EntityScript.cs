@@ -95,6 +95,20 @@ public class EntityScript : MonoBehaviour
     {
         return currentWeapon;
     }
+    public WeaponScript GetStachedWeapon(int index)
+    {
+        index = (index % stachedWeapons.Length + stachedWeapons.Length) % stachedWeapons.Length;
+        return stachedWeapons[index];
+    }
+
+    public int GetCurrentWeaponIndex()
+    {
+        return currentWeaponIndex;
+    }
+    public int GetNumWeapons()
+    {
+        return stachedWeapons.Length;
+    }
 
     public void layerSort()
     {

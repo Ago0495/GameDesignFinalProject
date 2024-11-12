@@ -120,7 +120,6 @@ public class WeaponScript : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(name + "Trigger" + other.name);
         int atkDamage = (int)GetTotalStatPower("atkDamage");
         float atkKnockback = GetTotalStatPower("atkKnockback");
 

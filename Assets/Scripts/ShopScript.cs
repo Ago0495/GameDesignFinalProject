@@ -73,7 +73,7 @@ public class ShopScript : MonoBehaviour
     {
         if (rerollButtonText != null)
         {
-            rerollButtonText.text = ("Reroll\n\n" + "$" + rerollPrice);
+            rerollButtonText.text = ("Reroll\n\n" + "<sprite=75>" + rerollPrice);
         }
     }
 
