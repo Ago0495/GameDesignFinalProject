@@ -101,7 +101,7 @@ public class ShopItemScript : MonoBehaviour
     public void BuyItem()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        PlayerScript playerScript = playerObj.GetComponent<PlayerScript>();
+        PlayerScript playerScript = playerObj.GetComponentInParent<PlayerScript>();
         Transform playerWeapon = playerScript.GetCurrentWeapon();
         WeaponScript playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
 

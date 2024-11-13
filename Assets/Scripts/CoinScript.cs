@@ -41,7 +41,7 @@ public class CoinScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerScript>().ChangeCurrency(value);
+            other.gameObject.GetComponentInParent<PlayerScript>().ChangeCurrency(value);
             Destroy(gameObject);
         }
     }

@@ -57,7 +57,7 @@ public class ShopScript : MonoBehaviour
     public void RerollShop()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        PlayerScript playerScript = playerObj.GetComponent<PlayerScript>();
+        PlayerScript playerScript = playerObj.GetComponentInParent<PlayerScript>();
         int playerCurrency = playerScript.GetCurrency();
 
         if (playerCurrency >= rerollPrice)

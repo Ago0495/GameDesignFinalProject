@@ -144,7 +144,7 @@ public class WeaponScript : MonoBehaviour
         int atkDamage = (int)GetTotalStatPower("atkDamage");
         float atkKnockback = GetTotalStatPower("atkKnockback");
 
-        EntityScript otherEntity = other.gameObject.GetComponent<EntityScript>();
+        EntityScript otherEntity = other.gameObject.GetComponentInParent<EntityScript>();
 
         if (otherEntity != null && !alreadyHitList.Contains(other.gameObject))
         {

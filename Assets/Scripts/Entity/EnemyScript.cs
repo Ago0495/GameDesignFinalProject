@@ -40,7 +40,7 @@ public class EnemyScript : EntityScript
 
         if (target != null)
         {
-            targetPos = target.transform.position;
+            targetPos = target.GetComponent<Collider2D>().transform.position;
             weaponPos = weaponHolder.transform.position;
 
             AimWeapon(weaponPos, targetPos);

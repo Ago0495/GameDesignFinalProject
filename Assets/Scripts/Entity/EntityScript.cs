@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,6 +22,7 @@ public class EntityScript : MonoBehaviour
     private protected WeaponScript weaponScript;
     private float angle;
     private SpriteRenderer spriteRenderer;
+    LayerSort layerSort;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -29,6 +31,7 @@ public class EntityScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         weaponHolder = transform.Find("WeaponHolder");
         weaponStache = transform.Find("WeaponStache");
+        layerSort = gameObject.AddComponent(typeof(LayerSort)) as LayerSort;
 
         stachedWeapons = weaponHolder.GetComponentsInChildren<WeaponScript>().ToList();
         stachedWeapons = stachedWeapons.Concat(weaponStache.GetComponentsInChildren<WeaponScript>()).ToList();
@@ -41,11 +44,9 @@ public class EntityScript : MonoBehaviour
             SwitchWeapon(currentWeaponIndex);
         }
     }
-
-    // Update is called once per frame
     public virtual void Update()
     {
-        layerSort();
+        layerSort.sortLayers();
     }
 
     public void TakeDamage(int damage)
@@ -117,11 +118,5 @@ public class EntityScript : MonoBehaviour
     public int GetNumWeapons()
     {
         return stachedWeapons.Count;
-    }
-
-
-    public void layerSort()
-    {
-        spriteRenderer.sortingOrder = -1 * (int)(transform.position.y * 10);
     }
 }
