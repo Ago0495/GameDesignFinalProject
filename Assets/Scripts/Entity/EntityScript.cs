@@ -22,7 +22,6 @@ public class EntityScript : MonoBehaviour
     private protected WeaponScript weaponScript;
     private float angle;
     private SpriteRenderer spriteRenderer;
-    LayerSort layerSort;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -31,7 +30,6 @@ public class EntityScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         weaponHolder = transform.Find("WeaponHolder");
         weaponStache = transform.Find("WeaponStache");
-        layerSort = gameObject.AddComponent(typeof(LayerSort)) as LayerSort;
 
         stachedWeapons = weaponHolder.GetComponentsInChildren<WeaponScript>().ToList();
         stachedWeapons = stachedWeapons.Concat(weaponStache.GetComponentsInChildren<WeaponScript>()).ToList();
@@ -46,7 +44,7 @@ public class EntityScript : MonoBehaviour
     }
     public virtual void Update()
     {
-        layerSort.sortLayers();
+
     }
 
     public void TakeDamage(int damage)
