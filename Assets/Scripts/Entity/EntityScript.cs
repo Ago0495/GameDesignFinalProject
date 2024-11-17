@@ -80,6 +80,15 @@ public class EntityScript : MonoBehaviour
 
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+
+        if (targetPos.x < transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (targetPos.x > transform.position.x)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public virtual void SwitchWeapon(int index)
