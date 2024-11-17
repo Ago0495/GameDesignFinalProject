@@ -92,15 +92,17 @@ public class EntityScript : MonoBehaviour
         targetPos.y = targetPos.y - weaponPos.y;
 
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-        weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+        //weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
 
         if (targetPos.x > 0.1f)
         {
             spriteRenderer.flipX = false;
+            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
         }
         else if (targetPos.x < 0.1f)
         {
             spriteRenderer.flipX = true;
+            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(180, 0, -angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
         }
     }
 
