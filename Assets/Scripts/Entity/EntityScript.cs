@@ -22,12 +22,14 @@ public class EntityScript : MonoBehaviour
     private protected WeaponScript weaponScript;
     private float angle;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         weaponHolder = transform.Find("WeaponHolder");
         weaponStache = transform.Find("WeaponStache");
 
@@ -44,7 +46,7 @@ public class EntityScript : MonoBehaviour
     }
     public virtual void Update()
     {
-
+        UpdateAnimator();
     }
 
     public void TakeDamage(int damage)
@@ -81,13 +83,15 @@ public class EntityScript : MonoBehaviour
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
 
-        if (targetPos.x < transform.position.x)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if (targetPos.x > transform.position.x)
+        var temp = targetPos.x - transform.position.x;
+
+        if (targetPos.x > 0)
         {
             spriteRenderer.flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
         }
     }
 
@@ -126,4 +130,19 @@ public class EntityScript : MonoBehaviour
     {
         return stachedWeapons.Count;
     }
+    private void UpdateAnimator()
+    {
+        if (animator == null) return;
+
+        float speed = Mathf.Clamp(rb2d.velocity.magnitude, 0f, 1f);
+
+        if ((rb2d.velocity.x > 0 && spriteRenderer.flipX) || (rb2d.velocity.x < 0 && !spriteRenderer.flipX))
+        {
+            speed *= -1f;
+        }
+
+        animator.SetBool("IsRunning", Mathf.Abs(speed) > 0);
+        animator.SetFloat("RunSpeed", speed);
+    }
+
 }
