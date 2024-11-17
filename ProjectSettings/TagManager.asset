@@ -9,6 +9,7 @@ TagManager:
   - Event
   - Sword
   - Bow
+  - Hitbox
   layers:
   - Default
   - TransparentFX

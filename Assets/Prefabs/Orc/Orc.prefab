@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4956751514377834112}
   - component: {fileID: 4455015311223748907}
   - component: {fileID: 3439932521149807858}
+  - component: {fileID: 8701398058858100402}
   m_Layer: 8
   m_Name: Orc
   m_TagString: ENEMY
@@ -220,7 +221,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 77259c2f00333a54ab019bec4238f33a, type: 2}
-  duration: 0.125
+  duration: 0.0625
+--- !u!95 &8701398058858100402
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3802367952017844059}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e66c43fccb5870f4b98d87a30382faa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4173323985671653618
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +318,7 @@ GameObject:
   - component: {fileID: 5873032733074896398}
   m_Layer: 8
   m_Name: HitBox
-  m_TagString: ENEMY
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,6 +25,7 @@ public class EnemyScript : EntityScript
         agent.updateUpAxis = false;
 
         target = GameObject.FindGameObjectWithTag("Player");
+
         weaponScript = currentWeapon.GetComponent<WeaponScript>();
         if (weaponScript == null)
         {
@@ -38,14 +40,22 @@ public class EnemyScript : EntityScript
 
         agent.speed = moveSpeed;
 
-        if (target != null)
+        if (target != null && isAlive)
         {
+            GameObject hitboxObj = target.transform.FindObjectsWithTag("Hitbox").FirstOrDefault();
+            Collider2D hitboxCollider = hitboxObj.GetComponent<Collider2D>();
+            Vector3 hitboxPos = hitboxCollider.transform.position;
+
             targetPos = target.GetComponent<Collider2D>().transform.position;
+
+            //addjust aim to the hitbox + offset
+            hitboxPos = new Vector3(hitboxPos.x + hitboxCollider.offset.x, hitboxPos.y + hitboxCollider.offset.y, hitboxPos.z);
+
             weaponPos = weaponHolder.transform.position;
 
-            AimWeapon(weaponPos, targetPos);
-
             MoveToTarget();
+
+            AimWeapon(weaponPos, hitboxPos);
 
             TryAttack();
         }
@@ -74,6 +84,8 @@ public class EnemyScript : EntityScript
 
     private protected override void OnDefeated()
     {
+        base.OnDefeated();
+
         foreach (GameObject obj in createOnDefeat)
             {
                 Instantiate(obj, transform.position, Quaternion.identity);
@@ -84,7 +96,7 @@ public class EnemyScript : EntityScript
         {
             room.RemoveEnemy(gameObject);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
     public void SetRoom(RoomScript _room)
     {

@@ -25,10 +25,13 @@ public class EntityScript : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private SimpleFlash simpleFlash;
+    private protected bool isAlive;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
+        isAlive = true;
+
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -67,7 +70,9 @@ public class EntityScript : MonoBehaviour
 
     private protected virtual void OnDefeated()
     {
-        Debug.Log(name + " Defeated");
+        animator.SetBool("IsDead", true);
+        moveSpeed = 0;
+        isAlive = false;
     }
 
     public void UseWeapon()
@@ -89,13 +94,11 @@ public class EntityScript : MonoBehaviour
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
 
-        var temp = targetPos.x - transform.position.x;
-
-        if (targetPos.x > 0)
+        if (targetPos.x > 0.1f)
         {
             spriteRenderer.flipX = false;
         }
-        else
+        else if (targetPos.x < 0.1f)
         {
             spriteRenderer.flipX = true;
         }
@@ -140,14 +143,22 @@ public class EntityScript : MonoBehaviour
     {
         if (animator == null) return;
 
-        float speed = Mathf.Clamp(rb2d.velocity.magnitude, 0f, 1f);
+        float speed = 0;
+
+        if (GetComponent<NavMeshAgent>())
+        {
+            NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
+            speed += Mathf.Clamp(navMeshAgent.velocity.magnitude, 0f, 1f);
+        }
+        
+        speed += Mathf.Clamp(rb2d.velocity.magnitude, 0f, 1f);
 
         if ((rb2d.velocity.x > 0 && spriteRenderer.flipX) || (rb2d.velocity.x < 0 && !spriteRenderer.flipX))
         {
             speed *= -1f;
         }
 
-        animator.SetBool("IsRunning", Mathf.Abs(speed) > 0);
+        animator.SetBool("IsRunning", Mathf.Abs(speed) > 0.1f);
         animator.SetFloat("RunSpeed", speed);
     }
 

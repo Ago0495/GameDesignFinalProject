@@ -23,13 +23,16 @@ public class PlayerScript : EntityScript
     {
         base.Update();
 
-        rb2d.velocity = new Vector2(lastInput.x, lastInput.y) * moveSpeed;
+        if (isAlive)
+        {
+            rb2d.velocity = new Vector2(lastInput.x, lastInput.y) * moveSpeed;
 
-        mousePos = Input.mousePosition;
-        weaponPos = Camera.main.WorldToScreenPoint(weaponHolder.position);
-        mousePos.z = 10;
+            mousePos = Input.mousePosition;
+            weaponPos = Camera.main.WorldToScreenPoint(weaponHolder.position);
+            mousePos.z = 10;
 
-        AimWeapon(weaponPos, mousePos);
+            AimWeapon(weaponPos, mousePos);
+        }
     }
 
 

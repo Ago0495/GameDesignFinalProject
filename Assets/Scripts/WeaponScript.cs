@@ -144,16 +144,19 @@ public class WeaponScript : MonoBehaviour
         int atkDamage = (int)GetTotalStatPower("atkDamage");
         float atkKnockback = GetTotalStatPower("atkKnockback");
 
-        EntityScript otherEntity = other.gameObject.GetComponentInParent<EntityScript>();
-
-        if (otherEntity != null && !alreadyHitList.Contains(other.gameObject))
+        if (other.CompareTag("Hitbox"))
         {
-            alreadyHitList.Add(other.gameObject);
+            EntityScript otherEntity = other.gameObject.GetComponentInParent<EntityScript>();
 
-            if (other.gameObject.layer != gameObject.layer)
+            if (otherEntity != null && !alreadyHitList.Contains(other.gameObject))
             {
-                otherEntity.TakeDamage(atkDamage);
-                ApplyKnockback(other, transform, atkKnockback);
+                alreadyHitList.Add(other.gameObject);
+
+                if (other.gameObject.layer != gameObject.layer)
+                {
+                    otherEntity.TakeDamage(atkDamage);
+                    ApplyKnockback(other, transform, atkKnockback);
+                }
             }
         }
     }
