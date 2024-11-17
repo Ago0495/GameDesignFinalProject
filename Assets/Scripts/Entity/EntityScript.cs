@@ -1,3 +1,4 @@
+using BarthaSzabolcs.Tutorial_SpriteFlash;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ public class EntityScript : MonoBehaviour
     private float angle;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private SimpleFlash simpleFlash;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -30,6 +32,7 @@ public class EntityScript : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        simpleFlash = GetComponent<SimpleFlash>();
         weaponHolder = transform.Find("WeaponHolder");
         weaponStache = transform.Find("WeaponStache");
 
@@ -52,6 +55,9 @@ public class EntityScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+
+        simpleFlash.Flash();
+
         if (hp <= 0)
         {
             OnDefeated();
