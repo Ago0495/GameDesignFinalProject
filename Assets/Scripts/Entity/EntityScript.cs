@@ -100,14 +100,16 @@ public class EntityScript : MonoBehaviour
 
         if (targetPos.x > 0.1f)
         {
-            spriteRenderer.flipX = false;
+            Quaternion entityRotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
 
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
             weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
         }
         else if (targetPos.x < 0.1f)
         {
-            spriteRenderer.flipX = true;
+            Quaternion entityRotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
 
             Quaternion targetRotation = Quaternion.Euler(180, 0, -angle);
             weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
@@ -117,6 +119,7 @@ public class EntityScript : MonoBehaviour
 
     public virtual void SwitchWeapon(int index)
     {
+        index = (currentWeaponIndex % stachedWeapons.Count + stachedWeapons.Count) % stachedWeapons.Count;
         currentWeapon.SetParent(weaponStache, false);
         currentWeapon = stachedWeapons[index].transform;
         weaponScript = currentWeapon.GetComponent<WeaponScript>();

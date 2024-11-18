@@ -67,7 +67,6 @@ public class PlayerScript : EntityScript
             float rawVal = sc.ReadValue<float>();
             int val = (int)(rawVal / Mathf.Abs(rawVal));
             currentWeaponIndex += val;
-            currentWeaponIndex = (currentWeaponIndex % stachedWeapons.Count + stachedWeapons.Count) % stachedWeapons.Count;
 
             SwitchWeapon(currentWeaponIndex);
         }
