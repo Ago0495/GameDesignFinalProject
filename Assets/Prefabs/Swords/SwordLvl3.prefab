@@ -110,7 +110,7 @@ MonoBehaviour:
       statCost: 5
     - statPower: 20
       statCost: 15
-    - statPower: 5
+    - statPower: 20
       statCost: 10
   weaponUpgrades: []
 --- !u!61 &7881940014766724773
