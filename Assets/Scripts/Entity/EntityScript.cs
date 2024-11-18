@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions.Must;
 
 public class EntityScript : MonoBehaviour
 {
@@ -73,6 +74,9 @@ public class EntityScript : MonoBehaviour
         animator.SetBool("IsDead", true);
         moveSpeed = 0;
         isAlive = false;
+
+        weaponHolder.gameObject.SetActive(false);
+        weaponStache.gameObject.SetActive(false);
     }
 
     public void UseWeapon()
@@ -97,13 +101,18 @@ public class EntityScript : MonoBehaviour
         if (targetPos.x > 0.1f)
         {
             spriteRenderer.flipX = false;
-            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
         }
         else if (targetPos.x < 0.1f)
         {
             spriteRenderer.flipX = true;
-            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(180, 0, -angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+
+            Quaternion targetRotation = Quaternion.Euler(180, 0, -angle);
+            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
         }
+
     }
 
     public virtual void SwitchWeapon(int index)
@@ -141,27 +150,31 @@ public class EntityScript : MonoBehaviour
     {
         return stachedWeapons.Count;
     }
+
     private void UpdateAnimator()
     {
         if (animator == null) return;
 
-        float speed = 0;
+        Vector3 moveVector = Vector3.zero;
+        float runAnimationSpeed = 0;
 
         if (GetComponent<NavMeshAgent>())
         {
             NavMeshAgent navMeshAgent = GetComponent<NavMeshAgent>();
-            speed += Mathf.Clamp(navMeshAgent.velocity.magnitude, 0f, 1f);
+            moveVector += navMeshAgent.velocity;
         }
-        
-        speed += Mathf.Clamp(rb2d.velocity.magnitude, 0f, 1f);
+
+        moveVector += new Vector3(rb2d.velocity.x, rb2d.velocity.y, 0);
+
+        runAnimationSpeed = Mathf.Pow(moveVector.magnitude, 0.5f) * 0.8f;
 
         if ((rb2d.velocity.x > 0 && spriteRenderer.flipX) || (rb2d.velocity.x < 0 && !spriteRenderer.flipX))
         {
-            speed *= -1f;
+            runAnimationSpeed *= -1f;
         }
 
-        animator.SetBool("IsRunning", Mathf.Abs(speed) > 0.1f);
-        animator.SetFloat("RunSpeed", speed);
+        animator.SetBool("IsRunning", Mathf.Abs(moveVector.magnitude) > 0.1f);
+        animator.SetFloat("RunSpeed", runAnimationSpeed);
     }
 
 }

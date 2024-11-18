@@ -54,7 +54,7 @@ public class PlayerScript : EntityScript
     {
         canAttack = true;
 
-        if (fb.started)
+        if (fb.started && isAlive)
         {
             UseWeapon();
         }

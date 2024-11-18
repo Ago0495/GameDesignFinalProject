@@ -106,7 +106,7 @@ MonoBehaviour:
       statCost: 30
     - statPower: 2
       statCost: 20
-    - statPower: 6
+    - statPower: 5
       statCost: 5
     - statPower: 20
       statCost: 15

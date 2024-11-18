@@ -29,7 +29,7 @@ public class EnemyScript : EntityScript
         weaponScript = currentWeapon.GetComponent<WeaponScript>();
         if (weaponScript == null)
         {
-            agent.stoppingDistance = 0;
+            agent.stoppingDistance = 5;
         }
     }
 
@@ -64,7 +64,7 @@ public class EnemyScript : EntityScript
     public void MoveToTarget()
     {
         agent.SetDestination(new Vector3(targetPos.x, targetPos.y, transform.position.z));
-        agent.stoppingDistance = weaponScript.GetTotalStatPower("atkRange") * 0.5f;
+        agent.stoppingDistance = weaponScript.GetTotalStatPower("atkRange") * 0.8f;
     }
 
     public void TryAttack()
