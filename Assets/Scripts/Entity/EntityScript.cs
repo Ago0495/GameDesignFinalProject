@@ -98,19 +98,19 @@ public class EntityScript : MonoBehaviour
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         //weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
 
-        if (targetPos.x > 0.1f)
+        if (targetPos.x > 0.5f)
         {
             Quaternion entityRotation = Quaternion.Euler(0, 0, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, 1);
+            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
 
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
             weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
             weaponHolder.localScale = new Vector3(1, 1, 1);
         }
-        else if (targetPos.x < 0.1f)
+        else if (targetPos.x < 0.5f)
         {
             Quaternion entityRotation = Quaternion.Euler(0, 180, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, 1);
+            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
 
             Quaternion targetRotation = Quaternion.Euler(180, 0, -angle);
             weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
