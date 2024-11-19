@@ -4387,6 +4387,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: -0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1894665141671519328, guid: 8dc0ac864d6a7104fa48138dfedb4280, type: 3}
+      propertyPath: m_Spacing.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894665141671519328, guid: 8dc0ac864d6a7104fa48138dfedb4280, type: 3}
+      propertyPath: m_CellSize.x
+      value: 1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894665141671519328, guid: 8dc0ac864d6a7104fa48138dfedb4280, type: 3}
+      propertyPath: m_CellSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2284307552530819330, guid: 8dc0ac864d6a7104fa48138dfedb4280, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.82
@@ -4406,6 +4418,10 @@ PrefabInstance:
     - target: {fileID: 4247539310683894012, guid: 8dc0ac864d6a7104fa48138dfedb4280, type: 3}
       propertyPath: shopGridObject
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247539310683894012, guid: 8dc0ac864d6a7104fa48138dfedb4280, type: 3}
+      propertyPath: numDisplayItems
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4247539310683894012, guid: 8dc0ac864d6a7104fa48138dfedb4280, type: 3}
       propertyPath: sellWeapons.Array.size

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
+    [SerializeField] private int numDisplayItems;
     [SerializeField] private GameObject shopItemPrefab;
     [SerializeField] private GameObject shopGridObject;
     [SerializeField] private TextMeshProUGUI rerollButtonText;
@@ -32,7 +33,7 @@ public class ShopScript : MonoBehaviour
 
     public void GenerateRandomItems()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < numDisplayItems; i++)
         {
             GameObject itemObj = Instantiate(shopItemPrefab, shopGridObject.transform);
             itemObj.GetComponent<ShopItemScript>().SetWeapons(sellWeapons);
