@@ -15,7 +15,10 @@ public class InventoryUIScript : MonoBehaviour
     public void Start()
     {
         inventorySlots = new List<GameObject>();
-        playerScript = GetComponentInParent<PlayerScript>();
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerScript = playerObj.GetComponentInParent<PlayerScript>();
+
         inventoryGridObj = GetComponentInChildren<GridLayoutGroup>().gameObject;
     }
 
