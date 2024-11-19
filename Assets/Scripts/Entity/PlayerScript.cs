@@ -16,6 +16,8 @@ public class PlayerScript : EntityScript
     public override void Start()
     {
         base.Start();
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -27,12 +29,7 @@ public class PlayerScript : EntityScript
         {
             //rb2d.velocity = new Vector2(lastInput.x, lastInput.y) * moveSpeed;
 
-            rb2d.AddForce(lastInput * moveSpeed * moveSpeed);
-
-            if (rb2d.velocity.magnitude > moveSpeed)
-            {
-                rb2d.velocity = rb2d.velocity.normalized * moveSpeed;
-            }
+            rb2d.AddForce(lastInput * moveSpeed * Time.deltaTime);
 
             mousePos = Input.mousePosition;
             weaponPos = Camera.main.WorldToScreenPoint(weaponHolder.position);

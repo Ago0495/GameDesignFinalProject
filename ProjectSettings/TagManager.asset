@@ -10,6 +10,8 @@ TagManager:
   - Sword
   - Bow
   - Hitbox
+  - LevelManager
+  - LevelExit
   layers:
   - Default
   - TransparentFX

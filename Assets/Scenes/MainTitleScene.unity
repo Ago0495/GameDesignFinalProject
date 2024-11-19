@@ -709,10 +709,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: play
+  m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 185581c363ecd06429047a80652a6f19, type: 2}
-  m_sharedMaterial: {fileID: -7536204873363161514, guid: 185581c363ecd06429047a80652a6f19, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec08dd42b7e2df741911700f3b9e3e90, type: 2}
+  m_sharedMaterial: {fileID: -8862201862784343664, guid: ec08dd42b7e2df741911700f3b9e3e90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
