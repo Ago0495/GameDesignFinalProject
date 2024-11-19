@@ -2,6 +2,7 @@ using BarthaSzabolcs.Tutorial_SpriteFlash;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -40,6 +41,7 @@ public class EntityScript : MonoBehaviour
         weaponHolder = transform.Find("WeaponHolder");
         weaponStache = transform.Find("WeaponStache");
 
+        stachedWeapons = new List<WeaponScript>();
         stachedWeapons = weaponHolder.GetComponentsInChildren<WeaponScript>().ToList();
         stachedWeapons = stachedWeapons.Concat(weaponStache.GetComponentsInChildren<WeaponScript>()).ToList();
 
@@ -81,12 +83,15 @@ public class EntityScript : MonoBehaviour
 
     public void UseWeapon()
     {
-        weaponScript = currentWeapon.GetComponent<WeaponScript>();
-        currentWeapon.gameObject.layer = gameObject.layer;
-        if (weaponScript != null)
+        if (currentWeapon != null)
         {
-            weaponScript.Attack();
-        } 
+            weaponScript = currentWeapon.GetComponent<WeaponScript>();
+            currentWeapon.gameObject.layer = gameObject.layer;
+            if (weaponScript != null)
+            {
+                weaponScript.Attack();
+            } 
+        }
     }
 
     public void AimWeapon(Vector3 weaponPos, Vector3 targetPos)
@@ -96,24 +101,35 @@ public class EntityScript : MonoBehaviour
         targetPos.y = targetPos.y - weaponPos.y;
 
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
-        //weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+        //weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, Quaternion.Euler(new Vector3(0, 0, angle)), Time.deltaTime * rotationSpeed);
+
+        float rotationSpeed;
+
+        if (weaponScript != null)
+        {
+            rotationSpeed = weaponScript.GetTotalStatPower("handling");
+        }
+        else
+        {
+            rotationSpeed = 20;
+        }
 
         if (targetPos.x > 0.5f)
         {
             Quaternion entityRotation = Quaternion.Euler(0, 0, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, Time.deltaTime * rotationSpeed);
 
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             weaponHolder.localScale = new Vector3(1, 1, 1);
         }
         else if (targetPos.x < 0.5f)
         {
             Quaternion entityRotation = Quaternion.Euler(0, 180, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+            transform.rotation = Quaternion.Lerp(transform.rotation, entityRotation, Time.deltaTime * rotationSpeed);
 
             Quaternion targetRotation = Quaternion.Euler(180, 0, -angle);
-            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * weaponScript.GetTotalStatPower("handling"));
+            weaponHolder.rotation = Quaternion.Lerp(weaponHolder.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             weaponHolder.localScale = new Vector3(1, 1, 1);
         }
 
@@ -121,11 +137,26 @@ public class EntityScript : MonoBehaviour
 
     public virtual void SwitchWeapon(int index)
     {
-        index = (currentWeaponIndex % stachedWeapons.Count + stachedWeapons.Count) % stachedWeapons.Count;
-        currentWeapon.SetParent(weaponStache, false);
-        currentWeapon = stachedWeapons[index].transform;
-        weaponScript = currentWeapon.GetComponent<WeaponScript>();
-        currentWeapon.SetParent(weaponHolder, false);
+        if (stachedWeapons.Count != 0)
+        {
+            index = (currentWeaponIndex % stachedWeapons.Count + stachedWeapons.Count) % stachedWeapons.Count;
+        }
+        else
+        {
+            index = 0;
+        }
+
+
+        if (GetNumWeapons() != 0)
+        {
+            if (currentWeapon != null)
+            {
+                currentWeapon.SetParent(weaponStache, false);
+            }
+            currentWeapon = stachedWeapons[index].transform;
+            weaponScript = currentWeapon.GetComponent<WeaponScript>();
+            currentWeapon.SetParent(weaponHolder, false);
+        }
     }
 
     public void AddWeaponToEntity(GameObject _newWeapon)

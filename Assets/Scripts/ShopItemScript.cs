@@ -103,7 +103,12 @@ public class ShopItemScript : MonoBehaviour
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         PlayerScript playerScript = playerObj.GetComponentInParent<PlayerScript>();
         Transform playerWeapon = playerScript.GetCurrentWeapon();
-        WeaponScript playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
+        WeaponScript playerWeaponScript = null;
+
+        if (playerWeapon != null)
+        {
+            playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
+        }
 
         int playerCurrency = playerScript.GetCurrency();
 
@@ -112,16 +117,19 @@ public class ShopItemScript : MonoBehaviour
 
             Button button = GetComponent<Button>();
 
-            if (upgradeItem != null && playerWeaponScript.GetLvl() > playerWeaponScript.GetNumUpgrades())
+            if (upgradeItem != null && playerWeapon != null)
             {
-                playerScript.ChangeCurrency(-itemPrice);
-                button.interactable = false;
+                if (playerWeaponScript.GetLvl() > playerWeaponScript.GetNumUpgrades())
+                {
+                    playerScript.ChangeCurrency(-itemPrice);
+                    button.interactable = false;
 
-                playerWeapon = playerScript.GetCurrentWeapon();
-                playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
-                playerWeaponScript.AddUpgrade(upgrade);
+                    playerWeapon = playerScript.GetCurrentWeapon();
+                    playerWeaponScript = playerWeapon.GetComponent<WeaponScript>();
+                    playerWeaponScript.AddUpgrade(upgrade);
 
-                SetBuyColor(transform);
+                    SetBuyColor(transform);
+                }
             }
             if (weaponItem != null && playerScript.GetMaxWeapons() > playerScript.GetNumWeapons())
             {

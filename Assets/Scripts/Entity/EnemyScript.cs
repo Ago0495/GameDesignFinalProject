@@ -23,13 +23,16 @@ public class EnemyScript : EntityScript
 
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        agent.stoppingDistance = 0;
 
-        target = GameObject.FindGameObjectWithTag("Player");
-
-        weaponScript = currentWeapon.GetComponent<WeaponScript>();
-        if (weaponScript == null)
+        if (target == null)
         {
-            agent.stoppingDistance = 5;
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (currentWeapon != null)
+        {
+            weaponScript = currentWeapon.GetComponent<WeaponScript>();
         }
     }
 
@@ -42,42 +45,59 @@ public class EnemyScript : EntityScript
 
         if (target != null && isAlive)
         {
-            GameObject hitboxObj = target.transform.FindObjectsWithTag("Hitbox").FirstOrDefault();
-            Collider2D hitboxCollider = hitboxObj.GetComponent<Collider2D>();
-            Vector3 hitboxPos = hitboxCollider.transform.position;
+            GameObject targetHitboxObj = target.transform.FindObjectsWithTag("Hitbox").FirstOrDefault();
 
-            targetPos = target.GetComponent<Collider2D>().transform.position;
+            targetPos = target.transform.position;
 
-            //addjust aim to the hitbox + offset
-            hitboxPos = new Vector3(hitboxPos.x + hitboxCollider.offset.x, hitboxPos.y + hitboxCollider.offset.y, hitboxPos.z);
+            if (targetHitboxObj != null )
+            {
+                Collider2D targetHitboxCollider = targetHitboxObj.GetComponent<Collider2D>();
+                Vector3 targetHitboxPos = targetHitboxCollider.transform.position;
 
-            weaponPos = weaponHolder.transform.position;
+                targetPos = target.GetComponent<Collider2D>().transform.position;
+
+                //addjust aim to the hitbox + offset
+                targetHitboxPos = new Vector3(targetHitboxPos.x + targetHitboxCollider.offset.x, targetHitboxPos.y + targetHitboxCollider.offset.y, targetHitboxPos.z);
+
+                weaponPos = weaponHolder.transform.position;
+
+
+                AimWeapon(weaponPos, targetHitboxPos);
+
+            }
 
             MoveToTarget();
-
-            AimWeapon(weaponPos, hitboxPos);
-
             TryAttack();
         }
     }
 
     public void MoveToTarget()
     {
+        float moveRange = 0;
+
+        if (weaponScript != null)
+        {
+            moveRange = weaponScript.GetTotalStatPower("atkRange");
+        }
+
         agent.SetDestination(new Vector3(targetPos.x, targetPos.y, transform.position.z));
-        agent.stoppingDistance = weaponScript.GetTotalStatPower("atkRange") * 0.8f;
+        agent.stoppingDistance = moveRange * 0.8f;
     }
 
     public void TryAttack()
     {
-        //checks if player is inrange of weapon
-        weaponScript = currentWeapon.GetComponent<WeaponScript>();
-        targetDir = new Vector2(targetPos.x - transform.position.x, targetPos.y - transform.position.y).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, weaponScript.GetTotalStatPower("atkRange"), 1 << target.layer);
-        if (hit.collider != null)
+        if (currentWeapon != null)
         {
-            if (hit.transform.tag == "Player")
+            //checks if player is inrange of weapon
+            weaponScript = currentWeapon.GetComponent<WeaponScript>();
+            targetDir = new Vector2(targetPos.x - transform.position.x, targetPos.y - transform.position.y).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, weaponScript.GetTotalStatPower("atkRange"), 1 << target.layer);
+            if (hit.collider != null)
             {
-                UseWeapon();
+                if (hit.transform.tag == "Player")
+                {
+                    UseWeapon();
+                }
             }
         }
     }
@@ -105,9 +125,16 @@ public class EnemyScript : EntityScript
 
     private void OnDrawGizmos()
     {
+        float range = 1f;
+
+        if (weaponScript != null)
+        {
+            range = weaponScript.GetTotalStatPower("atkRange");
+        }
+
         if (target != null)
         {
-            Gizmos.DrawLine(transform.position, transform.position + targetDir * weaponScript.GetTotalStatPower("atkRange"));
+            Gizmos.DrawLine(transform.position, transform.position + targetDir * range);
         }
     }
 }
