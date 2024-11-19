@@ -25,7 +25,14 @@ public class PlayerScript : EntityScript
 
         if (isAlive)
         {
-            rb2d.velocity = new Vector2(lastInput.x, lastInput.y) * moveSpeed;
+            //rb2d.velocity = new Vector2(lastInput.x, lastInput.y) * moveSpeed;
+
+            rb2d.AddForce(lastInput * moveSpeed * moveSpeed);
+
+            if (rb2d.velocity.magnitude > moveSpeed)
+            {
+                rb2d.velocity = rb2d.velocity.normalized * moveSpeed;
+            }
 
             mousePos = Input.mousePosition;
             weaponPos = Camera.main.WorldToScreenPoint(weaponHolder.position);

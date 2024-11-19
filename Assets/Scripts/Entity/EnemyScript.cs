@@ -81,7 +81,7 @@ public class EnemyScript : EntityScript
         }
 
         agent.SetDestination(new Vector3(targetPos.x, targetPos.y, transform.position.z));
-        agent.stoppingDistance = moveRange * 0.8f;
+        agent.stoppingDistance = moveRange * 0.5f;
     }
 
     public void TryAttack()

@@ -214,7 +214,9 @@ public class EntityScript : MonoBehaviour
             runAnimationSpeed *= -1f;
         }
 
-        animator.SetBool("IsRunning", Mathf.Abs(moveVector.magnitude) > 0.1f);
+        float minSpeedToStartRunAnimation = 0.1f;
+
+        animator.SetBool("IsRunning", Mathf.Abs(moveVector.magnitude) > minSpeedToStartRunAnimation);
         animator.SetFloat("RunSpeed", runAnimationSpeed);
     }
 
