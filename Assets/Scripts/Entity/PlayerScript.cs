@@ -20,6 +20,7 @@ public class PlayerScript : EntityScript
         DontDestroyOnLoad(this.gameObject);
     }
 
+
     // Update is called once per frame
     public override void Update()
     {

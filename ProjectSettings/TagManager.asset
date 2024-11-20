@@ -12,6 +12,7 @@ TagManager:
   - Hitbox
   - LevelManager
   - LevelExit
+  - GameManager
   layers:
   - Default
   - TransparentFX

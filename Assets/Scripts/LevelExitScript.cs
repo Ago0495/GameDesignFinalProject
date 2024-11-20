@@ -10,20 +10,28 @@ public class LevelExitScript : MonoBehaviour
     [SerializeField] bool openDoors;
     [SerializeField] Sprite doorOpenSprite;
     [SerializeField] int goToLevel;
+    private LevelManager levelManager;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         GameObject levelManagerObj = GameObject.FindGameObjectWithTag("LevelManager");
-        LevelManager levelManager = null;
         if (levelManagerObj != null )
         {
             levelManager = levelManagerObj.GetComponent<LevelManager>();
+        }
+
+        GameObject gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
+        if (gameManagerObj != null)
+        {
+            gameManager = gameManagerObj.GetComponent<GameManager>();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        //test, remove on build
         if (openDoors)
         {
             OpenExit();
@@ -40,9 +48,9 @@ public class LevelExitScript : MonoBehaviour
         {
             if (door != null)
             {
-                Sprite doorSprite = door.GetComponent<Sprite>();
-                //doorSprite = doorOpenSprite;
-                door.gameObject.SetActive(false);
+                Sprite doorSprite = door.GetComponent<SpriteRenderer>().sprite;
+                doorSprite = doorOpenSprite;
+                door.GetComponent<Collider2D>().enabled = false;
             }
         }
     }
@@ -55,7 +63,7 @@ public class LevelExitScript : MonoBehaviour
             {
                 Sprite doorSprite = door.GetComponent<Sprite>();
                 //doorSprite = doorOpenSprite;
-                door.gameObject.SetActive(true);
+                door.GetComponent<Collider2D>().enabled = true;
             }
         }
     }
@@ -64,7 +72,7 @@ public class LevelExitScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(goToLevel);
+            gameManager.SwitchLevelTo(goToLevel);
         }
     }
 }

@@ -122,6 +122,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &61209385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 61209387}
+  - component: {fileID: 61209386}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &61209386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61209385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56f529a10523984e886927522829569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  levels:
+  - levelScene: '"ShopLevel"'
+    levelNumber: 0
+  - levelScene: '"TestLevel"'
+    levelNumber: -1
+--- !u!4 &61209387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61209385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.80443597, y: 4.022688, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &133722886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1480,6 +1530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelExit (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1195685874698441439, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1212482060044596797, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
       propertyPath: m_LocalScale.y
       value: -1
@@ -1533,8 +1587,12 @@ PrefabInstance:
       value: 0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 5913550134628700086, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
+      propertyPath: goToLevel
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913550134628700086, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
       propertyPath: doors.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5913550134628700086, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
       propertyPath: doors.Array.data[0]
@@ -3269,11 +3327,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8445839631440967860, guid: 2cd9d8ba1b1315c46b411e6525e261fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4657899
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8445839631440967860, guid: 2cd9d8ba1b1315c46b411e6525e261fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3301036
+      value: 0.29999995
       objectReference: {fileID: 0}
     - target: {fileID: 8445839631440967860, guid: 2cd9d8ba1b1315c46b411e6525e261fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3328,7 +3386,7 @@ GameObject:
   - component: {fileID: 1936001196}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
+  m_TagString: LevelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3348,7 +3406,6 @@ MonoBehaviour:
   rooms: []
   levelExitScript: {fileID: 1144019621}
   levelComplete: 0
-  currentLevel: 0
   roomsCleared: 0
 --- !u!4 &1936001197
 Transform:
@@ -4216,7 +4273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2242394864630572414, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.55
+      value: 4.05
       objectReference: {fileID: 0}
     - target: {fileID: 2242394864630572414, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4714,6 +4771,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameExit
       objectReference: {fileID: 0}
+    - target: {fileID: 1195685874698441439, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195685874698441439, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1212482060044596797, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -4755,7 +4820,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8337853948441787717, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
@@ -4777,3 +4843,4 @@ SceneRoots:
   - {fileID: 2056801912}
   - {fileID: 7664296964278166912}
   - {fileID: 1144019620}
+  - {fileID: 61209387}
