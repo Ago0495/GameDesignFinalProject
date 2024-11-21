@@ -11,13 +11,26 @@ public class PlayerScript : EntityScript
     [SerializeField] private int maxWeapons;
     private Vector2 lastInput;
     private Vector3 mousePos;
+    private static PlayerScript playerInstance;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+
+        if (playerInstance == null)
+        {
+            playerInstance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
 

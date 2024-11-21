@@ -13,10 +13,22 @@ public class GameManager : MonoBehaviour
     private Level currentLevel;
     private Scene currentLevelScene;
     private PlayerScript playerScript;
+    private static GameManager gameInstance;
 
     private void Awake()
     {
+        transform.tag = "GameManager";
+
         DontDestroyOnLoad(this.gameObject);
+
+        if (gameInstance == null)
+        {
+            gameInstance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void Start()

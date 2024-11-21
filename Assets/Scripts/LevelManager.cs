@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
+        transform.tag = "LevelManager";
+
         levelComplete = false;
     }
     void Start()

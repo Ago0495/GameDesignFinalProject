@@ -27,7 +27,7 @@ public class LevelExitScript : MonoBehaviour
             gameManager = gameManagerObj.GetComponent<GameManager>();
         }
 
-        int currentLevel = gameManager.GetCurrentLevel();
+        int currentLevel = levelManager.GetLevelNum();
 
         if (goToLevel > 0)
         {
