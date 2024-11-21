@@ -13,6 +13,7 @@ TagManager:
   - LevelManager
   - LevelExit
   - GameManager
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

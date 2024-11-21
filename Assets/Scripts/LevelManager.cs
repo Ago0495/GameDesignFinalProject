@@ -6,15 +6,20 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     //variables
+    [SerializeField] private int levelNumber;
     [SerializeField] private RoomScript[] rooms;
     [SerializeField] private LevelExitScript levelExitScript;
     [SerializeField] private bool levelComplete;
     [SerializeField] private int roomsCleared;
     private Scene currentScene;
-    private int levelNumber;
     private PlayerScript playerScript;
-    private GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        levelComplete = false;
+    }
     void Start()
     {
         if (levelExitScript == null)
@@ -26,22 +31,27 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        GameObject gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
-        if (gameManagerObj != null)
-        {
-            gameManager = gameManagerObj.GetComponent<GameManager>();
-        }
-
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
+            GameObject[] spawnpoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
             playerScript = playerObj.GetComponent<PlayerScript>();
+
+            if (spawnpoint != null && !levelComplete)
+            {
+                playerObj.transform.position = spawnpoint[0].transform.position;
+            }
+            else
+            {
+                playerObj.transform.position = Vector3.zero;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (levelComplete)
         {
             SetLevelComplete(true);

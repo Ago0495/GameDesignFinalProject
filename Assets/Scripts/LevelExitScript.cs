@@ -26,6 +26,20 @@ public class LevelExitScript : MonoBehaviour
         {
             gameManager = gameManagerObj.GetComponent<GameManager>();
         }
+
+        int currentLevel = gameManager.GetCurrentLevel();
+
+        if (goToLevel > 0)
+        {
+            if (currentLevel == 1)
+            {
+                SetNextLevel(gameManager.GetNextLevel());
+            }
+            else
+            {
+                SetNextLevel(1);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -42,14 +56,18 @@ public class LevelExitScript : MonoBehaviour
         }
     }
 
+    public void SetNextLevel(int level)
+    {
+        goToLevel = level;
+    }
+
     public void OpenExit()
     {
         foreach (GameObject door in doors)
         {
             if (door != null)
             {
-                Sprite doorSprite = door.GetComponent<SpriteRenderer>().sprite;
-                doorSprite = doorOpenSprite;
+                door.GetComponent<SpriteRenderer>().enabled = false;
                 door.GetComponent<Collider2D>().enabled = false;
             }
         }
@@ -61,8 +79,7 @@ public class LevelExitScript : MonoBehaviour
         {
             if (door != null)
             {
-                Sprite doorSprite = door.GetComponent<Sprite>();
-                //doorSprite = doorOpenSprite;
+                door.GetComponent<SpriteRenderer>().enabled = true;
                 door.GetComponent<Collider2D>().enabled = true;
             }
         }

@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //variables
-    [SerializeField] private int currentLevel;
+    [SerializeField] private int currentLevelNumber;
+    [SerializeField] private int nextLevelNumber;
     [SerializeField] private Level[] levels;
-    private Scene currentScene;
+    private Level currentLevel;
+    private Scene currentLevelScene;
     private PlayerScript playerScript;
 
     private void Awake()
@@ -22,7 +24,9 @@ public class GameManager : MonoBehaviour
         GameObject levelManagerObj = GameObject.FindGameObjectWithTag("LevelManager");
         LevelManager levelManagerScript = levelManagerObj.GetComponent<LevelManager>();
 
-        currentLevel = levelManagerScript.GetLevelNum();
+        currentLevelNumber = levelManagerScript.GetLevelNum();
+        nextLevelNumber = currentLevelNumber + 1;
+        currentLevel = Level.FindLevel(levels, currentLevelNumber);
     }
 
 
@@ -32,22 +36,46 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public int GetCurrentLevel()
+    {
+        return currentLevelNumber;
+    }
+    public void SetCurrentLevel(int lvl)
+    {
+        currentLevelNumber = lvl;
+    }
+    public int GetNextLevel()
+    {
+        return nextLevelNumber;
+    }
+
+    public bool GetCurrentLevelState()
+    {
+        return currentLevel.GetCompletionState();
+    }
+
+    public void SetCurrentLevelComplete()
+    {
+        currentLevel.SetComplete(true);
+    }
+
     public void SwitchLevelTo(int levelNum)
     {
-        switch(levelNum) 
+        currentLevelNumber = levelNum;
+
+        if (currentLevelNumber == 1)
         {
-            case -1:
-                SceneManager.LoadScene("TestLevel");
-                break;
-            case 0:
-                SceneManager.LoadScene("MainTitleScene");
-                break;
-            case 1:
-                SceneManager.LoadScene("ShopLevel");
-                break;
-            default:
-                SceneManager.LoadScene("MainTitleScene");
-                break;
+            nextLevelNumber++;
+        }
+
+        Level selectedLevel = Level.FindLevel(levels, levelNum);
+
+
+        if (selectedLevel != null)
+        {
+            currentLevel = selectedLevel;
+            string levelName = selectedLevel.GetLevelName();
+            SceneManager.LoadScene(levelName);
         }
     }
 }
