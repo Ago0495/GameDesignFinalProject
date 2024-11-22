@@ -11,9 +11,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private LevelExitScript levelExitScript;
     [SerializeField] private bool levelComplete;
     [SerializeField] private int roomsCleared;
-    private Scene currentScene;
     private PlayerScript playerScript;
-    [SerializeField] private GameManager gameManager;
+    private bool dialogueComplete;
     // Start is called before the first frame update
 
     void Awake()
@@ -21,6 +20,9 @@ public class LevelManager : MonoBehaviour
         transform.tag = "LevelManager";
 
         levelComplete = false;
+
+        //temp
+        dialogueComplete = true;
     }
     void Start()
     {
@@ -39,7 +41,7 @@ public class LevelManager : MonoBehaviour
             GameObject[] spawnpoint = GameObject.FindGameObjectsWithTag("SpawnPoint");
             playerScript = playerObj.GetComponent<PlayerScript>();
 
-            if (spawnpoint != null && !levelComplete)
+            if (spawnpoint.Length > 0 && !levelComplete)
             {
                 playerObj.transform.position = spawnpoint[0].transform.position;
             }
@@ -53,11 +55,8 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (levelComplete)
-        {
-            SetLevelComplete(true);
-        }
+        //default
+        SetLevelComplete(true);
     }
 
     public int GetLevelNum()
@@ -67,17 +66,23 @@ public class LevelManager : MonoBehaviour
 
     public void SetLevelComplete(bool levelComplete)
     {
+
         this.levelComplete = levelComplete;
+        GameManager.SetCurrentLevelAsComplete();
         OpenLevelExit();
     }
     
     public void OpenLevelExit()
     {
-        levelExitScript.OpenExit();
+        if ( levelExitScript != null)
+        {
+            Debug.Log("OpenLevelExit");
+            levelExitScript.OpenExit();
+        }
     }
 
     public void ExitLevel()
     {
-        gameManager.SwitchLevelTo(0);
+        GameManager.SwitchLevelTo(0);
     }
 }

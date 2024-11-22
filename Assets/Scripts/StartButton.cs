@@ -7,6 +7,8 @@ public class StartButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("ShopLevel");
+        Level shopLevel = GameManager.FindInLevels("ShopLevel");
+        int shopLevelNumber = shopLevel.GetLevelNumber();
+        GameManager.SwitchLevelTo(shopLevelNumber);
     }
 }

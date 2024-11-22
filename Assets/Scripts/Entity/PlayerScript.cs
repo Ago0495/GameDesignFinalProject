@@ -104,6 +104,11 @@ public class PlayerScript : EntityScript
     {
         return maxWeapons;
     }
+
+    public static PlayerScript GetPlayerInstance()
+    {
+        return playerInstance;
+    }
     public void ChangeCurrency(int amount)
     {
         currency += amount;

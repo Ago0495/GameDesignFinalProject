@@ -7,12 +7,23 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //variables
-    [SerializeField] private int currentLevelNumber;
-    [SerializeField] private int nextLevelNumber;
-    [SerializeField] private Level[] levels;
-    private Level currentLevel;
-    private Scene currentLevelScene;
-    private PlayerScript playerScript;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private static int currentLevelNumber;
+    [SerializeField] private static int nextLevelNumber;
+
+    //Insert levels here
+    [SerializeField] private static Level[] levels = {
+        new Level("TestLevel", -2),
+        new Level("MainTitleScene", -1),
+        new Level("ShopLevel", 0),
+        new Level("LevelOne", 1),
+        new Level("LevelTwo", 2),
+        new Level("LevelThree", 3),
+        new Level("LevelFour", 4),
+    };
+
+    private static Level currentLevel;
+    private static GameObject playerObj;
     private static GameManager gameInstance;
 
     private void Awake()
@@ -34,11 +45,24 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GameObject levelManagerObj = GameObject.FindGameObjectWithTag("LevelManager");
-        LevelManager levelManagerScript = levelManagerObj.GetComponent<LevelManager>();
+        LevelManager levelManagerScript = null;
+        if (levelManagerObj != null)
+        {
+            levelManagerScript = levelManagerObj.GetComponent<LevelManager>();
+        }
+        
+        if (PlayerScript.GetPlayerInstance() == null)
+        {
+            Instantiate(playerPrefab);
+        }
 
-        currentLevelNumber = levelManagerScript.GetLevelNum();
-        nextLevelNumber = currentLevelNumber + 1;
-        currentLevel = Level.FindLevel(levels, currentLevelNumber);
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+
+        currentLevel = FindInLevels(SceneManager.GetActiveScene().name);
+
+        currentLevelNumber = currentLevel.GetLevelNumber();
+
+        SwitchLevelTo(currentLevelNumber);
     }
 
 
@@ -52,13 +76,16 @@ public class GameManager : MonoBehaviour
     {
         return currentLevelNumber;
     }
-    public void SetCurrentLevel(int lvl)
+    public static int GetNextLevelNumber()
     {
-        currentLevelNumber = lvl;
-    }
-    public int GetNextLevel()
-    {
-        return nextLevelNumber;
+        foreach (Level level in levels)
+        {
+            if (level.GetCompletionState() != true && level.GetLevelNumber() > 0)
+            {
+                return level.GetLevelNumber();
+            }
+        }
+        return 0;
     }
 
     public bool GetCurrentLevelState()
@@ -66,28 +93,57 @@ public class GameManager : MonoBehaviour
         return currentLevel.GetCompletionState();
     }
 
-    public void SetCurrentLevelComplete()
+    public static void SetCurrentLevelAsComplete()
     {
         currentLevel.SetComplete(true);
     }
 
-    public void SwitchLevelTo(int levelNum)
+    public static Level FindInLevels(int findLevelNumber)
     {
-        currentLevelNumber = levelNum;
+        return Level.FindLevel(levels, findLevelNumber);
+    }
+    public static Level FindInLevels(string findLevelName)
+    {
+        return Level.FindLevel(levels, findLevelName);
+    }
 
-        if (currentLevelNumber == 1)
-        {
-            nextLevelNumber++;
-        }
-
+    public static void SwitchLevelTo(int levelNum)
+    {
         Level selectedLevel = Level.FindLevel(levels, levelNum);
-
 
         if (selectedLevel != null)
         {
-            currentLevel = selectedLevel;
-            string levelName = selectedLevel.GetLevelName();
-            SceneManager.LoadScene(levelName);
+            SwitchLevel(selectedLevel);
         }
+    }
+
+    public static void SwitchLevelTo(string levelName)
+    {
+        Level selectedLevel = Level.FindLevel(levels, levelName);
+
+        if (selectedLevel != null)
+        {
+            SwitchLevel(selectedLevel);
+        }
+    }
+
+    private static void SwitchLevel(Level level)
+    {
+        currentLevelNumber = level.GetLevelNumber();
+        currentLevel = level;
+        string levelName = level.GetLevelName();
+
+        if (playerObj != null)
+        {
+            if (currentLevel.GetLevelName() == "MainTitleScene")
+            {
+                playerObj.SetActive(false);
+            }
+            else
+            {
+                playerObj.SetActive(true);
+            }
+        }
+        SceneManager.LoadScene(levelName);
     }
 }

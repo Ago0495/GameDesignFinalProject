@@ -27,17 +27,24 @@ public class LevelExitScript : MonoBehaviour
             gameManager = gameManagerObj.GetComponent<GameManager>();
         }
 
-        int currentLevel = levelManager.GetLevelNum();
+        int currentLevelNumber = levelManager.GetLevelNum();
+
+        Level shopLevel = GameManager.FindInLevels("ShopLevel");
+        int shopLevelNumber = 0;
+        if (shopLevel != null)
+        {
+            shopLevelNumber = shopLevel.GetLevelNumber();
+        }
 
         if (goToLevel > 0)
         {
-            if (currentLevel == 1)
+            if (currentLevelNumber == shopLevelNumber)
             {
-                SetNextLevel(gameManager.GetNextLevel());
+                SetNextLevel(GameManager.GetNextLevelNumber());
             }
             else
             {
-                SetNextLevel(1);
+                SetNextLevel(shopLevelNumber);
             }
         }
     }
@@ -45,15 +52,7 @@ public class LevelExitScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //test, remove on build
-        if (openDoors)
-        {
-            OpenExit();
-        }
-        else
-        {
-            CloseExit();
-        }
+
     }
 
     public void SetNextLevel(int level)
@@ -89,7 +88,7 @@ public class LevelExitScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameManager.SwitchLevelTo(goToLevel);
+            GameManager.SwitchLevelTo(goToLevel);
         }
     }
 }

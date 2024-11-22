@@ -16,7 +16,11 @@ public class WeaponScript : MonoBehaviour
     private protected float cooldownAnimationTime;
     private protected List<GameObject> alreadyHitList;
 
-    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        onCooldown = false;
+    }
+
     private protected virtual void Start()
     {
         weaponCollider = GetComponent<Collider2D>();

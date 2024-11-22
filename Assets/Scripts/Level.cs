@@ -17,6 +17,12 @@ public class Level
     //level complete
     [SerializeField] private bool levelComplete;
 
+    public Level(string levelName, int levelNumber)
+    {
+        this.levelName = levelName;
+        this.levelNumber = levelNumber;
+    }
+
     public int GetLevelNumber()
     {
         return levelNumber;

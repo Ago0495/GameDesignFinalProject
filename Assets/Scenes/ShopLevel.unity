@@ -151,15 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56f529a10523984e886927522829569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevelNumber: 0
-  nextLevelNumber: 0
-  levels:
-  - levelName: ShopLevel
-    levelNumber: 1
-    levelComplete: 0
-  - levelName: TestLevel
-    levelNumber: -1
-    levelComplete: 0
 --- !u!4 &61209387
 Transform:
   m_ObjectHideFlags: 0
@@ -1591,7 +1582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5913550134628700086, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
       propertyPath: goToLevel
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5913550134628700086, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
       propertyPath: doors.Array.size
@@ -3406,7 +3397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524be8d5afcc27e47a353e5304c18971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNumber: 1
+  levelNumber: 0
   rooms: []
   levelExitScript: {fileID: 1144019621}
   levelComplete: 0
@@ -4823,6 +4814,10 @@ PrefabInstance:
     - target: {fileID: 1212482060044596797, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913550134628700086, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
+      propertyPath: goToLevel
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
