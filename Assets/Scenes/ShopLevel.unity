@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56f529a10523984e886927522829569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 0}
 --- !u!4 &61209387
 Transform:
   m_ObjectHideFlags: 0
@@ -244,6 +245,14 @@ PrefabInstance:
     - target: {fileID: 2350335652985877851, guid: 1cee787c29479004f9a23121b488457c, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181782387468156837, guid: 1cee787c29479004f9a23121b488457c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181782387468156837, guid: 1cee787c29479004f9a23121b488457c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6130288548455856265, guid: 1cee787c29479004f9a23121b488457c, type: 3}
       propertyPath: m_Pivot.x
@@ -1601,17 +1610,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
---- !u!114 &1144019621 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5913550134628700086, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
-  m_PrefabInstance: {fileID: 1144019620}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1535b34cdcc28142887fc6d05090bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1146265711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1418476680155022902, guid: e3fb50ed63f7685459df52246caa67cd, type: 3}
@@ -3155,6 +3153,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813434882875645447, guid: e7c08b9e4adc1e94e92d3e429b81cf8c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813434882875645447, guid: e7c08b9e4adc1e94e92d3e429b81cf8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3377,7 +3383,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936001197}
-  - component: {fileID: 1936001196}
+  - component: {fileID: 1936001199}
+  - component: {fileID: 1936001198}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: LevelManager
@@ -3385,24 +3392,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1936001196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1936001195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 524be8d5afcc27e47a353e5304c18971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelNumber: 0
-  rooms: []
-  levelExitScript: {fileID: 1144019621}
-  levelComplete: 0
-  roomsCleared: 0
-  gameManager: {fileID: 0}
 --- !u!4 &1936001197
 Transform:
   m_ObjectHideFlags: 0
@@ -3418,6 +3407,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1936001198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936001195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1244f839dec342941b623febd5f67544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityName: 
+  DialogueList:
+  - sentences:
+    - 
+--- !u!114 &1936001199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936001195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac621f7bfb14d24a8183ec47211aab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNumber: 0
+  rooms: []
+  levelExitScript: {fileID: 0}
+  levelComplete: 0
+  roomsCleared: 0
+  dialogueOptions: {fileID: 1936001198}
 --- !u!1 &1989791050
 GameObject:
   m_ObjectHideFlags: 0
