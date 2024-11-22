@@ -76,7 +76,6 @@ public class LevelManager : MonoBehaviour
     {
         if ( levelExitScript != null)
         {
-            Debug.Log("OpenLevelExit");
             levelExitScript.OpenExit();
         }
     }
