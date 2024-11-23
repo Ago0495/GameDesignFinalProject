@@ -143,6 +143,7 @@ MonoBehaviour:
   DetectRange: 10
   target: {fileID: 0}
   createOnDefeat: []
+  hpBar: {fileID: 7179777658687051568}
 --- !u!195 &4956751514377834112
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -597,6 +598,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3796380163659880049, guid: 3891930cada217b499739ed14c074072, type: 3}
   m_PrefabInstance: {fileID: 1545223693745004196}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7179777658687051568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8561920679159777684, guid: 3891930cada217b499739ed14c074072, type: 3}
+  m_PrefabInstance: {fileID: 1545223693745004196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8955821590909578644
 PrefabInstance:
   m_ObjectHideFlags: 0

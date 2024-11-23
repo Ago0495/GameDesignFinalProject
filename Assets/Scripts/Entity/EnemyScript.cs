@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyScript : EntityScript
 {
@@ -10,6 +11,7 @@ public class EnemyScript : EntityScript
     [SerializeField] private int DetectRange;
     [SerializeField] private GameObject target;
     [SerializeField] private List<GameObject> createOnDefeat;
+    [SerializeField] private Slider hpBar;
     private Vector3 targetPos;
     private Vector3 targetDir;
     private NavMeshAgent agent;
@@ -34,6 +36,9 @@ public class EnemyScript : EntityScript
         {
             weaponScript = currentWeapon.GetComponent<WeaponScript>();
         }
+        
+        hpBar.maxValue = hp;
+        hpBar.value = hp;
     }
 
     // Update is called once per frame
@@ -117,6 +122,8 @@ public class EnemyScript : EntityScript
             room.RemoveEnemy(gameObject);
         }
         //Destroy(gameObject);
+        hpBar.transform.parent.gameObject.SetActive(false);
+        hpBar.gameObject.SetActive(false);
     }
     public void SetRoom(RoomScript _room)
     {
@@ -136,5 +143,11 @@ public class EnemyScript : EntityScript
         {
             Gizmos.DrawLine(transform.position, transform.position + targetDir * range);
         }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        hpBar.value = hp;
     }
 }

@@ -8,6 +8,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions.Must;
+using UnityEngine.UI;
 
 public class EntityScript : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class EntityScript : MonoBehaviour
     private Animator animator;
     private SimpleFlash simpleFlash;
     private protected bool isAlive;
+    private protected int maxHp;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -53,13 +55,14 @@ public class EntityScript : MonoBehaviour
             weaponScript = currentWeapon.GetComponent<WeaponScript>();
             SwitchWeapon(currentWeaponIndex);
         }
+
     }
     public virtual void Update()
     {
         UpdateAnimator();
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if (!indestructible)
         {
@@ -219,5 +222,12 @@ public class EntityScript : MonoBehaviour
         animator.SetBool("IsRunning", Mathf.Abs(moveVector.magnitude) > minSpeedToStartRunAnimation);
         animator.SetFloat("RunSpeed", runAnimationSpeed);
     }
-
+    public int GetCurrentHP()
+    {
+        return hp;
+    }
+    public int GetMaxHP()
+    {
+        return maxHp;
+    }
 }

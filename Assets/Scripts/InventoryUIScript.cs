@@ -11,6 +11,7 @@ public class InventoryUIScript : MonoBehaviour
     [SerializeField] private GameObject slotPrefab;
     private PlayerScript playerScript;
     [SerializeField] private List<GameObject> inventorySlots;
+    [SerializeField] private Slider hpBar;
 
     public void Start()
     {
@@ -20,6 +21,8 @@ public class InventoryUIScript : MonoBehaviour
         playerScript = playerObj.GetComponentInParent<PlayerScript>();
 
         inventoryGridObj = GetComponentInChildren<GridLayoutGroup>().gameObject;
+
+        hpBar.maxValue = playerScript.GetMaxHP();
     }
 
     public void Update()
@@ -30,9 +33,11 @@ public class InventoryUIScript : MonoBehaviour
     public void UpdateUI()
     {
         currencyAmountText.text = "<sprite=75>" + playerScript.GetCurrency().ToString();
+        hpBar.value = playerScript.GetCurrentHP();
 
         int numWeapons = playerScript.GetNumWeapons();
         int index = playerScript.GetCurrentWeaponIndex();
+        
 
         for (int i = 0; i < numWeapons; i++)
         {

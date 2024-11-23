@@ -31,6 +31,7 @@ public class PlayerScript : EntityScript
     public override void Start()
     {
         base.Start();
+        maxHp = hp; //change in the future
     }
 
 
@@ -93,6 +94,11 @@ public class PlayerScript : EntityScript
     public override void SwitchWeapon(int index)
     {
         base.SwitchWeapon(index);
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);    
     }
 
     public int GetCurrency()

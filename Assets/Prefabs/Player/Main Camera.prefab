@@ -138,6 +138,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5356085851299704262}
     m_Modifications:
+    - target: {fileID: 11379432459403752, guid: 1cee787c29479004f9a23121b488457c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11379432459403752, guid: 1cee787c29479004f9a23121b488457c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748550942695928204, guid: 1cee787c29479004f9a23121b488457c, type: 3}
+      propertyPath: m_Name
+      value: PlayerHealthBar
+      objectReference: {fileID: 0}
     - target: {fileID: 2350335652985877851, guid: 1cee787c29479004f9a23121b488457c, type: 3}
       propertyPath: m_Name
       value: Canvas
