@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,4 +12,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
+    public void SetDialogue(Dialogue chosenDialogue)
+    {
+        dialogue = chosenDialogue;
+    }
+
 }

@@ -12,8 +12,6 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
-    public Animator playerDialogueBoxAnimator;
-    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +46,7 @@ public class DialogueManager : MonoBehaviour
         {
             if (sentences.Count == 0)
             {
-                playerDialogueBoxAnimator.SetBool("IsOpen", true);
-                //EndDialogue();
+                EndDialogue();
                 return;
             }
 
@@ -73,6 +70,5 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        playerDialogueBoxAnimator.GetComponent<Animator>().SetBool("IsOpen", false);
     }
 }
