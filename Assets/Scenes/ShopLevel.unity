@@ -1923,9 +1923,9 @@ RectTransform:
   - {fileID: 918773449}
   m_Father: {fileID: 1509861632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 191, y: -53.383354}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -79, y: -18.383354}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1222746017
@@ -4092,7 +4092,19 @@ MonoBehaviour:
   entityName: ShopKeeper
   dialogueList:
   - sentences:
-    - Sentence1
+    - Hark, Adventurer! The tavern has been turned into a dungeon!
+    - Could you kindly go in and defeat the monsters in the rooms?
+    - They hold plenty of gold, incase you're worried about payment...
+    - Infact, I'll sell you items to help you on your quest. For the gold of course...
+  - sentences:
+    - Ah good you foudn your way back.
+    - The rooms past those doors keep shifting and changing. Its never the same rooms
+      twice.
+    - They become more dangerous too, so it's best to prepare with better weapons.
+    - You must have gotten plenty of gold from that first venture  right?
+    - Come here, lets see what i have in stock...
+  - sentences:
+    - and so on and so forth
     - Sentence2
     - Sentence3
 --- !u!114 &1936001199

@@ -16,7 +16,7 @@ public class ShopLevelManager : LevelManager
         if (gameManager != null )
         {
             int nextLevel = GameManager.GetNextLevelNumber();
-            dialogueOptions.PickDialogue(nextLevel - 1);
+            dialogueOptions.PickDialogue(nextLevel -1);
 
             FindAnyObjectByType<DialogueTrigger>().TriggerDialogue();
         }
