@@ -330,6 +330,7 @@ MonoBehaviour:
   inventoryGridObj: {fileID: 0}
   slotPrefab: {fileID: 1329113042485980748, guid: 0c47791d0be389343a6f4c7a471c1238, type: 3}
   inventorySlots: []
+  hpBar: {fileID: 7963406313134760824}
 --- !u!1 &3379523516716089676
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +791,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6095100966034272, guid: 3891930cada217b499739ed14c074072, type: 3}
       propertyPath: m_Name
-      value: HealthBar
+      value: PlayerHealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 325919722067520380, guid: 3891930cada217b499739ed14c074072, type: 3}
       propertyPath: m_SizeDelta.x
@@ -954,3 +955,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3796380163659880049, guid: 3891930cada217b499739ed14c074072, type: 3}
   m_PrefabInstance: {fileID: 1752391355380001516}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7963406313134760824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8561920679159777684, guid: 3891930cada217b499739ed14c074072, type: 3}
+  m_PrefabInstance: {fileID: 1752391355380001516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
