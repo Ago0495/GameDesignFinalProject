@@ -8,12 +8,18 @@ public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
     private string sentence = "";
+    public bool finishedDialogue;
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
 
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        finishedDialogue = false;
+    }
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -21,7 +27,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        animator.SetBool("IsOpen", true);
+        if (animator != null)
+        {
+            animator.SetBool("IsOpen", true);
+        }
 
         nameText.text = dialogue.GetName();
 
@@ -69,6 +78,10 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        animator.SetBool("IsOpen", false);
+        if (animator != null)
+        {
+            animator.SetBool("IsOpen", false);
+        }
+        finishedDialogue = true;
     }
 }

@@ -20,18 +20,22 @@ public class LevelManager : MonoBehaviour
         transform.tag = "LevelManager";
 
         levelComplete = false;
-
-        //temp
-        dialogueComplete = true;
     }
-    void Start()
+    protected virtual void Start()
     {
         if (levelExitScript == null)
         {
-            GameObject levelExitObj = GameObject.FindGameObjectWithTag("LevelExit");
-            if (levelExitObj != null )
+            GameObject[] levelExitObj = GameObject.FindGameObjectsWithTag("LevelExit");
+            if (levelExitObj != null)
             {
-                levelExitScript = levelExitObj.GetComponent<LevelExitScript>();
+                foreach (var exit in levelExitObj)
+                {
+                    if (exit.GetComponent<LevelExitScript>().goToLevel > 0)
+                    {
+                        levelExitScript = exit.GetComponent<LevelExitScript>();
+                        break;
+                    }
+                }
             }
         }
 

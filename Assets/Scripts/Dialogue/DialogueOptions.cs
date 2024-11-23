@@ -13,9 +13,8 @@ public class DialogueOptions : MonoBehaviour
         {
             dialogue.SetName(entityName);
         }
-        Debug.Log("On Start");
     }
-    public void CalculateOffer(int dialogueNumber)
+    public void PickDialogue(int dialogueNumber)
     {
         if (dialogueList.Length > 0)
         {

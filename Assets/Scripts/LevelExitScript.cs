@@ -9,7 +9,7 @@ public class LevelExitScript : MonoBehaviour
     [SerializeField] GameObject[] doors;
     [SerializeField] bool openDoors;
     [SerializeField] Sprite doorOpenSprite;
-    [SerializeField] int goToLevel;
+    public int goToLevel;
     private LevelManager levelManager;
     private GameManager gameManager;
     // Start is called before the first frame update
