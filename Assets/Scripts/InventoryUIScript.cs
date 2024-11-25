@@ -12,6 +12,7 @@ public class InventoryUIScript : MonoBehaviour
     private PlayerScript playerScript;
     [SerializeField] private List<GameObject> inventorySlots;
     [SerializeField] private Slider hpBar;
+    [SerializeField] private Image GameOverScrene;
 
     public void Start()
     {
@@ -34,7 +35,10 @@ public class InventoryUIScript : MonoBehaviour
     {
         currencyAmountText.text = "<sprite=75>" + playerScript.GetCurrency().ToString();
         hpBar.value = playerScript.GetCurrentHP();
-
+        if (playerScript.GetCurrentHP() <= 0)
+        {
+            GameOverScrene.gameObject.SetActive(true);
+        }
         int numWeapons = playerScript.GetNumWeapons();
         int index = playerScript.GetCurrentWeaponIndex();
         
