@@ -11,7 +11,7 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] private protected List<Upgrade> weaponUpgrades = new List<Upgrade>();
     private protected Collider2D weaponCollider;
     private protected Animator animator;
-    private protected bool onCooldown;
+    public bool onCooldown;
     private protected float attackAnimationTime;
     private protected float cooldownAnimationTime;
     private protected List<GameObject> alreadyHitList;
