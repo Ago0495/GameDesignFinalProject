@@ -130,6 +130,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3657255862811468965}
     m_Modifications:
+    - target: {fileID: 939123584220984736, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 939123584220984736, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2242394864630572414, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -323,6 +331,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
+--- !u!114 &135841539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5913550134628700086, guid: bb4c3e0976b95da44b63598998995b37, type: 3}
+  m_PrefabInstance: {fileID: 135841538}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1535b34cdcc28142887fc6d05090bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &200815282
 GameObject:
   m_ObjectHideFlags: 0
@@ -8850,6 +8869,18 @@ PrefabInstance:
       propertyPath: levelNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6263556273787234209, guid: dcc6cad73d5b444438c86506ecdba67a, type: 3}
+      propertyPath: levelExitScript
+      value: 
+      objectReference: {fileID: 135841539}
+    - target: {fileID: 6263556273787234209, guid: dcc6cad73d5b444438c86506ecdba67a, type: 3}
+      propertyPath: rooms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263556273787234209, guid: dcc6cad73d5b444438c86506ecdba67a, type: 3}
+      propertyPath: rooms.Array.data[0]
+      value: 
+      objectReference: {fileID: 3657255862811468966}
     - target: {fileID: 6267832496762830866, guid: dcc6cad73d5b444438c86506ecdba67a, type: 3}
       propertyPath: m_Name
       value: LevelManager
@@ -9200,6 +9231,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6439857681130509691, guid: 20c019eda2fa2b24eb3c0b24bc1c369c, type: 3}
   m_PrefabInstance: {fileID: 3657255862811468964}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3657255862811468966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7601733122571806374, guid: 20c019eda2fa2b24eb3c0b24bc1c369c, type: 3}
+  m_PrefabInstance: {fileID: 3657255862811468964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3249d6d95a3e3648a068f4e09aa211a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

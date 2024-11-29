@@ -7,8 +7,10 @@ public class RoomScript : MonoBehaviour
     //variables
     [SerializeField] private List<GameObject> enemyPrefabs;
     [SerializeField] private List<GameObject> blockers;
+    //[SerializeField] private GameObject levelManager;
     private int numEnemies;
     private bool visited;
+    [SerializeField] private LevelManager levelScript;
 
 
     // Start is called before the first frame update
@@ -25,6 +27,9 @@ public class RoomScript : MonoBehaviour
             RoomScript roomScript = GetComponent<RoomScript>();
             enemyScript.SetRoom(roomScript);
         }
+        GameObject levelObj = GameObject.FindGameObjectWithTag("LevelManager");
+        levelScript = levelObj.GetComponentInParent<LevelManager>();
+
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -49,6 +54,7 @@ public class RoomScript : MonoBehaviour
     public void RoomCleared()
     {
         DeactivateAll(blockers);
+        levelScript.clearedRoom();
     }
 
     public void DeactivateAll(List<GameObject> roomObjects)
@@ -80,7 +86,7 @@ public class RoomScript : MonoBehaviour
         numEnemies = enemyPrefabs.Count;
         if (numEnemies <= 0)
         {
-            DeactivateAll(blockers);
+            RoomCleared();
         }
     }
 }

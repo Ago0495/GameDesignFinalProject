@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private RoomScript[] rooms;
     [SerializeField] private LevelExitScript levelExitScript;
     [SerializeField] private bool levelComplete;
-    [SerializeField] private int roomsCleared;
+    private int roomsCleared = 0;
     private PlayerScript playerScript;
     private bool dialogueComplete;
     // Start is called before the first frame update
@@ -54,13 +54,14 @@ public class LevelManager : MonoBehaviour
                 playerObj.transform.position = Vector3.zero;
             }
         }
+        GameObject GameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     // Update is called once per frame
     void Update()
     {
         //default
-        SetLevelComplete(true);
+        //SetLevelComplete(true);
     }
 
     public int GetLevelNum()
@@ -87,5 +88,13 @@ public class LevelManager : MonoBehaviour
     public void ExitLevel()
     {
         GameManager.SwitchLevelTo(0);
+    }
+    public void clearedRoom()
+    {
+        roomsCleared++;
+        if (roomsCleared == rooms.Length)
+        {
+            SetLevelComplete(true);
+        }
     }
 }
