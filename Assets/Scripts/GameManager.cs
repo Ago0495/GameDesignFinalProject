@@ -127,14 +127,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private static void SwitchLevel(Level level)
+    private static void SwitchLevel(Level switchToLevel)
     {
-        currentLevelNumber = level.GetLevelNumber();
-        currentLevel = level;
-        string levelName = level.GetLevelName();
+        currentLevelNumber = switchToLevel.GetLevelNumber();
+        currentLevel = switchToLevel;
+        string levelName = switchToLevel.GetLevelName();
 
         if (playerObj != null)
         {
+            if (playerObj.GetComponent<PlayerScript>() != null)
+            {
+                PlayerScript playerScript = playerObj.GetComponent<PlayerScript>();
+
+                if (playerScript.GetCurrentHP() < 0)
+                {
+                    Destroy(playerObj);
+
+                    foreach (Level level in levels)
+                    {
+                        level.SetComplete(false);
+                    }
+                }
+            }
+
             if (currentLevel.GetLevelName() == "MainTitleScene")
             {
                 playerObj.SetActive(false);
