@@ -43,7 +43,7 @@ public class ShopItemScript : MonoBehaviour
     private void GenerateRandomShopItem()
     {
         int rand = Random.Range(1, 100);
-        if (rand <= 20)
+        if (rand <= 25)
         {
             weaponItem = new WeaponShopItem(sellWeapons);
             GameObject weaponObj = weaponItem.GetWeapon();

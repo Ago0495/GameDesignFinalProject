@@ -142,7 +142,8 @@ MonoBehaviour:
   currentWeaponIndex: 0
   DetectRange: 10
   target: {fileID: 0}
-  createOnDefeat: []
+  createOnDefeat:
+  - {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
   hpBar: {fileID: 6502866263553800324}
 --- !u!195 &4956751514377834112
 NavMeshAgent:
@@ -158,7 +159,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1

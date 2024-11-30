@@ -142,7 +142,8 @@ MonoBehaviour:
   currentWeaponIndex: 0
   DetectRange: 10
   target: {fileID: 0}
-  createOnDefeat: []
+  createOnDefeat:
+  - {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
   hpBar: {fileID: 7179777658687051568}
 --- !u!195 &4956751514377834112
 NavMeshAgent:
