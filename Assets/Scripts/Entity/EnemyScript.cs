@@ -16,6 +16,7 @@ public class EnemyScript : EntityScript
     private Vector3 targetDir;
     private NavMeshAgent agent;
     private RoomScript room;
+    private bool defeated = true;
 
     // Start is called before the first frame update
     public override void Start()
@@ -116,12 +117,15 @@ public class EnemyScript : EntityScript
                 Instantiate(obj, transform.position, Quaternion.identity);
             }
         */
-        int rand = Random.Range(1, 8);
-        for(int i = 0; i < rand; i++)
+        if (!defeated)
         {
-            Instantiate(createOnDefeat[0], transform.position, Quaternion.identity);
-        }
-        
+            int rand = Random.Range(1, 8);
+            for(int i = 0; i < rand; i++)
+            {
+                Instantiate(createOnDefeat[0], transform.position, Quaternion.identity);
+            }
+            defeated = true;
+        }        
 
         //remove itself from room list
         if (room != null)
