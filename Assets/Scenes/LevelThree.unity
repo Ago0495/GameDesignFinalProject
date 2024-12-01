@@ -25515,6 +25515,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6263556273787234209, guid: dcc6cad73d5b444438c86506ecdba67a, type: 3}
+      propertyPath: levelNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263556273787234209, guid: dcc6cad73d5b444438c86506ecdba67a, type: 3}
       propertyPath: levelExitScript
       value: 
       objectReference: {fileID: 1141240642}
