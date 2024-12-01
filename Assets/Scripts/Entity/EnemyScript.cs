@@ -16,7 +16,7 @@ public class EnemyScript : EntityScript
     private Vector3 targetDir;
     private NavMeshAgent agent;
     private RoomScript room;
-    private bool defeated = true;
+    private bool defeated = false;
 
     // Start is called before the first frame update
     public override void Start()
