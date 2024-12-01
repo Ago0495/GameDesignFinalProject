@@ -9,6 +9,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 public class ShopItemScript : MonoBehaviour
 {
     private int itemPrice;
+    private string itemName;
     private Image itemImage;
     [SerializeField] private TextMeshProUGUI itemPriceText;
     [SerializeField] private TextMeshProUGUI itemStatNameText;
@@ -65,6 +66,7 @@ public class ShopItemScript : MonoBehaviour
             upgrade = upgradeItem.GetUpgrade();
 
             itemPrice = upgradeItem.GetPrice();
+            itemName = upgradeItem.GetStatName();
 
             string statText = "";
 
@@ -119,6 +121,11 @@ public class ShopItemScript : MonoBehaviour
 
             if (upgradeItem != null && playerWeapon != null)
             {
+                if(upgradeItem.GetStatName() == "Health" && playerScript.GetCurrentHP() != playerScript.GetMaxHP()) 
+                {
+                    playerScript.ChangeCurrency(-itemPrice);
+                    playerScript.TakeDamage(-upgradeItem.GetStatPower());
+                }
                 if (playerWeaponScript.GetLvl() > playerWeaponScript.GetNumUpgrades())
                 {
                     playerScript.ChangeCurrency(-itemPrice);

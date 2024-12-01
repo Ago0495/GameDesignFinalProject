@@ -13,10 +13,11 @@ public class Upgrade
         upgradeStats = new List<Stat>();
 
         upgradeStats.Add(new Stat("atkDamage", 0, 30));
-        upgradeStats.Add(new Stat("atkRange", 0, 20));
+        //upgradeStats.Add(new Stat("atkRange", 0, 20));
         upgradeStats.Add(new Stat("atkKnockback", 0, 5));
         upgradeStats.Add(new Stat("atkCooldown", 0, 15));
         upgradeStats.Add(new Stat("handling", 0, 10));
+        upgradeStats.Add(new Stat("Health", 0, 20));
     }
 
 
