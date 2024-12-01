@@ -43,9 +43,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 6704706038557096472}
     m_Position: {x: 590.239, y: 72.31127, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1149479395846396641}
-    m_Position: {x: 625.239, y: 137.31128, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -121,32 +118,6 @@ AnimatorState:
   m_Motion: {fileID: 7400000, guid: 2339a258c6b938a4bb5c15323a97faa0, type: 2}
   m_Tag: 
   m_SpeedParameter: RunSpeed
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &1149479395846396641
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ShopKeeperIdle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3c8ecf3d29a517e43942acaf4b0ef3f3, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
