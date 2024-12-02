@@ -25,9 +25,8 @@ public class SKBossScript : EnemyScript
 
     IEnumerator WaitToSwitchWeapon(float waitTime)
     {
-        SwitchWeapon(currentWeaponIndex++);
-
         yield return new WaitForSeconds(waitTime);
+        SwitchWeapon(currentWeaponIndex++);
 
         onSwitchCooldown = false;
     }

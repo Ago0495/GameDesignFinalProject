@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
             {
                 PlayerScript playerScript = playerObj.GetComponent<PlayerScript>();
 
-                if (playerScript.GetCurrentHP() < 0)
+                if (playerScript.GetCurrentHP() <= 0)
                 {
                     Destroy(playerObj);
 
