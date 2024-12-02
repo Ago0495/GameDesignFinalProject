@@ -182,6 +182,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[1]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[2]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -601,8 +613,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[1]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -774,8 +794,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[1]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[2]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7140,8 +7172,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[1]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2453722395519893517, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
@@ -7223,8 +7263,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[1]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2453722395519893517, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
@@ -7441,6 +7489,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 945901032136705869, guid: cbfcebb57da708b4bbc8318b23eb58c8, type: 3}
   m_PrefabInstance: {fileID: 1586831684}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1599734742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.421875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104955354755896018, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_Name
+      value: ClothTable
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
 --- !u!4 &1606130068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3753951614533229234, guid: 9fd55e904d9d9134cb92ec4c50cebc2b, type: 3}
@@ -7619,6 +7724,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[1]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
     - target: {fileID: 4956751514377834112, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_StoppingDistance
       value: 8
@@ -7841,8 +7954,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[1]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[2]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[3]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[4]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: createOnDefeat.Array.data[5]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2453722395519893517, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
@@ -8411,3 +8548,4 @@ SceneRoots:
   - {fileID: 1681813304}
   - {fileID: 2144369893}
   - {fileID: 862810346}
+  - {fileID: 1599734742}

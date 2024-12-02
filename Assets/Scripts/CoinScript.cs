@@ -7,7 +7,7 @@ public class CoinScript : MonoBehaviour
     [SerializeField] private int DetectRange;
     [SerializeField] private GameObject target;
     [SerializeField] private protected float moveSpeed;
-    [SerializeField] private int value;
+    [SerializeField] private protected int value;
     private Vector3 targetPos;
     private Vector3 targetDir;
     private NavMeshAgent agent;

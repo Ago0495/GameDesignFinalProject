@@ -37,6 +37,8 @@ public class EntityScript : MonoBehaviour
     {
         isAlive = true;
 
+        maxHp = hp;
+
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -64,18 +66,25 @@ public class EntityScript : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        int hpBefore = hp;
         if (!indestructible)
         {
             hp -= damage;
-
 
             if (hp <= 0)
             {
                 OnDefeated();
             }
+            if (hp > maxHp)
+            {
+                hp = maxHp;
+            }
         }
 
-        simpleFlash.Flash();
+        if (hp < hpBefore)
+        {
+            simpleFlash.Flash();
+        }
     }
 
 
