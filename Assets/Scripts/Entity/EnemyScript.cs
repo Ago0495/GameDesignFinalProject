@@ -17,6 +17,8 @@ public class EnemyScript : EntityScript
     private NavMeshAgent agent;
     private RoomScript room;
     private bool defeated = false;
+    private Collider2D targetHitboxCollider;
+    private Vector3 targetHitboxPos;
 
     // Start is called before the first frame update
     public override void Start()
@@ -57,8 +59,8 @@ public class EnemyScript : EntityScript
 
             if (targetHitboxObj != null )
             {
-                Collider2D targetHitboxCollider = targetHitboxObj.GetComponent<Collider2D>();
-                Vector3 targetHitboxPos = targetHitboxCollider.transform.position;
+                targetHitboxCollider = targetHitboxObj.GetComponent<Collider2D>();
+                targetHitboxPos = targetHitboxCollider.transform.position;
 
                 targetPos = target.GetComponent<Collider2D>().transform.position;
 
@@ -66,7 +68,6 @@ public class EnemyScript : EntityScript
                 targetHitboxPos = new Vector3(targetHitboxPos.x + targetHitboxCollider.offset.x, targetHitboxPos.y + targetHitboxCollider.offset.y, targetHitboxPos.z);
 
                 weaponPos = weaponHolder.transform.position;
-
 
                 AimWeapon(weaponPos, targetHitboxPos);
 
@@ -96,7 +97,7 @@ public class EnemyScript : EntityScript
         {
             //checks if player is inrange of weapon
             weaponScript = currentWeapon.GetComponent<WeaponScript>();
-            targetDir = new Vector2(targetPos.x - transform.position.x, targetPos.y - transform.position.y).normalized;
+            targetDir = new Vector2(targetHitboxPos.x - transform.position.x, targetHitboxPos.y - transform.position.y).normalized;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, weaponScript.GetTotalStatPower("atkRange"), 1 << target.layer);
             if (hit.collider != null)
             {
