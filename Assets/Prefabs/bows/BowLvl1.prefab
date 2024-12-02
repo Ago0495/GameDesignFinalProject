@@ -105,13 +105,14 @@ MonoBehaviour:
       statCost: 30
     - statPower: 5
       statCost: 20
-    - statPower: 5
+    - statPower: 2
       statCost: 5
-    - statPower: 5
+    - statPower: 20
       statCost: 15
     - statPower: 20
       statCost: 10
   weaponUpgrades: []
+  onCooldown: 0
   projectilePrefab: {fileID: 5864281819978793952, guid: de73984422454ce448264e889e0d3bcf, type: 3}
 --- !u!95 &7795879148505379193
 Animator:
