@@ -25,13 +25,14 @@ public class PlayerScript : EntityScript
         {
             Destroy(this.gameObject);
         }
+
+        maxHp = hp;
     }
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-        maxHp = hp; //change in the future
     }
 
 

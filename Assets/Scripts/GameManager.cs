@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     private static Level currentLevel;
     private static GameObject playerObj;
+    private static GameObject playerPrefabStatic;
     private static GameManager gameInstance;
 
     private void Awake()
@@ -50,13 +51,8 @@ public class GameManager : MonoBehaviour
         {
             levelManagerScript = levelManagerObj.GetComponent<LevelManager>();
         }
-        
-        if (PlayerScript.GetPlayerInstance() == null)
-        {
-            Instantiate(playerPrefab);
-        }
 
-        playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerPrefabStatic = playerPrefab;
 
         currentLevel = FindInLevels(SceneManager.GetActiveScene().name);
 
@@ -133,6 +129,13 @@ public class GameManager : MonoBehaviour
         currentLevel = switchToLevel;
         string levelName = switchToLevel.GetLevelName();
 
+        if (PlayerScript.GetPlayerInstance() == null)
+        {
+            Instantiate(playerPrefabStatic);
+        }
+
+        playerObj = PlayerScript.GetPlayerInstance().gameObject;
+
         if (playerObj != null)
         {
             if (playerObj.GetComponent<PlayerScript>() != null)
@@ -148,17 +151,18 @@ public class GameManager : MonoBehaviour
                         level.SetComplete(false);
                     }
                 }
-            }
 
-            if (currentLevel.GetLevelName() == "MainTitleScene")
-            {
-                playerObj.SetActive(false);
-            }
-            else
-            {
-                playerObj.SetActive(true);
+                if (currentLevel.GetLevelName() == "MainTitleScene")
+                {
+                    playerObj.SetActive(false);
+                }
+                else
+                {
+                    playerObj.SetActive(true);
+                }
             }
         }
+            
         SceneManager.LoadScene(levelName);
     }
 }
