@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class RoomScript : MonoBehaviour
 {
@@ -19,13 +20,15 @@ public class RoomScript : MonoBehaviour
         visited = false;
         numEnemies = enemyPrefabs.Count;
         DeactivateAll(blockers);
-        DeactivateAll(enemyPrefabs);
+        //DeactivateAll(enemyPrefabs);
 
         foreach (GameObject enemy in enemyPrefabs)
         {
             EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
             RoomScript roomScript = GetComponent<RoomScript>();
             enemyScript.SetRoom(roomScript);
+
+            enemyScript.SetTarget(enemyScript.gameObject);
         }
         GameObject levelObj = GameObject.FindGameObjectWithTag("LevelManager");
         levelScript = levelObj.GetComponentInParent<LevelManager>();
@@ -45,7 +48,14 @@ public class RoomScript : MonoBehaviour
         if (!visited)
         {
             ActivateAll(blockers);
-            ActivateAll(enemyPrefabs);
+            //ActivateAll(enemyPrefabs);
+            
+            foreach (GameObject enemy in enemyPrefabs)
+            {
+                EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
+                GameObject target = GameObject.FindGameObjectWithTag("Player");
+                enemyScript.SetTarget(target);
+            }
         }
 
         visited = true;

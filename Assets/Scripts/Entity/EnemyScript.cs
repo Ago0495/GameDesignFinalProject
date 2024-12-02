@@ -141,6 +141,12 @@ public class EnemyScript : EntityScript
         room = _room;
     }
 
+    public void SetTarget(GameObject newTarget)
+    {
+        target = newTarget;
+        targetPos = target.transform.position;
+    }
+
     private void OnDrawGizmos()
     {
         float range = 1f;

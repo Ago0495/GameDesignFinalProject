@@ -29,7 +29,12 @@ public class UpgradeShopItem
     private string PickRandomUpgradeStat()
     {
         List<string> statNameList = new List<string>(upgradeTypes.Keys);
-        int rand = Random.Range(0, upgradeTypes.Count);
+
+        //remove upgrade type from posssible shop upgrades
+        statNameList.Remove("atkRange");
+        statNameList.Remove("handling");
+
+        int rand = Random.Range(0, statNameList.Count);
         return statNameList[rand];
     }
 
