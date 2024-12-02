@@ -172,7 +172,7 @@ MonoBehaviour:
   hp: 10
   indestructible: 0
   canAttack: 1
-  moveSpeed: 3
+  moveSpeed: 2
   stachedWeapons: []
   currentWeaponIndex: 0
   DetectRange: 10

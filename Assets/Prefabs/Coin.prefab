@@ -165,7 +165,7 @@ MonoBehaviour:
   DetectRange: 10
   target: {fileID: 0}
   moveSpeed: 10
-  value: 10
+  value: 50
 --- !u!195 &56028436758177000
 NavMeshAgent:
   m_ObjectHideFlags: 0

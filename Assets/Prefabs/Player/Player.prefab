@@ -252,7 +252,7 @@ MonoBehaviour:
   moveSpeed: 1200
   stachedWeapons: []
   currentWeaponIndex: 0
-  currency: 2147483647
+  currency: 0
   maxWeapons: 9
 --- !u!114 &6043922998214632337
 MonoBehaviour:

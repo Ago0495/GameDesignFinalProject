@@ -112,21 +112,12 @@ public class EnemyScript : EntityScript
     private protected override void OnDefeated()
     {
         base.OnDefeated();
-        /*
+
         foreach (GameObject obj in createOnDefeat)
-            {
-                Instantiate(obj, transform.position, Quaternion.identity);
-            }
-        */
-        if (!defeated)
         {
-            int rand = Random.Range(1, 8);
-            for(int i = 0; i < rand; i++)
-            {
-                Instantiate(createOnDefeat[0], transform.position, Quaternion.identity);
-            }
-            defeated = true;
-        }        
+            Instantiate(obj, transform.position, Quaternion.identity);
+        }
+
 
         //remove itself from room list
         if (room != null)
