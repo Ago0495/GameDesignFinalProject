@@ -27,9 +27,9 @@ public class RangedWeaponScript : WeaponScript
                 projectileScript.AddUpgrade(upgrade);
             }
 
-            projectileRb2D.velocity = transform.parent.right * handling;
+            projectileRb2D.velocity = transform.parent.right * range;
 
-            projectileScript.StartCoroutine(projectileScript.projectileLifetime(range * 0.1f));
+            projectileScript.StartCoroutine(projectileScript.projectileLifetime(handling * 0.1f));
 
             StartCoroutine(WeaponCooldown((10f / handling) * attackAnimationTime));
             onCooldown = true;

@@ -103,7 +103,7 @@ MonoBehaviour:
     upgradeStats:
     - statPower: 1
       statCost: 30
-    - statPower: 5
+    - statPower: 6
       statCost: 20
     - statPower: 2
       statCost: 5

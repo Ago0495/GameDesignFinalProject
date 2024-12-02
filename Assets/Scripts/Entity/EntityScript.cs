@@ -195,6 +195,11 @@ public class EntityScript : MonoBehaviour
         return stachedWeapons.Count;
     }
 
+    public void SetIndestructible(bool _indestructible)
+    {
+        indestructible = _indestructible;
+    }
+
     private void UpdateAnimator()
     {
         if (animator == null) return;

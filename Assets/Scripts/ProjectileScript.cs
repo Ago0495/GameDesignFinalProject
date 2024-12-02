@@ -27,5 +27,10 @@ public class ProjectileScript : WeaponScript
     public override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
+
+        if (!other.CompareTag("Room") && other.gameObject.layer != gameObject.layer)
+        {
+            Destroy(gameObject);
+        }        
     }
 }

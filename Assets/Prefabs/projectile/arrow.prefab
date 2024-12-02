@@ -78,7 +78,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.53125, y: 0.15625}
+  m_Size: {x: 0.09, y: 0.03}
   m_EdgeRadius: 0
 --- !u!212 &7050648531366096662
 SpriteRenderer:
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51a1a0d515c5494eb1370467d506d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponLvl: 0
   weaponBaseStats:
     upgradeStats:
     - statPower: 0
@@ -157,6 +158,7 @@ MonoBehaviour:
     - statPower: 0
       statCost: 10
   weaponUpgrades: []
+  onCooldown: 0
 --- !u!50 &6088492815010509214
 Rigidbody2D:
   serializedVersion: 4

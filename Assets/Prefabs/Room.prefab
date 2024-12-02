@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7601733122571806374}
   m_Layer: 0
   m_Name: Room
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,3 +92,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs: []
   blockers: []
+  levelScript: {fileID: 0}

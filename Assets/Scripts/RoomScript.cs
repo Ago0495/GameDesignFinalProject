@@ -29,6 +29,7 @@ public class RoomScript : MonoBehaviour
             enemyScript.SetRoom(roomScript);
 
             enemyScript.SetTarget(enemyScript.gameObject);
+            enemyScript.SetIndestructible(true);
         }
         GameObject levelObj = GameObject.FindGameObjectWithTag("LevelManager");
         levelScript = levelObj.GetComponentInParent<LevelManager>();
@@ -55,6 +56,7 @@ public class RoomScript : MonoBehaviour
                 EnemyScript enemyScript = enemy.GetComponent<EnemyScript>();
                 GameObject target = GameObject.FindGameObjectWithTag("Player");
                 enemyScript.SetTarget(target);
+                enemyScript.SetIndestructible(false);
             }
         }
 
