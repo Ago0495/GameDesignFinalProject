@@ -531,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -839,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -930,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -1027,6 +1027,10 @@ PrefabInstance:
       propertyPath: createOnDefeat.Array.data[1]
       value: 
       objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
+    - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
+      propertyPath: createOnDefeat.Array.data[2]
+      value: 
+      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
     - target: {fileID: 4956751514377834112, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: m_StoppingDistance
       value: 10
@@ -1168,16 +1172,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
       value: 
-      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
+      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[2]
       value: 
-      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9750,7 +9754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -10068,7 +10072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -10163,7 +10167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -11229,7 +11233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -11407,16 +11411,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
       value: 
-      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
+      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.data[2]
       value: 
-      objectReference: {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
+      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11498,7 +11502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -18447,7 +18451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -18790,7 +18794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
