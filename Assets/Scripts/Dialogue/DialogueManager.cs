@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Animator animator;
 
+    private CameraScript cameraScript;
+
 
     private void Awake()
     {
@@ -23,10 +25,13 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        cameraScript = FindAnyObjectByType<CameraScript>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        cameraScript.SetTarget(dialogue.speaker);
+
         if (animator != null)
         {
             animator.SetBool("IsOpen", true);
@@ -78,6 +83,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        cameraScript.SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
+
         if (animator != null)
         {
             animator.SetBool("IsOpen", false);
