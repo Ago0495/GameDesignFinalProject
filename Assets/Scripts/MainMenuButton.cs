@@ -8,6 +8,7 @@ public class MainMenuButton : MonoBehaviour
     {
         Level mainMenu = GameManager.FindInLevels("MainTitleScene");
         int mainMenuNumber = mainMenu.GetLevelNumber();
+        Time.timeScale = 1f;
         GameManager.SwitchLevelTo(mainMenuNumber);
     }
 }
