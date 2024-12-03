@@ -119,9 +119,7 @@ public class EnemyScript : EntityScript
                 Instantiate(obj, transform.position, Quaternion.identity);
             }
             defeated = true;
-        }
-        
-
+        } 
 
         //remove itself from room list
         if (room != null)
@@ -131,6 +129,8 @@ public class EnemyScript : EntityScript
         //Destroy(gameObject);
         hpBar.transform.parent.gameObject.SetActive(false);
         hpBar.gameObject.SetActive(false);
+
+        GetComponent<NavMeshAgent>().enabled = false;
     }
     public void SetRoom(RoomScript _room)
     {
