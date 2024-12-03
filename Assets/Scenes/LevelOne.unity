@@ -7545,6 +7545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClothTable
       objectReference: {fileID: 0}
+    - target: {fileID: 8104955354755896018, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
+      propertyPath: m_TagString
+      value: Hole
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8409,6 +8413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table
       objectReference: {fileID: 0}
+    - target: {fileID: 8104955354755896018, guid: df22532806ec655498a3a9cd0a8d4516, type: 3}
+      propertyPath: m_TagString
+      value: Hole
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8424,11 +8432,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3675158039130618382, guid: 20c019eda2fa2b24eb3c0b24bc1c369c, type: 3}
       propertyPath: m_Size.x
-      value: 4.06
+      value: 3.8957448
       objectReference: {fileID: 0}
     - target: {fileID: 3675158039130618382, guid: 20c019eda2fa2b24eb3c0b24bc1c369c, type: 3}
       propertyPath: m_Size.y
       value: 8.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675158039130618382, guid: 20c019eda2fa2b24eb3c0b24bc1c369c, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.08212733
       objectReference: {fileID: 0}
     - target: {fileID: 3675158039130618382, guid: 20c019eda2fa2b24eb3c0b24bc1c369c, type: 3}
       propertyPath: m_Offset.y
