@@ -98668,6 +98668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 1503154809909838323, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
+      propertyPath: m_TagString
+      value: Hole
+      objectReference: {fileID: 0}
     - target: {fileID: 4346128542604265128, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1035
@@ -100614,6 +100618,10 @@ PrefabInstance:
     - target: {fileID: 1503154809909838323, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
       propertyPath: m_Name
       value: barrier (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503154809909838323, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
+      propertyPath: m_TagString
+      value: Hole
       objectReference: {fileID: 0}
     - target: {fileID: 4346128542604265128, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
       propertyPath: m_LocalScale.x
@@ -116793,7 +116801,7 @@ GameObject:
   - component: {fileID: 1079046873}
   m_Layer: 0
   m_Name: Barrier (3)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117224,7 +117232,7 @@ GameObject:
   - component: {fileID: 1122553062}
   m_Layer: 0
   m_Name: Barrier (1)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118858,6 +118866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 1503154809909838323, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
+      propertyPath: m_TagString
+      value: Hole
+      objectReference: {fileID: 0}
     - target: {fileID: 4346128542604265128, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4687585
@@ -119367,6 +119379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrier (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1503154809909838323, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
+      propertyPath: m_TagString
+      value: Hole
+      objectReference: {fileID: 0}
     - target: {fileID: 4346128542604265128, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1035
@@ -119732,6 +119748,10 @@ PrefabInstance:
     - target: {fileID: 1503154809909838323, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
       propertyPath: m_Name
       value: barrier (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503154809909838323, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
+      propertyPath: m_TagString
+      value: Hole
       objectReference: {fileID: 0}
     - target: {fileID: 4346128542604265128, guid: df516dacc04d6a14c812c535a27c6e7b, type: 3}
       propertyPath: m_LocalScale.x
@@ -120295,7 +120315,7 @@ GameObject:
   - component: {fileID: 1681390831}
   m_Layer: 0
   m_Name: Barrier (2)
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120509,7 +120529,7 @@ GameObject:
   - component: {fileID: 1696101085}
   m_Layer: 0
   m_Name: Barrier
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

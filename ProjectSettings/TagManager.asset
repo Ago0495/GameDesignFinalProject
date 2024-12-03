@@ -15,6 +15,7 @@ TagManager:
   - GameManager
   - SpawnPoint
   - Room
+  - Hole
   layers:
   - Default
   - TransparentFX

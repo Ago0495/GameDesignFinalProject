@@ -28,7 +28,7 @@ public class ProjectileScript : WeaponScript
     {
         base.OnTriggerEnter2D(other);
 
-        if (!other.CompareTag("Room") && other.gameObject.layer != gameObject.layer)
+        if (!other.CompareTag("Room") && other.gameObject.layer != gameObject.layer && !other.CompareTag("Hole"))
         {
             Destroy(gameObject);
         }        
