@@ -767,6 +767,7 @@ MonoBehaviour:
   inventorySlots: []
   hpBar: {fileID: 7963406313134760824}
   GameOverScrene: {fileID: 1060379386557192373}
+  PauseMenu: {fileID: 3403787595683633393}
 --- !u!1 &2928950295556699621
 GameObject:
   m_ObjectHideFlags: 0

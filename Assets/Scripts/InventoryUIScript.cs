@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.UI;
 
 public class InventoryUIScript : MonoBehaviour
@@ -13,6 +14,8 @@ public class InventoryUIScript : MonoBehaviour
     [SerializeField] private List<GameObject> inventorySlots;
     [SerializeField] private Slider hpBar;
     [SerializeField] private Image GameOverScrene;
+    [SerializeField] private Image PauseMenu;
+    private bool paused = false;
 
     public void Start()
     {
@@ -38,6 +41,21 @@ public class InventoryUIScript : MonoBehaviour
         if (playerScript.GetCurrentHP() <= 0)
         {
             GameOverScrene.gameObject.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            if (paused == true)
+            {
+                PauseMenu.gameObject.SetActive(false);
+                Time.timeScale = 1f;
+                paused = false;
+            }
+            else
+            {
+               PauseMenu.gameObject.SetActive(true);
+               Time.timeScale = 0f;
+               paused = true;
+            }
         }
         int numWeapons = playerScript.GetNumWeapons();
         int index = playerScript.GetCurrentWeaponIndex();
