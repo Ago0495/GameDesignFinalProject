@@ -15,9 +15,37 @@ public class ShopLevelManager : LevelManager
         if (gameManager != null )
         {
             int nextLevel = GameManager.GetNextLevelNumber();
-            dialogueOptions.PickDialogue(nextLevel -1);
+            if ( nextLevel <= dialogueOptions.dialogueList.Length)
+            {
+                Debug.Log(nextLevel - 1);
+                dialogueOptions.PickDialogue(nextLevel - 1);
+            }
 
             FindAnyObjectByType<DialogueTrigger>().TriggerDialogue();
+
+            if (GameManager.FindInLevels(nextLevel).GetLevelName() == "BossLevel")
+            {
+                GameObject dummy = GameObject.Find("Dummy");
+                dummy.transform.position = GameObject.Find("ShopKeeperSpot").transform.position;
+                dummy.GetComponent<EnemyScript>().SetTarget(GameObject.Find("ShopKeeperSpot"));
+
+                GameObject.Find("ShopKeeper").SetActive(false);
+            }
+
+            if (nextLevel == dialogueOptions.dialogueList.Length)
+            {
+                GameObject barKeeper = GameObject.Find("BarKeeper");
+                barKeeper.transform.position = GameObject.Find("ShopKeeperSpot").transform.position;
+                barKeeper.GetComponent<EnemyScript>().SetTarget(GameObject.Find("ShopKeeperSpot"));
+
+                GameObject.Find("ShopKeeper").SetActive(false);
+                GameObject.Find("Dummy").SetActive(false);
+            }
+            else
+            {
+                GameObject barKeeper = GameObject.Find("BarKeeper");
+                barKeeper.SetActive(false);
+            }
         }
     }
 

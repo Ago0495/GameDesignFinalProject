@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
+  allAudioSources: []
 --- !u!4 &61209387
 Transform:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         new Level("LevelThree", 3),
         new Level("LevelFour", 4),
         new Level("BossLevel", 5),
+        new Level("ClosetLevel", 6),
     };
 
     private static Level currentLevel;

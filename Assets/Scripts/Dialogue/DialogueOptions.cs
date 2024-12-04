@@ -16,7 +16,7 @@ public class DialogueOptions : MonoBehaviour
     }
     public void PickDialogue(int dialogueNumber)
     {
-        if (dialogueList.Length > 0)
+        if (dialogueList.Length > 0 && dialogueNumber < dialogueList.Length)
         {
             GetComponent<DialogueTrigger>().SetDialogue(dialogueList[dialogueNumber]);
         }
