@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +12,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private LevelExitScript levelExitScript;
     [SerializeField] private bool levelComplete;
     [SerializeField] private protected DialogueOptions dialogueOptions;
+    [SerializeField] private DialogueManager dialogueManager;
     private int roomsCleared = 0;
     private PlayerScript playerScript;
     private bool dialogueComplete;
+    private int dialogueIndex;
     // Start is called before the first frame update
 
     void Awake()
@@ -21,6 +24,7 @@ public class LevelManager : MonoBehaviour
         transform.tag = "LevelManager";
 
         levelComplete = false;
+        dialogueIndex = 0;
     }
     protected virtual void Start()
     {
@@ -55,12 +59,16 @@ public class LevelManager : MonoBehaviour
                 playerObj.transform.position = Vector3.zero;
             }
         }
-        GameObject GameManager = GameObject.FindGameObjectWithTag("GameManager");
 
-        if (dialogueOptions != null)
+        GameObject GameManager = GameObject.FindGameObjectWithTag("GameManager");
+        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+    }
+
+    void Update()
+    {
+        if (dialogueManager != null)
         {
-            dialogueOptions.PickDialogue(0);
-            FindAnyObjectByType<DialogueTrigger>().TriggerDialogue();
+            PlayDialogue();
         }
     }
 
@@ -95,6 +103,16 @@ public class LevelManager : MonoBehaviour
         if (roomsCleared == rooms.Length)
         {
             SetLevelComplete(true);
+        }
+    }
+
+    private void PlayDialogue()
+    {
+        if (dialogueManager.finishedDialogue && dialogueIndex < dialogueOptions.dialogueList.Length)
+        {
+            dialogueOptions.PickDialogue(dialogueIndex);
+            FindAnyObjectByType<DialogueTrigger>().TriggerDialogue();
+            dialogueIndex++;
         }
     }
 }

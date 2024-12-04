@@ -15,6 +15,7 @@ public class EntityScript : MonoBehaviour
     //variables
     [SerializeField] private protected Rigidbody2D rb2d;
     [SerializeField] private protected int hp;
+    [SerializeField] private protected int startDamage;
     [SerializeField] private bool indestructible;
     [SerializeField] private protected bool canAttack;
     [SerializeField] private protected float moveSpeed;
@@ -58,6 +59,12 @@ public class EntityScript : MonoBehaviour
             SwitchWeapon(currentWeaponIndex);
         }
 
+        hp -= startDamage;
+
+        if (hp <= 0)
+        {
+            OnDefeated();
+        }
     }
     public virtual void Update()
     {
@@ -81,7 +88,7 @@ public class EntityScript : MonoBehaviour
             }
         }
 
-        if (hp < hpBefore)
+        if (hp <= hpBefore)
         {
             simpleFlash.Flash();
         }

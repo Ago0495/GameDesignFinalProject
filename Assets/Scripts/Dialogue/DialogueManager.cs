@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        finishedDialogue = false;
+        finishedDialogue = true;
     }
 
     void Start()
@@ -30,6 +30,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        finishedDialogue = false;
+
         cameraScript.SetTarget(dialogue.speaker);
 
         if (animator != null)
@@ -83,11 +85,11 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        cameraScript.SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
 
         if (animator != null)
         {
             animator.SetBool("IsOpen", false);
+            cameraScript.SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
         }
         finishedDialogue = true;
     }
