@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private static int currentLevelNumber;
     [SerializeField] private static int nextLevelNumber;
+    [SerializeField] private AudioSource[] allAudioSources;
 
     //Insert levels here
     [SerializeField] private static Level[] levels = {
@@ -26,12 +27,14 @@ public class GameManager : MonoBehaviour
     private static Level currentLevel;
     private static GameObject playerObj;
     private static GameObject playerPrefabStatic;
+    private const string VolumePrefKey = "GameVolume";
+    private static float gameVolume = 1.0f;
     private static GameManager gameInstance;
+
 
     private void Awake()
     {
         transform.tag = "GameManager";
-
         DontDestroyOnLoad(this.gameObject);
 
         if (gameInstance == null)
@@ -42,6 +45,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        gameVolume = PlayerPrefs.GetFloat(VolumePrefKey, 1.0f);
+        UpdateGlobalVolume(gameVolume);
     }
 
     void Start()
@@ -61,12 +67,35 @@ public class GameManager : MonoBehaviour
 
         SwitchLevelTo(currentLevelNumber);
     }
-
-
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public static float GetGameVolume()
+    {
+        return gameVolume;
+    }
+    public static void SetGameVolume(float volume)
+    {
+        gameVolume = volume;
+        PlayerPrefs.SetFloat(VolumePrefKey, volume);
+        PlayerPrefs.Save();
+
+        gameInstance.UpdateGlobalVolume(volume);
+
+    }
+
+    private void UpdateGlobalVolume(float volume)
+    {
+        allAudioSources = FindObjectsOfType<AudioSource>();  // Find all AudioSources in the scene
+
+        foreach (var audioSource in allAudioSources)
+        {
+            audioSource.volume = volume;
+
+        }
     }
 
     public int GetCurrentLevel()

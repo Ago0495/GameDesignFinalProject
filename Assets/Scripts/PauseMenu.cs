@@ -5,24 +5,26 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-   [SerializeField] private Slider volumeSlider;
-   [SerializeField] private AudioSource audioSource;
-
+    [SerializeField] private Slider volumeSlider;
     void Start()
     {
-        if (audioSource != null && volumeSlider != null)
+        // Initialize slider with the volume from GameManager
+        float currentVolume = GameManager.GetGameVolume();
+
+        if (volumeSlider != null)
         {
-            volumeSlider.value = audioSource.volume;
+            volumeSlider.value = currentVolume;
             volumeSlider.onValueChanged.AddListener(UpdateVolume);
         }
     }
+
     public void UpdateVolume(float value)
     {
-        if (audioSource != null)
-        {
-            audioSource.volume = value;
-        }
+        // Update the volume in GameManager
+        GameManager.SetGameVolume(value);
+
     }
+
     void OnDestroy()
     {
         if (volumeSlider != null)
