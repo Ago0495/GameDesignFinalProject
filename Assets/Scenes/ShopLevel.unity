@@ -260,6 +260,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1418476680155022902, guid: 3de8e3d70e1c4194ba02a03ee9e8686c, type: 3}
   m_PrefabInstance: {fileID: 788689087}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &309920073 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1202163375494800431, guid: bd9791c7ae920274496b7b9d02b34a62, type: 3}
+  m_PrefabInstance: {fileID: 838625299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &342974309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1418476680155022902, guid: 078d3f39240af5845a1ac49162802930, type: 3}
@@ -3747,6 +3752,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515110735491482515, guid: e7c08b9e4adc1e94e92d3e429b81cf8c, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 309920073}
     - target: {fileID: 1088884019380299023, guid: e7c08b9e4adc1e94e92d3e429b81cf8c, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -3797,6 +3806,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5356085851299704262, guid: e7c08b9e4adc1e94e92d3e429b81cf8c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193942981670701066, guid: e7c08b9e4adc1e94e92d3e429b81cf8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413247639312240943, guid: e7c08b9e4adc1e94e92d3e429b81cf8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666610817661722620, guid: e7c08b9e4adc1e94e92d3e429b81cf8c, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
