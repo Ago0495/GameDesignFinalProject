@@ -90478,7 +90478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4956751514377834112, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_StoppingDistance
@@ -98954,7 +98954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 945901032136705869, guid: cbfcebb57da708b4bbc8318b23eb58c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.9799995
+      value: 4.2299995
       objectReference: {fileID: 0}
     - target: {fileID: 945901032136705869, guid: cbfcebb57da708b4bbc8318b23eb58c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -99163,6 +99163,10 @@ PrefabInstance:
     - target: {fileID: 3802367952017844059, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_Name
       value: Orc (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: hp
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -99501,6 +99505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: hp
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2453722395519893517, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
@@ -99772,7 +99780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -100058,7 +100066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -100355,7 +100363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -111852,7 +111860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -112027,7 +112035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4956751514377834112, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_StoppingDistance
@@ -112984,7 +112992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -113084,7 +113092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4956751514377834112, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_StoppingDistance
@@ -114183,6 +114191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: hp
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2453722395519893517, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
@@ -114344,6 +114356,10 @@ PrefabInstance:
     - target: {fileID: 3802367952017844059, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_Name
       value: Orc (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: hp
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -115234,7 +115250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -115389,7 +115405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -115477,7 +115493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -116085,11 +116101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: hp
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: createOnDefeat.Array.data[1]
@@ -116333,6 +116349,10 @@ PrefabInstance:
     - target: {fileID: 3802367952017844059, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_Name
       value: Orc
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: hp
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -116814,6 +116834,10 @@ PrefabInstance:
     - target: {fileID: 3802367952017844059, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_Name
       value: Orc (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: hp
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -117606,6 +117630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: hp
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2453722395519893517, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
@@ -117692,7 +117720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -117792,7 +117820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4956751514377834112, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_StoppingDistance

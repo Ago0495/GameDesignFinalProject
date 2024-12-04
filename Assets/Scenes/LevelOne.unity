@@ -621,7 +621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -802,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -7185,7 +7185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -7276,7 +7276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: hp
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
@@ -7740,6 +7740,10 @@ PrefabInstance:
     - target: {fileID: 3802367952017844059, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_Name
       value: Orc (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
+      propertyPath: hp
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size
