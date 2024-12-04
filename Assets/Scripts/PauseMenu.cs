@@ -1,76 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuPrefab;
-    private static PauseMenu instance;
-    private GameObject pauseMenuInstance;
-    private bool isPaused = false;
+   [SerializeField] private Slider volumeSlider;
+   [SerializeField] private AudioSource audioSource;
 
-    private void Awake()
+    void Start()
     {
-        if (instance == null)
+        if (audioSource != null && volumeSlider != null)
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
+            volumeSlider.value = audioSource.volume;
+            volumeSlider.onValueChanged.AddListener(UpdateVolume);
         }
     }
-
-    private void Start()
+    public void UpdateVolume(float value)
     {
-        if (pauseMenuPrefab != null && pauseMenuInstance == null)
+        if (audioSource != null)
         {
-            pauseMenuInstance = Instantiate(pauseMenuPrefab);
-            pauseMenuInstance.SetActive(false);
+            audioSource.volume = value;
         }
     }
-
-    private void Update()
+    void OnDestroy()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (volumeSlider != null)
         {
-            if (isPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            volumeSlider.onValueChanged.RemoveListener(UpdateVolume);
         }
-    }
-
-    public void Resume()
-    {
-        if (pauseMenuInstance != null)
-        {
-            pauseMenuInstance.SetActive(false);
-        }
-        Time.timeScale = 1f;
-        isPaused = false;
-    }
-
-    public void Pause()
-    {
-        if (pauseMenuInstance != null)
-        {
-            pauseMenuInstance.SetActive(true);
-        }
-        Time.timeScale = 0f;
-        isPaused = true;
-    }
-
-    public void QuitGame()
-    {
-        Debug.Log("Quit Game");
-        Application.Quit();
     }
 }
