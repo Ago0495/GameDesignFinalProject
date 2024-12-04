@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShopLevelManager : LevelManager
 {
-    [SerializeField] private DialogueOptions dialogueOptions;
     private GameManager gameManager;
 
     protected override void Start()

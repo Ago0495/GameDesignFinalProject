@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private RoomScript[] rooms;
     [SerializeField] private LevelExitScript levelExitScript;
     [SerializeField] private bool levelComplete;
+    [SerializeField] private protected DialogueOptions dialogueOptions;
     private int roomsCleared = 0;
     private PlayerScript playerScript;
     private bool dialogueComplete;
@@ -55,13 +56,12 @@ public class LevelManager : MonoBehaviour
             }
         }
         GameObject GameManager = GameObject.FindGameObjectWithTag("GameManager");
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //default
-        //SetLevelComplete(true);
+        if (dialogueOptions != null)
+        {
+            dialogueOptions.PickDialogue(0);
+            FindAnyObjectByType<DialogueTrigger>().TriggerDialogue();
+        }
     }
 
     public int GetLevelNum()

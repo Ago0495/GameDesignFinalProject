@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         new Level("LevelTwo", 2),
         new Level("LevelThree", 3),
         new Level("LevelFour", 4),
+        new Level("BossLevel", 5),
     };
 
     private static Level currentLevel;
