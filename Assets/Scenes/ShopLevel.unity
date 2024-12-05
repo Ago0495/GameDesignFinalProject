@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
-  allAudioSources: []
 --- !u!4 &61209387
 Transform:
   m_ObjectHideFlags: 0
@@ -4225,34 +4224,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1244f839dec342941b623febd5f67544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityName: ShopKeeper
   dialogueList:
-  - speaker: {fileID: 1895341704}
+  - name: ShopKeeper
+    speaker: {fileID: 1895341704}
     sentences:
     - Ah, a new adventurer! Welcome to my humble shop.
     - "This tavern? It turned into a dungeon overnight\u2014monsters, gold, the whole
       lot."
     - "The dungeon\u2019s not clearing itself, you know. Go on, brave adventurer\u2014clear
       those rooms and bring back the spoils!"
-  - speaker: {fileID: 1895341704}
+  - name: ShopKeeper
+    speaker: {fileID: 1895341704}
     sentences:
     - "Back already? And with gold, no less! Let\u2019s see what treasures your bravery
       can buy."
-  - speaker: {fileID: 1895341704}
+  - name: ShopKeeper
+    speaker: {fileID: 1895341704}
     sentences:
     - "Stocking up again? Good. Those monsters won\u2019t slay themselves, and I\u2019m
       here to help\u2014for a price."
-  - speaker: {fileID: 1895341704}
+  - name: ShopKeeper
+    speaker: {fileID: 1895341704}
     sentences:
     - "Isn\u2019t it strange how the dungeon just... appeared? Lucky for you, my
       shop was already here, eh?"
-  - speaker: {fileID: 1685074007}
+  - name: Dummy
+    speaker: {fileID: 1685074007}
     sentences:
     - "Welcome\u2026 adventurer! The shopkeeper is... busy. Please\u2026 browse...
       items and\u2026 spend gold."
     - "The shopkeeper will return... soon. Until then\u2026 keep buying. And\u2026
       good luck... in the dungeon."
-  - speaker: {fileID: 1670099599}
+  - name: BarKeeper
+    speaker: {fileID: 1670099599}
     sentences:
     - "Welcome back! Thanks to you, the tavern is safe again. No more dungeons, no
       more schemes\u2014just good food, warm beds, and honest business."
@@ -4288,6 +4292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   dialogue:
+    name: 
     speaker: {fileID: 0}
     sentences: []
 --- !u!1 &1984956688

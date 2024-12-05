@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
-  allAudioSources: []
 --- !u!4 &61209387
 Transform:
   m_ObjectHideFlags: 0
@@ -5250,21 +5249,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1244f839dec342941b623febd5f67544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityName: ShopKeeper
   dialogueList:
-  - speaker: {fileID: 1207603941}
+  - name: ShopKeeper
+    speaker: {fileID: 1207603941}
     sentences:
     - "Wait\u2026 how did you get here? You\u2019re not supposed to\u2014uh, I mean,
       welcome! "
     - "I see you\u2019ve been busy clearing out the dungeon. I\u2014uh\u2014thought
       I locked that door."
-  - speaker: {fileID: 1314353877}
+  - name: BarKeeper
+    speaker: {fileID: 1314353877}
     sentences:
     - "Please, help me! He\u2019s the one behind all of this\u2014he locked me up
       and turned the tavern into a dungeon!"
     - "You have to stop him! He\u2019s been using adventurers like pawns to fill
       his coffers!"
-  - speaker: {fileID: 1207603941}
+  - name: ShopKeeper
+    speaker: {fileID: 1207603941}
     sentences:
     - "Enough! I\u2019ve worked too hard to let it end here. You\u2019re just another
       meddling adventurer!"
@@ -5282,6 +5283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   dialogue:
+    name: 
     speaker: {fileID: 0}
     sentences: []
 --- !u!114 &1936001201

@@ -5,8 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    private string name;
-
+    [SerializeField] private string name;
     [SerializeField] public Transform speaker;
     [TextArea(3,10)]
     public string[] sentences;
