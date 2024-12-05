@@ -1378,11 +1378,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2242394864630572414, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.75
+      value: 16.5
       objectReference: {fileID: 0}
     - target: {fileID: 2242394864630572414, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.191
+      value: 22.941
       objectReference: {fileID: 0}
     - target: {fileID: 2242394864630572414, guid: 8f7d9333b0362a5428d8b858b20f8d2c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1539,22 +1539,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
-      propertyPath: hp
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
-      propertyPath: createOnDefeat.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
-      propertyPath: createOnDefeat.Array.data[1]
-      value: 
-      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
-    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
-      propertyPath: createOnDefeat.Array.data[2]
-      value: 
-      objectReference: {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11463,10 +11447,6 @@ PrefabInstance:
     - target: {fileID: 3802367952017844059, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: m_Name
       value: Orc (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
-      propertyPath: hp
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4419191033602509993, guid: 5dd00b4cc177234469331b28ca8cf182, type: 3}
       propertyPath: createOnDefeat.Array.size

@@ -17,7 +17,6 @@ public class ShopLevelManager : LevelManager
             int nextLevel = GameManager.GetNextLevelNumber();
             if ( nextLevel <= dialogueOptions.dialogueList.Length)
             {
-                Debug.Log(nextLevel - 1);
                 dialogueOptions.PickDialogue(nextLevel - 1);
             }
 

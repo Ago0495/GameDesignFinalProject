@@ -169,7 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 3185338195184784411}
-  hp: 10
+  hp: 6
+  startDamage: 0
   indestructible: 0
   canAttack: 1
   moveSpeed: 3
@@ -178,6 +179,8 @@ MonoBehaviour:
   DetectRange: 10
   target: {fileID: 0}
   createOnDefeat:
+  - {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
+  - {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
   - {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
   hpBar: {fileID: 6502866263553800324}
 --- !u!195 &4956751514377834112
