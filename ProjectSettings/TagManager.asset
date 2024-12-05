@@ -16,6 +16,7 @@ TagManager:
   - SpawnPoint
   - Room
   - Hole
+  - TitleSpawnPoint
   layers:
   - Default
   - TransparentFX

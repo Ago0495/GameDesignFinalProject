@@ -46,6 +46,20 @@ public class ShopLevelManager : LevelManager
                 GameObject barKeeper = GameObject.Find("BarKeeper");
                 barKeeper.SetActive(false);
             }
+
+            if (GameManager.GetPreviouisLevel().GetLevelName() == "MainTitleScene")
+            {
+                GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                if (playerObj != null)
+                {
+                    GameObject spawnpoint = GameObject.FindGameObjectWithTag("TitleSpawnPoint");
+
+                    if (spawnpoint != null)
+                    {
+                        playerObj.transform.position = spawnpoint.transform.position;
+                    }
+                }
+            }
         }
     }
 

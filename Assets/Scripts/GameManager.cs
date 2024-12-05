@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     };
 
     private static Level currentLevel;
+    private static Level previousLevel;
     private static GameObject playerObj;
     private static GameObject playerPrefabStatic;
     private const string VolumePrefKey = "GameVolume";
@@ -114,6 +115,11 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
+    public static Level GetPreviouisLevel()
+    {
+        return previousLevel;
+    }
+
     public bool GetCurrentLevelState()
     {
         return currentLevel.GetCompletionState();
@@ -155,6 +161,7 @@ public class GameManager : MonoBehaviour
 
     private static void SwitchLevel(Level switchToLevel)
     {
+        previousLevel = currentLevel;
         currentLevelNumber = switchToLevel.GetLevelNumber();
         currentLevel = switchToLevel;
         string levelName = switchToLevel.GetLevelName();
