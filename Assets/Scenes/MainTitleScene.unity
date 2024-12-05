@@ -384,17 +384,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323210771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 509529570}
+  m_Father: {fileID: 1635946218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 83.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -3.999977}
+  m_SizeDelta: {x: 0, y: -8.000025}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323210773
 MonoBehaviour:
@@ -418,8 +418,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Dungeon \nTavern"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ec08dd42b7e2df741911700f3b9e3e90, type: 2}
-  m_sharedMaterial: {fileID: -8862201862784343664, guid: ec08dd42b7e2df741911700f3b9e3e90, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 59bcd112eac09344e816e381675f0969, type: 2}
+  m_sharedMaterial: {fileID: -8826398267511039985, guid: 59bcd112eac09344e816e381675f0969, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: -60.6
-  m_lineSpacing: 37.91
+  m_lineSpacing: -25.56
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -688,8 +688,6 @@ RectTransform:
   - {fileID: 1606238588}
   - {fileID: 400033511}
   - {fileID: 1635946218}
-  - {fileID: 871715284}
-  - {fileID: 323210772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -816,7 +814,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -1255529111, guid: c880715d87b121a43ac6bbe7cef3abd8, type: 3}
-  m_Type: 2
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -867,8 +865,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2.75}
-  m_SizeDelta: {x: -2, y: -20}
+  m_AnchoredPosition: {x: 0, y: -0.025003433}
+  m_SizeDelta: {x: -2, y: -14.549994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792587016
 MonoBehaviour:
@@ -992,17 +990,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871715283}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 509529570}
+  m_Father: {fileID: 1635946218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 79.75}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -5.4050064}
+  m_SizeDelta: {x: 0, y: -10.809999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871715285
 MonoBehaviour:
@@ -1026,8 +1024,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Dungeon \nTavern"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ec08dd42b7e2df741911700f3b9e3e90, type: 2}
-  m_sharedMaterial: {fileID: -8862201862784343664, guid: ec08dd42b7e2df741911700f3b9e3e90, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 59bcd112eac09344e816e381675f0969, type: 2}
+  m_sharedMaterial: {fileID: -8826398267511039985, guid: 59bcd112eac09344e816e381675f0969, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1063,7 +1061,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: -60.6
-  m_lineSpacing: 37.91
+  m_lineSpacing: -25.56
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3812,8 +3810,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -2, y: -20}
+  m_AnchoredPosition: {x: 0, y: 2.025002}
+  m_SizeDelta: {x: -2, y: -15.950004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1438141702
 MonoBehaviour:
@@ -4138,12 +4136,14 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 739384624}
+  - {fileID: 871715284}
+  - {fileID: 323210772}
   m_Father: {fileID: 509529570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 78.5}
-  m_SizeDelta: {x: 219.18, y: 80.3}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 70}
+  m_SizeDelta: {x: -300, y: -189.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635946219
 MonoBehaviour:
@@ -4165,8 +4165,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 470663570, guid: b7d96c590dac56f469b33f023788c214, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 876136499, guid: 0c9a153f187b64e4caff0d38107778ca, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
