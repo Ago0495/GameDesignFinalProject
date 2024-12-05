@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private static int currentLevelNumber;
     [SerializeField] private static int nextLevelNumber;
-    [SerializeField] private AudioSource[] allAudioSources;
 
     //Insert levels here
     [SerializeField] private static Level[] levels = {
@@ -48,7 +47,7 @@ public class GameManager : MonoBehaviour
         }
 
         gameVolume = PlayerPrefs.GetFloat(VolumePrefKey, 1.0f);
-        UpdateGlobalVolume(gameVolume);
+        UpdateGlobalVolume();
     }
 
     void Start()
@@ -84,18 +83,18 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat(VolumePrefKey, volume);
         PlayerPrefs.Save();
 
-        gameInstance.UpdateGlobalVolume(volume);
+        UpdateGlobalVolume();
 
     }
 
-    private void UpdateGlobalVolume(float volume)
+    public static void UpdateGlobalVolume()
     {
+        AudioSource[] allAudioSources;
         allAudioSources = FindObjectsOfType<AudioSource>();  // Find all AudioSources in the scene
 
         foreach (var audioSource in allAudioSources)
         {
-            audioSource.volume = volume;
-
+            audioSource.volume = GetGameVolume();
         }
     }
 

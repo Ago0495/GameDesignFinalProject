@@ -60,8 +60,9 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        GameObject GameManager = GameObject.FindGameObjectWithTag("GameManager");
+        GameObject gameManager = GameObject.FindGameObjectWithTag("GameManager");
         DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+        GameManager.UpdateGlobalVolume();
     }
 
     void Update()
