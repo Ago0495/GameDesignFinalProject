@@ -4433,6 +4433,7 @@ MonoBehaviour:
   dialogueList:
   - name: ShopKeeper
     speaker: {fileID: 1895341704}
+    dialogueAudio: {fileID: 8300000, guid: 7e312dbedc114a34ba416541aa5fc311, type: 3}
     sentences:
     - Ah, a new adventurer! Welcome to my humble shop.
     - "This tavern? It turned into a dungeon overnight\u2014monsters, gold, the whole
@@ -4441,21 +4442,25 @@ MonoBehaviour:
       those rooms and bring back the spoils!"
   - name: ShopKeeper
     speaker: {fileID: 1895341704}
+    dialogueAudio: {fileID: 8300000, guid: 7e312dbedc114a34ba416541aa5fc311, type: 3}
     sentences:
     - "Back already? And with gold, no less! Let\u2019s see what treasures your bravery
       can buy."
   - name: ShopKeeper
     speaker: {fileID: 1895341704}
+    dialogueAudio: {fileID: 8300000, guid: 7e312dbedc114a34ba416541aa5fc311, type: 3}
     sentences:
     - "Stocking up again? Good. Those monsters won\u2019t slay themselves, and I\u2019m
       here to help\u2014for a price."
   - name: ShopKeeper
     speaker: {fileID: 1895341704}
+    dialogueAudio: {fileID: 8300000, guid: 7e312dbedc114a34ba416541aa5fc311, type: 3}
     sentences:
     - "Isn\u2019t it strange how the dungeon just... appeared? Lucky for you, my
       shop was already here, eh?"
   - name: Dummy
     speaker: {fileID: 1685074007}
+    dialogueAudio: {fileID: 8300000, guid: 9b3d93ddcc235e84da5a6a38419e14aa, type: 3}
     sentences:
     - "Welcome\u2026 adventurer! The shopkeeper is... busy. Please\u2026 browse...
       items and\u2026 spend gold."
@@ -4463,6 +4468,7 @@ MonoBehaviour:
       good luck... in the dungeon."
   - name: BarKeeper
     speaker: {fileID: 1670099599}
+    dialogueAudio: {fileID: 8300000, guid: 2b1dbb54195312a468c303917871cc25, type: 3}
     sentences:
     - "Welcome back! Thanks to you, the tavern is safe again. No more dungeons, no
       more schemes\u2014just good food, warm beds, and honest business."
@@ -4500,6 +4506,7 @@ MonoBehaviour:
   dialogue:
     name: 
     speaker: {fileID: 0}
+    dialogueAudio: {fileID: 0}
     sentences: []
 --- !u!1 &1984956688
 GameObject:

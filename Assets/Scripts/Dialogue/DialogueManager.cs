@@ -35,6 +35,10 @@ public class DialogueManager : MonoBehaviour
         finishedDialogue = false;
 
         cameraScript.SetTarget(dialogue.speaker);
+        if (dialogue.dialogueAudio != null)
+        {
+            dialogueSound.clip = dialogue.dialogueAudio;
+        }
 
         if (animator != null)
         {
@@ -71,13 +75,14 @@ public class DialogueManager : MonoBehaviour
                 EndDialogue();
                 return;
             }
-            if (dialogueSound != null)
-            {
-                dialogueSound.Play();
-            }
             sentence = sentences.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
+            if (dialogueSound != null)
+            {
+                StartCoroutine(RandomPitch());
+                dialogueSound.Play();
+            }
         }
     }
 
@@ -93,6 +98,15 @@ public class DialogueManager : MonoBehaviour
         if (dialogueSound != null)
         {
             dialogueSound.Stop();
+        }
+    }
+
+    IEnumerator RandomPitch()
+    {
+        while ((sentences.Count >= 0 && dialogueText.text.Length < sentence.Length))
+        {
+            dialogueSound.pitch = Random.Range(1f, 1.5f);
+            yield return new WaitForSeconds(dialogueSound.clip.length);
         }
     }
 
