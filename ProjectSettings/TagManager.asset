@@ -17,6 +17,7 @@ TagManager:
   - Room
   - Hole
   - TitleSpawnPoint
+  - Item
   layers:
   - Default
   - TransparentFX
