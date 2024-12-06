@@ -15,6 +15,7 @@ public class WeaponScript : MonoBehaviour
     private protected float attackAnimationTime;
     private protected float cooldownAnimationTime;
     private protected List<GameObject> alreadyHitList;
+    private protected AudioSource sound;
 
     private void OnEnable()
     {
@@ -25,6 +26,7 @@ public class WeaponScript : MonoBehaviour
     {
         weaponCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+        sound = GetComponent<AudioSource>();
 
         alreadyHitList = new List<GameObject>();
         if (weaponCollider != null)
@@ -53,7 +55,7 @@ public class WeaponScript : MonoBehaviour
             //start coroutine to turn off collider
             StartCoroutine(WeaponCooldown((10f / handling) * attackAnimationTime));
             onCooldown = true;
-
+            sound.Play();
             //play swing animation
             animator.SetFloat("atkSpeed", (handling / 10f));
             //animator.SetBool("attack", true);
