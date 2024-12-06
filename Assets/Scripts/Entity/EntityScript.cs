@@ -75,10 +75,8 @@ public class EntityScript : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
-        if (damage > 0)
-        {
-            hitSound.Play();
-        }
+        hitSound.pitch = Random.Range(1f, 1.5f);
+        hitSound.Play();
         int hpBefore = hp;
         if (!indestructible)
         {

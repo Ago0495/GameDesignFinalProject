@@ -33,7 +33,10 @@ public class RangedWeaponScript : WeaponScript
 
             StartCoroutine(WeaponCooldown((10f / handling) * attackAnimationTime));
             onCooldown = true;
+
+            sound.pitch = Random.Range(1f, 1.5f);
             sound.Play();
+
             //play swing animation
             animator.SetFloat("atkSpeed", (handling / 10f));
             //animator.SetBool("attack", true);
