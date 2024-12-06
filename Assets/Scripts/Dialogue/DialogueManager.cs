@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
 
     private CameraScript cameraScript;
 
+    private protected AudioSource dialogueSound;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         cameraScript = FindAnyObjectByType<CameraScript>();
+        dialogueSound = GetComponent<AudioSource>();
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -57,6 +59,10 @@ public class DialogueManager : MonoBehaviour
         {
             StopAllCoroutines();
             dialogueText.text = sentence;
+            if (dialogueSound != null)
+            {
+                dialogueSound.Stop();
+            }
         }
         else
         {
@@ -65,7 +71,10 @@ public class DialogueManager : MonoBehaviour
                 EndDialogue();
                 return;
             }
-
+            if (dialogueSound != null)
+            {
+                dialogueSound.Play();
+            }
             sentence = sentences.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
@@ -75,17 +84,24 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
-
+        
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.05f);
         }
+        if (dialogueSound != null)
+        {
+            dialogueSound.Stop();
+        }
     }
 
     public void EndDialogue()
     {
-
+        if (dialogueSound != null)
+        {
+            dialogueSound.Stop();
+        }
         if (animator != null)
         {
             animator.SetBool("IsOpen", false);
