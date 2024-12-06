@@ -11,8 +11,6 @@ public class PauseMenu : MonoBehaviour
         // Initialize slider with the volume from GameManager
         float currentVolume = GameManager.GetGameVolume();
 
-        Debug.Log(currentVolume);
-
         if (volumeSlider != null)
         {
             volumeSlider.value = currentVolume;

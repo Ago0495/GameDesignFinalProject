@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 3185338195184784411}
-  hp: 10
+  hp: 8
   startDamage: 0
   indestructible: 0
   canAttack: 1
