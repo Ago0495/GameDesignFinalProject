@@ -120,4 +120,8 @@ public class PlayerScript : EntityScript
     {
         currency += amount;
     }
+    public void Activate()
+    {
+        this.gameObject.SetActive(true);
+    }
 }

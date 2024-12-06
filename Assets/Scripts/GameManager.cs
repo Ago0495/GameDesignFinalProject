@@ -47,8 +47,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        //Level temp = GameManager.FindInLevels("BossLevel");
-        //Debug.Log(temp.GetLevelNumber());
         gameVolume = PlayerPrefs.GetFloat(VolumePrefKey, 1.0f);
         UpdateGlobalVolume();
     }
@@ -208,12 +206,16 @@ public class GameManager : MonoBehaviour
             
         SceneManager.LoadScene(levelName);
     }
-    public static void SetGameCompleted()
+    public static void SetGameCompleted(bool status)
     {
-        GameComplete = true;
+        GameComplete = status;
     }
     public static bool GetGameStatus()
     {
         return GameComplete;
+    }
+    public static void restartGame()
+    {
+
     }
 }

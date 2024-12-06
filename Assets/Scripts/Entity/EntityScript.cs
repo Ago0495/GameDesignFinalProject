@@ -90,19 +90,27 @@ public class EntityScript : MonoBehaviour
 
         if (hp <= hpBefore)
         {
-            simpleFlash.Flash();
+            if(simpleFlash != null)
+            {
+                simpleFlash.Flash();
+            }
+            
         }
     }
 
 
     private protected virtual void OnDefeated()
     {
-        animator.SetBool("IsDead", true);
-        moveSpeed = 0;
-        isAlive = false;
+        if(animator != null)
+        {
+            animator.SetBool("IsDead", true);
+            moveSpeed = 0;
+            isAlive = false;
 
-        weaponHolder.gameObject.SetActive(false);
-        weaponStache.gameObject.SetActive(false);
+            weaponHolder.gameObject.SetActive(false);
+            weaponStache.gameObject.SetActive(false);
+        }
+        
     }
 
     public void UseWeapon()
