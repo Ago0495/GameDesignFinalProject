@@ -255,6 +255,8 @@ MonoBehaviour:
   moveSpeed: 1200
   stachedWeapons: []
   currentWeaponIndex: 0
+  hitSound: {fileID: 8300000, guid: 730294571b0a03940b7be5b9487f202a, type: 3}
+  healSound: {fileID: 0}
   currency: 0
   maxWeapons: 9
 --- !u!114 &6043922998214632337

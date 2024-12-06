@@ -177,6 +177,8 @@ MonoBehaviour:
   moveSpeed: 1.5
   stachedWeapons: []
   currentWeaponIndex: 0
+  hitSound: {fileID: 8300000, guid: 0e9aef7b4d82143448d13d2bff6ec3c3, type: 3}
+  healSound: {fileID: 0}
   DetectRange: 10
   target: {fileID: 0}
   createOnDefeat:
