@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private const string VolumePrefKey = "GameVolume";
     private static float gameVolume = 1.0f;
     private static GameManager gameInstance;
+    private static bool GameComplete = false;
 
 
     private void Awake()
@@ -46,7 +47,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
+        //Level temp = GameManager.FindInLevels("BossLevel");
+        //Debug.Log(temp.GetLevelNumber());
         gameVolume = PlayerPrefs.GetFloat(VolumePrefKey, 1.0f);
         UpdateGlobalVolume();
     }
@@ -111,6 +113,10 @@ public class GameManager : MonoBehaviour
             {
                 return level.GetLevelNumber();
             }
+        }
+        if (GameComplete)
+        {
+            return 6;
         }
         return 0;
     }
@@ -201,5 +207,13 @@ public class GameManager : MonoBehaviour
         }
             
         SceneManager.LoadScene(levelName);
+    }
+    public static void SetGameCompleted()
+    {
+        GameComplete = true;
+    }
+    public static bool GetGameStatus()
+    {
+        return GameComplete;
     }
 }

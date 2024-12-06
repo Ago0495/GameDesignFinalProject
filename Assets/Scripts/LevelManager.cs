@@ -82,6 +82,11 @@ public class LevelManager : MonoBehaviour
     {
 
         this.levelComplete = levelComplete;
+        //Debug.Log(levelNumber);
+        if (levelNumber == 5)
+        {
+            GameManager.SetGameCompleted();
+        }
         GameManager.SetCurrentLevelAsComplete();
         OpenLevelExit();
     }
