@@ -5,22 +5,23 @@ using UnityEngine;
 public class ShopLevelManager : LevelManager
 {
     private GameManager gameManager;
+    private bool playedDialogue;
 
     protected override void Start()
     {
         base.Start();
+
+        playedDialogue = false;
 
         gameManager = GameObject.FindAnyObjectByType<GameManager>();
         
         if (gameManager != null )
         {
             int nextLevel = GameManager.GetNextLevelNumber();
-            if ( nextLevel <= dialogueOptions.dialogueList.Length)
+            if (nextLevel <= dialogueOptions.dialogueList.Length)
             {
                 dialogueOptions.PickDialogue(nextLevel - 1);
             }
-
-            FindAnyObjectByType<DialogueTrigger>().TriggerDialogue();
 
             if (GameManager.FindInLevels(nextLevel).GetLevelName() == "BossLevel")
             {
@@ -66,6 +67,13 @@ public class ShopLevelManager : LevelManager
     {
         if (FindAnyObjectByType<DialogueManager>() != null)
         {
+            if (!playedDialogue)
+            {
+                FindAnyObjectByType<DialogueTrigger>().TriggerDialogue();
+                playedDialogue = true;
+            }
+
+
             if (FindAnyObjectByType<DialogueManager>().finishedDialogue)
             {
                 SetLevelComplete(true);
