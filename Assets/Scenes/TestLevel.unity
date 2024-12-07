@@ -4735,6 +4735,8 @@ MonoBehaviour:
   rooms: []
   levelExitScript: {fileID: 0}
   levelComplete: 0
+  dialogueOptions: {fileID: 0}
+  dialogueManager: {fileID: 0}
 --- !u!4 &1936001197
 Transform:
   m_ObjectHideFlags: 0
