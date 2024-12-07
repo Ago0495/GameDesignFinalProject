@@ -12,6 +12,7 @@ public class PlayerScript : EntityScript
     private Vector2 lastInput;
     private Vector3 mousePos;
     private static PlayerScript playerInstance;
+    [SerializeField] private AudioSource currencyGainAudio;
 
     void Awake()
     {
@@ -118,6 +119,14 @@ public class PlayerScript : EntityScript
     }
     public void ChangeCurrency(int amount)
     {
+        if (amount > 0)
+        {
+            if (currencyGainAudio != null)
+            {
+                currencyGainAudio.pitch = UnityEngine.Random.Range(1f, 1.5f);
+                currencyGainAudio.Play();
+            }
+        }
         currency += amount;
     }
     public void Activate()

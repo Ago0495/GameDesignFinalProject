@@ -32,9 +32,8 @@ public class EntityScript : MonoBehaviour
     private SimpleFlash simpleFlash;
     private protected bool isAlive;
     private protected int maxHp;
-    private protected AudioSource entityAudioSource;
-    [SerializeField] private protected AudioClip hitSound;
-    [SerializeField] private protected AudioClip healSound;
+    [SerializeField] private protected AudioSource damageAudioSource;
+    [SerializeField] private protected AudioSource healAudioSource;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -47,7 +46,6 @@ public class EntityScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         simpleFlash = GetComponent<SimpleFlash>();
-        entityAudioSource = GetComponent<AudioSource>();
         weaponHolder = transform.Find("WeaponHolder");
         weaponStache = transform.Find("WeaponStache");
 
@@ -79,20 +77,18 @@ public class EntityScript : MonoBehaviour
     {
         if (damage > 0)
         {
-            if (hitSound != null)
+            if (damageAudioSource != null)
             {
-                entityAudioSource.clip = hitSound;
-                entityAudioSource.pitch = Random.Range(1f, 1.5f);
-                entityAudioSource.Play();
+                damageAudioSource.pitch = Random.Range(1f, 1.5f);
+                damageAudioSource.Play();
             }
         }
-        else
+        else if (damage < 0)
         {
-            if (healSound != null)
+            if (healAudioSource != null)
             {
-                entityAudioSource.clip = healSound;
-                entityAudioSource.pitch = Random.Range(1f, 1.5f);
-                entityAudioSource.Play();
+                healAudioSource.pitch = Random.Range(1f, 1.5f);
+                healAudioSource.Play();
             }
         }
 
