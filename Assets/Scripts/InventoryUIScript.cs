@@ -55,12 +55,14 @@ public class InventoryUIScript : MonoBehaviour
                 PauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1f;
                 paused = false;
+                GetComponent<Canvas>().sortingOrder = 0;
             }
             else
             {
-               PauseMenu.gameObject.SetActive(true);
-               Time.timeScale = 0f;
-               paused = true;
+                PauseMenu.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+                paused = true;
+                GetComponent<Canvas>().sortingOrder = 30;
             }
         }
         int numWeapons = playerScript.GetNumWeapons();

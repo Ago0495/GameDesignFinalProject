@@ -4472,6 +4472,9 @@ MonoBehaviour:
     sentences:
     - "Welcome back! Thanks to you, the tavern is safe again. No more dungeons, no
       more schemes\u2014just good food, warm beds, and honest business."
+    - (This is the End of the Adventure. If you'd like to play again, simply reenter
+      the Tavern.)
+    - (The ShopKeeper will surely try to take over the Tavern again...)
 --- !u!114 &1936001199
 MonoBehaviour:
   m_ObjectHideFlags: 0

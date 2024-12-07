@@ -312,8 +312,6 @@ MonoBehaviour:
   target: {fileID: 0}
   createOnDefeat:
   - {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
-  - {fileID: 4042098614071808450, guid: 445331876827e9d42a5cfbd20051b530, type: 3}
-  - {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
   - {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
   - {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}
   - {fileID: 4042098614071808450, guid: b6ef2437d9c8b6d4797bea046dd9436c, type: 3}

@@ -2515,7 +2515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6461139916844073960, guid: 76e71a68fe7e3364380575de0b5da6a8, type: 3}
       propertyPath: startDamage
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
