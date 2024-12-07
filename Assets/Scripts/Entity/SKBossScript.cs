@@ -15,7 +15,6 @@ public class SKBossScript : EnemyScript
             if(weaponScript != null)
             {
                 float targetDist = (targetPos - transform.position).magnitude;
-                Debug.Log(targetDist);
                 if (targetDist < 2 && GetCurrentWeapon().GetComponent<RangedWeaponScript>() != null && !onSwitchCooldown)
                 {
                     StartCoroutine(WaitToSwitchWeapon(weaponSwitchWaitTime));
