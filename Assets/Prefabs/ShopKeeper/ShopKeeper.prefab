@@ -170,13 +170,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
-  hp: 50
+  hp: 100
   startDamage: 0
   indestructible: 0
   canAttack: 0
   moveSpeed: 3
   stachedWeapons: []
   currentWeaponIndex: 0
+  damageAudioSource: {fileID: 0}
+  healAudioSource: {fileID: 0}
   DetectRange: 0
   target: {fileID: 0}
   createOnDefeat: []
