@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class InventoryUIScript : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currencyAmountText;
+    [SerializeField] private TextMeshProUGUI upgradeCountText;
     [SerializeField] private GameObject inventoryGridObj;
     [SerializeField] private GameObject slotPrefab;
     private PlayerScript playerScript;
@@ -37,6 +38,11 @@ public class InventoryUIScript : MonoBehaviour
     public void UpdateUI()
     {
         currencyAmountText.text = "<sprite=75>" + playerScript.GetCurrency().ToString();
+
+        int numUpgrades = playerScript.GetCurrentWeapon().GetComponent<WeaponScript>().GetNumUpgrades();
+        int weaponLvl = playerScript.GetCurrentWeapon().GetComponent<WeaponScript>().GetLvl();
+        upgradeCountText.text = "" + numUpgrades + "/" + weaponLvl;
+
         hpBar.value = playerScript.GetCurrentHP();
         if (playerScript.GetCurrentHP() <= 0)
         {
