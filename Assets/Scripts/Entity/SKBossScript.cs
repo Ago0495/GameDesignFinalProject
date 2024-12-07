@@ -14,10 +14,26 @@ public class SKBossScript : EnemyScript
         {
             if(weaponScript != null)
             {
-                if (weaponScript.onCooldown && !onSwitchCooldown)
+                float targetDist = (targetPos - transform.position).magnitude;
+                Debug.Log(targetDist);
+                if (targetDist < 2 && GetCurrentWeapon().GetComponent<RangedWeaponScript>() != null && !onSwitchCooldown)
                 {
                     StartCoroutine(WaitToSwitchWeapon(weaponSwitchWaitTime));
                     onSwitchCooldown = true;
+                }
+                else if (GetCurrentWeapon().GetComponent<RangedWeaponScript>() == null && !onSwitchCooldown)
+                {
+                    StartCoroutine(WaitToSwitchWeapon(weaponSwitchWaitTime));
+                    onSwitchCooldown = true;
+                }
+
+                if (GetCurrentWeapon().GetComponent<RangedWeaponScript>() != null)
+                {
+                    moveSpeed = 4;
+                }
+                else
+                {
+                    moveSpeed = 2;
                 }
             }
         }

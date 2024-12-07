@@ -12,8 +12,8 @@ public class EnemyScript : EntityScript
     [SerializeField] private GameObject target;
     [SerializeField] private List<GameObject> createOnDefeat;
     [SerializeField] private Slider hpBar;
-    private Vector3 targetPos;
-    private Vector3 targetDir;
+    private protected Vector3 targetPos;
+    private protected Vector3 targetDir;
     private NavMeshAgent agent;
     private RoomScript room;
     private bool defeated = false;
